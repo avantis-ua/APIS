@@ -23,43 +23,71 @@ APIS-2018 - Стандарт для интернет-магазинов рабо
 ресурс `/search` обрабатывает только GET запросы и его основная задача обслуживание поисковых запросов.
 
 #### Поставщики
-Каталог товаров - supplier-product GET, POST, PUT, DELETE
+
+Каталог товаров - `/supplier-product` `GET`, `POST`, `PUT`, `DELETE`
+
 Цена товара - product->price
+
 Наличие товара - product->available или product->stock
+
 Описание товара (Тексты) product->description и description->text
+
 Характеристики товара (Свойства) - product->params->param и params->param
+
 Изображения товара (Картинки) - product->images->image и images->image
-Заказы - supplier-order GET, POST, PUT
-Дилеры - supplier-seller GET, POST, PUT
+
+Заказы - `/supplier-order` `GET`, `POST`, `PUT`
+
+Дилеры - `/supplier-seller` `GET`, `POST`, `PUT`
 
 #### Платежные сервисы
-Информация о статусе платежа - payment POST
+
+Информация о статусе платежа - `/payment` `POST`
 
 #### Транспортные компании
-Информация о статусе груза - delivery POST
+
+Информация о статусе груза - `/delivery` `POST`
 
 #### Торговые площадки
-Каталог товаров с ценами - marketplace-price GET
-Заказы покупателей - marketplace-order GET, POST, PUT
+
+Каталог товаров с ценами - `/marketplace-priceм `GET`
+
+Заказы покупателей - `/marketplace-order` `GET`, `POST`, `PUT`
 
 #### Сайты работающие на REST API
-Конфигурация сайта - site GET
-Каталог товаров с ценами - price GET
-Пользователи - account GET, POST
-Заказы покупателей - order GET, POST
-Создание платежей - checkout GET, POST
-Акции - discount GET
-Категории товаров - category GET
-Бренды - brand GET
-Статьи - article GET
-Категории статей - article-category GET
-Карта сайта - sitemap GET
-Экспорт - export GET
-Отзывы - review GET, POST
+
+Конфигурация сайта - `/site` `GET`
+
+Каталог товаров с ценами - `/price` `GET`
+
+Пользователи - `/account` `GET`, `POST`
+
+Заказы покупателей - `/order` `GET`, `POST`
+
+Создание платежей - `/checkout` `GET`, `POST`
+
+Акции - `/discount` `GET`
+
+Категории товаров - `/category` `GET`
+
+Бренды - `/brand` `GET`
+
+Статьи - `/article` `GET`
+
+Категории статей - `/article-category` `GET`
+
+Карта сайта - `/sitemap` `GET`
+
+Экспорт - `/export` `GET`
+
+Отзывы - `/review` `GET`, `POST`
+
 
 #### Транзитная API сайта работающего на PLLANO API
-Информация о статусе платежа - payment POST
-Информация о статусе груза - delivery POST
+
+Информация о статусе платежа - `/payment` `POST`
+
+Информация о статусе груза - `/delivery` `POST`
 
 ### 2. Структура ответов и запросов к ресурсам должна соответствовать стандарту APIS-2018
 
