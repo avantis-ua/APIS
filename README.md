@@ -28,13 +28,13 @@ APIS-2018 - Стандарт для интернет-магазинов рабо
 
 Цена товара - product->price
 
-Наличие товара - product->available или product->stock
+Наличие товара - `product->available` или `product->stock`
 
-Описание товара (Тексты) product->description и description->text
+Описание товара (Тексты) `product->description` и `description->text`
 
-Характеристики товара (Свойства) - product->params->param и params->param
+Характеристики товара (Свойства) - `product->params->param` и `params->param`
 
-Изображения товара (Картинки) - product->images->image и images->image
+Изображения товара (Картинки) - `product->images->image` и `images->image`
 
 Заказы - `/supplier-order` `GET`, `POST`, `PUT`
 
