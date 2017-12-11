@@ -290,3 +290,22 @@ APIS-2018 - Стандарт для интернет-магазинов рабо
     </items>
 </price>
 ```
+
+<a name="feedback"></a>
+## Поддержка, обратная связь, новости
+
+Общайтесь с нами через почту open.source@pllano.com
+
+Если вы нашли баг в APIS-2018 загляните в
+[issues](https://github.com/pllano/APIS-2018/issues), возможно, про него мы уже знаем и
+чиним. Если нет, лучше всего сообщить о нём там. Там же вы можете оставлять свои
+пожелания и предложения.
+
+За новостями вы можете следить по
+[коммитам](https://github.com/pllano/APIS-2018/commits/master) в этом репозитории.
+[RSS](https://github.com/pllano/APIS-2018/commits/master.atom).
+
+Лицензия APIS-2018
+-------
+
+The MIT License (MIT). Please see [LICENSE](LICENSE.md) for more information.
