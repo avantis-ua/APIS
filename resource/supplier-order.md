@@ -57,7 +57,7 @@
              "total_price": "5001.00",
              "currency_id": "UAH",
              "guarantee": 24,
-             "pay_online" 1
+             "pay_online": 1
              }
 			}, {
              "product": {
@@ -75,7 +75,7 @@
              "total_price": "5500.00",
              "currency_id": "UAH",
              "guarantee": 36,
-             "pay_online" 1
+             "pay_online": 1
              }
           }
         ]
