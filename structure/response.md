@@ -2,7 +2,7 @@
 ```json
 {
     "response": {
-        "auth": 0,
+        "auth": "CryptoAuth",
         "total": "100",
         "id": "10",
         "resource_param": "",
