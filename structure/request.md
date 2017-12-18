@@ -14,35 +14,35 @@
     }
 }
 ```
-# query
+### query
 Тип запроса `POST` `GET` `PUT` `PATCH` `DELETE`
-# resource
+### resource
 Ресурс к которому идет обращение `price`, `pay`, `payment`, `delivery`
-# limit
+### limit
 Лимит записей на страницу. По умолчанию `10`
-# offset
+### offset
 Смещение. Начать с записи `0`. По умолчанию `0`
-# order
+### order
 Сортировка `DESC` или `ASC`. По умолчанию `DESC`
-# sort
+### sort
 Сортировать по полю. По умолчанию `id`
-# resource_param
+### resource_param
 Дополнительно можно использовать все разрешенные данным ресурсом параметры. [Список всех ресурсов](https://github.com/pllano/APIS-2018/tree/master/resource)
-## Пример 1 
+#### Пример 1 
 обращаясь к ресурсу `product` можно использовать следующие дополнительные параметры:
-### name
+#### name
 ```json
 "name": "Ноутбук Acer Extensa EX2519-C313 (NX.EFAEU.054) Black"
 ```
-### type
+#### type
 ```json
 "brand": "Мобильный телефон"
 ```
-### brand
+#### brand
 ```json
 "brand": "Samsung"
 ```
-### serie
+#### serie
 ```json
 "serie": "Extensa EX2519-C313"
 ```
