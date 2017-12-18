@@ -15,8 +15,9 @@ $private_key = $crypto->saveToAsciiSafeString();
 
 echo $private_key;
 
-// def0000068b662b915532b74bb9784c61b87984d62be71672d62f3cb7cf392dde16deebfe0a4ed34dd26a2b4c3ae3c84d3a987a820f74d9228b69a36a6e2993385cb4268
 ```
+Пример: def0000068b662b915532b74bb9784c61b87984d62be71672d62f3cb7cf392dde16deebfe0a4ed34dd26a2b4c3ae3c84d3a987a820f74d9228b69a36a6e2993385cb4268
+
 ПРИМЕЧАНИЕ: И вы и пользователи вашего API должны использовать одну и туже библиотеку для шифрования !
 ### public_key
 Для создания public_key не рекомендуется использовать тот же механизм что и для private_key. Вы можете использовать следующую функцию для генерации public_key.
