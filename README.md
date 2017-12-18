@@ -41,26 +41,27 @@
 «[CryptoAuth](https://github.com/pllano/APIS-2018/blob/master/doc/CryptoAuth.md)» работает по тому-же принципу, что и [`QueryKeyAuth`](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md), т.е. токен передается как `GET` или `POST` параметр, только в данном случае данные передаются в зашифрованном виде с помощью `private_key` библиотекой [defuse/php-encryption](https://github.com/defuse/php-encryption) или подобной. [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/CryptoAuth.md)
 
 ### URL и типы запросов
-- URL: `https://example.com/{api}/{version}/{resource}/{id}`
+- URL: `https://example.com/{api}/{version}/{type}/{resource}/{id}`
 - или
-- URL: `https://{api}.example.com/{version}/{resource}/{id}`
+- URL: `https://{api}.example.com/{version}/{type}/{resource}/{id}`
 - `{api}` - директория API по умолчанию `api`
 - `{version}` - версия API по умолчанию `v1`
+- `{type}` - тип данных `json`
 - `{resource}` - название ресурса к которому обращаемся. Например price или user.
 - `{id}` - уникальный индефикатор
 - `{param}` - праметры запроса
 #### Необходимо потдерживать запросы: `POST` `GET` `PUT` `PATCH` `DELETE`
-- `POST /{table_name}` Создание записи 
-- `POST /{table_name}/{id}` Ошибка
-- `GET /{table_name}` Список всех записей
-- `GET /{table_name}?{param}` Список всех записей с фильтром по параметрам
-- `GET /{table_name}/{id}` Данные конкретной записи
-- `PUT /{table_name}` Обновить данные записей
-- `PUT /{table_name}/{id}` Обновить данные конкретной записи
-- `PATCH /{table_name}` Обновить данные записей
-- `PATCH /{table_name}/{id}` Обновить данные конкретной записи
-- `DELETE /{table_name}` Удалить все записи
-- `DELETE /{table_name}/{id}` Удалить конкретную запись
+- `POST /{resource}` Создание записи 
+- `POST /{resource}/{id}` Ошибка
+- `GET /{resource}` Список всех записей
+- `GET /{resource}?{param}` Список всех записей с фильтром по параметрам
+- `GET /{resource}/{id}` Данные конкретной записи
+- `PUT /{resource}` Обновить данные записей
+- `PUT /{resource}/{id}` Обновить данные конкретной записи
+- `PATCH /{resource}` Обновить данные записей
+- `PATCH /{resource}/{id}` Обновить данные конкретной записи
+- `DELETE /{resource}` Удалить все записи
+- `DELETE /{resource}/{id}` Удалить конкретную запись
 #### Параметры GET запроса
 `?offset={offset}&limit={limit}&order={order}&sort={sort}&key={key}`
 - `{key}` - Ключ доступа к API
@@ -71,48 +72,53 @@
 - `{*}` - Пользовательский параметр
 #### При использовании только `GET` запросов : Не обязательно !
 Если вы хотите дать возможность обращаться к вашему API только с GET запросами, логика URL должна быть следующей:
-- `GET /_post/{table_name}?{param}` Создание записи 
-- `GET /_post/{table_name}/{id}` Ошибка
-- `GET /_get/{table_name}?{param}` Список всех записей с фильтром по параметрам
-- `GET /_get/{table_name}/{id}` Данные конкретной записи
-- `GET /_put/{table_name}?{param}` Обновить данные записей
-- `GET /_put/{table_name}/{id}?{param}` Обновить данные конкретной записи
-- `GET /_patch/{table_name}?{param}` Обновить данные записей
-- `GET /_patch/{table_name}/{id}?{param}` Обновить данные конкретной записи
-- `GET /_delete/{table_name}` Удалить все записи
-- `GET /_delete/{table_name}/{id}` Удалить конкретную запись
+- `GET /_post/{resource}?{param}` Создание записи 
+- `GET /_post/{resource}/{id}` Ошибка
+- `GET /_get/{resource}?{param}` Список всех записей с фильтром по параметрам
+- `GET /_get/{resource}/{id}` Данные конкретной записи
+- `GET /_put/{resource}?{param}` Обновить данные записей
+- `GET /_put/{resource}/{id}?{param}` Обновить данные конкретной записи
+- `GET /_patch/{resource}?{param}` Обновить данные записей
+- `GET /_patch/{resource}/{id}?{param}` Обновить данные конкретной записи
+- `GET /_delete/{resource}` Удалить все записи
+- `GET /_delete/{resource}/{id}` Удалить конкретную запись
 
 ## Ресурсы
+Список всех поддерживаемых ресурсов
 
 #### Поставщики
-- `/supplier-product` `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Каталог товаров
-- `/supplier-order` `GET`, `POST`, `PUT`, `PATCH` - Заказы
-- `/supplier-seller` `GET`, `POST`, `PUT`, `PATCH` - Дилеры
+- [`/supplier-product`](https://github.com/pllano/APIS-2018/blob/master/resource/supplier-product.md) `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Каталог товаров
+- [`/supplier-order`](https://github.com/pllano/APIS-2018/blob/master/resource/supplier-order.md) `GET`, `POST`, `PUT`, `PATCH` - Заказы
+- [`/supplier-seller`](https://github.com/pllano/APIS-2018/blob/master/resource/supplier-seller.md) `GET`, `POST`, `PUT`, `PATCH` - Дилеры
+
 #### Платежные сервисы
-- `/payment` `POST` - Информация о статусе платежа
+- [`/payment`](https://github.com/pllano/APIS-2018/blob/master/resource/payment.md) `POST` - Информация о статусе платежа
+
 #### Транспортные компании
-- `/delivery` `POST` - Информация о статусе груза
+- [`/delivery`](https://github.com/pllano/APIS-2018/blob/master/resource/delivery.md) `POST` - Информация о статусе груза
+
 #### Торговые площадки
-- `/marketplace-price` `GET` - Каталог товаров с ценами
-- `/marketplace-order` `GET`, `POST`, `PUT`, `PATCH` - Заказы покупателей
-#### Сайты работающие на REST API
-- `/site` `GET` - Конфигурация сайта
-- `/price` `GET` - Каталог товаров с ценами
-- `/account` `GET`, `POST` - Пользователи
-- `/order` `GET`, `POST` - Заказы покупателей
-- `/checkout` `GET`, `POST` - Создание платежей
-- `/discount` `GET` - Акции
-- `/category` `GET` - Категории товаров
-- `/brand` `GET` - Бренды
-- `/article` `GET` - Статьи
-- `/article-category` `GET` - Категории статей
-- `/sitemap` `GET` - Карта сайта
-- `/export` `GET` - Экспорт
-- `/review` `GET`, `POST` - Отзывы
-- `/pay` `GET` - Платежи
-#### Транзитная API сайта работающего на PLLANO API
-- `/payment` `POST` - Информация о статусе платежа
-- `/delivery` `POST` - Информация о статусе груза
+- [`/marketplace-price`](https://github.com/pllano/APIS-2018/blob/master/resource/marketplace-price.md) `GET` - Каталог товаров с ценами
+- [`/marketplace-order`](https://github.com/pllano/APIS-2018/blob/master/resource/marketplace-order.md) `GET`, `POST`, `PUT`, `PATCH` - Заказы покупателей
+
+#### Сайты работающие через API
+- [`/site`](https://github.com/pllano/APIS-2018/blob/master/resource/site.md) `GET` - Конфигурация сайта
+- [`/price`](https://github.com/pllano/APIS-2018/blob/master/resource/price.md) `GET` - Каталог товаров с ценами
+- [`/account`](https://github.com/pllano/APIS-2018/blob/master/resource/account.md) `GET`, `POST` - Пользователи
+- [`/order`](https://github.com/pllano/APIS-2018/blob/master/resource/order.md) `GET`, `POST` - Заказы покупателей
+- [`/checkout`](https://github.com/pllano/APIS-2018/blob/master/resource/checkout.md) `GET`, `POST` - Создание платежей
+- [`/discount`](https://github.com/pllano/APIS-2018/blob/master/resource/discount.md) `GET` - Акции
+- [`/category`](https://github.com/pllano/APIS-2018/blob/master/resource/category.md) `GET` - Категории товаров
+- [`/brand`](https://github.com/pllano/APIS-2018/blob/master/resource/brand.md) `GET` - Бренды
+- [`/article`](https://github.com/pllano/APIS-2018/blob/master/resource/article.md) `GET` - Статьи
+- [`/article-category`](https://github.com/pllano/APIS-2018/blob/master/resource/article-category.md) `GET` - Категории статей
+- [`/sitemap`](https://github.com/pllano/APIS-2018/blob/master/resource/sitemap.md) `GET` - Карта сайта
+- [`/export`](https://github.com/pllano/APIS-2018/blob/master/resource/export.md) `GET` - Экспорт
+- [`/review`](https://github.com/pllano/APIS-2018/blob/master/resource/review.md) `GET`, `POST` - Отзывы
+- [`/pay`](https://github.com/pllano/APIS-2018/blob/master/resource/pay.md) `GET` - Платежи
+#### Транзитная API сайта работающего через API
+- [`/payment`](https://github.com/pllano/APIS-2018/blob/master/resource/payment.md) `POST` - Информация о статусе платежа
+- [`/delivery`](https://github.com/pllano/APIS-2018/blob/master/resource/delivery.md) `POST` - Информация о статусе груза
 
 ### 2. Структура ответов и запросов к ресурсам должна соответствовать стандарту APIS-2018
 
