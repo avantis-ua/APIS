@@ -19,12 +19,15 @@ echo $crypto_key;
 
 ### Пример аутентификации через GET запрос клиентом Guzzle
 ``` php
-// Массив с данными
+// $arr Массив с данными
 $arr = array();
-$arr["user"] = "";
-$arr["pasword"] = "";
+// Вы можете безопасно передавать любые данные
+$arr["user"] = "test";
+$arr["pasword"] = "test";
+$arr["order_id"] = "12345";
+$arr["status"] = "success";
 
-// Преобразовываем массив в json формат
+// Преобразовать массив в json формат
 $data = json_encode($arr);
 
 // Взять crypto_key из конфигурации
