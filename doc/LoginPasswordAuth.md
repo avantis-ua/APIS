@@ -7,8 +7,8 @@
 ``` php	
 use GuzzleHttp\Client as Guzzle;
 
-$username = $config['settings']['api']['username']; // Взять username из конфигурации
-$password = $config['settings']['api']['password']; // Взять password из конфигурации
+$username = "test"; // Взять username из конфигурации
+$password = "test"; // Взять password из конфигурации
 
 // передать данные
 $data_post = [
