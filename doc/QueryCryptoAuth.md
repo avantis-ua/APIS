@@ -10,7 +10,7 @@
 ### Пример генерации ключей
 ``` php
 // Генерируем public_key
-$crypto = Defuse\Crypto\Key::createNewRandomKey();
+$crypto = \Defuse\Crypto\Key::createNewRandomKey();
 $crypto_key = $crypto->saveToAsciiSafeString();
 
 echo $crypto_key;
@@ -37,7 +37,7 @@ $public_key = ''; // Публичный ключ - идентификатор п
 $crypto_key = ''; // Ключ шифрования
 
 // Шифруем данные
-$data_post = Crypto::encrypt($data_json, Key::loadFromAsciiSafeString($crypto_key));
+$data_post = \Defuse\Crypto\Crypto::encrypt($data_json, Key::loadFromAsciiSafeString($crypto_key));
 
 // URL вашей API
 $api_uri = "https://example.com/api/v1/json/pay";
@@ -63,7 +63,7 @@ $public_key = $arr["public_key"];
 // Получаем user_key из базы данных
 $user_key = "";
 
-$decrypt_arr = Crypto::decrypt($arr["data"], Key::loadFromAsciiSafeString($user_key));
+$decrypt_arr = \Defuse\Crypto\Crypto::decrypt($arr["data"], Key::loadFromAsciiSafeString($user_key));
 
 echo $decrypt_arr;
 
