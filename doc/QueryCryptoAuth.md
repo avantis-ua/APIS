@@ -5,11 +5,11 @@
 - Простота реализации с обоих сторон.
 - Отсекание запросов которые невозможно раскодировать что уменьшает количество запросов к базе данных.
 
-## Шифрование и public_key
+## public_key и шифрование с помощью private_key
 Для автоматической генерации ключей и шифрования мы рекомендуем использовать библиотеку [defuse/php-encryption](https://github.com/defuse/php-encryption) которой доверяют свыше 1,5 млн. разработчиков.
 ### Пример генерации ключей
 ``` php
-// Генерируем public_key
+// Генерируем private_key
 $crypto = \Defuse\Crypto\Key::createNewRandomKey();
 $private_key = $crypto->saveToAsciiSafeString();
 
