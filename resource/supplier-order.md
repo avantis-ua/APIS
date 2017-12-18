@@ -28,22 +28,6 @@
   "body": {
     "items": [{
       "item": {
-        "id": "1234567890",
-        "created": "2017-12-11 10:30",
-        "status": 1,
-        "delivery": "Novaposhta",
-        "delivery_code": "1234567890121",
-        "total_amount": "1005.05",
-        "currency_id": "UAH",
-        "comment": "Могу принять после 17:00",
-        "user": {
-        "iname": "Юрий",
-        "fname": "Иванов",
-        "oname": "Петрович",
-        "phone": "380670000001",
-        "email": "user@example.com",
-        "address": "г. Киев, пр. Бажана 12, кв. 75"
-        },
         "products": [
 		    {
              "product": {
@@ -80,7 +64,23 @@
           }
         ]
         }
-    }]
+    }],
+        "id": "1234567890",
+        "created": "2017-12-11 10:30",
+        "status": 1,
+        "delivery": "Novaposhta",
+        "delivery_code": "1234567890121",
+        "total_amount": "1005.05",
+        "currency_id": "UAH",
+        "comment": "Могу принять после 17:00",
+        "user": {
+        "iname": "Юрий",
+        "fname": "Иванов",
+        "oname": "Петрович",
+        "phone": "380670000001",
+        "email": "user@example.com",
+        "address": "г. Киев, пр. Бажана 12, кв. 75"
+        }
   }
 }
  
