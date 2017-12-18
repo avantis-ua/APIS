@@ -1,5 +1,5 @@
 # QueryCryptoAuth
-«QueryCryptoAuth» — работает по тому-же принципу, что и [`QueryKeyAuth`](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md), т.е. токен передается в строке запроса как `GET` параметр, только в данном случае он в зашифрованном виде с помощью `private_key`. По умолчанию параметр называется `public_key` и его можно расшифровать только зная `private_key`
+«QueryCryptoAuth» — работает по тому-же принципу, что и [`QueryKeyAuth`](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md), т.е. токен передается как `GET` или `POST` параметр, только в данном случае данные передаются в зашифрованном виде с помощью [defuse/php-encryption](https://github.com/defuse/php-encryption)
 
 ## Основные преимущества данного метода:
 - Простота реализации с обоих сторон.
