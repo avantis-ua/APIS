@@ -18,4 +18,4 @@
 ## message_id
 Вы можете использовать ссылки на раздел: [`Коды состояния HTTP`](https://github.com/pllano/api-json-db/tree/master/doc/http-codes)
 
-`URL`: https://github.com/pllano/api-json-db/blob/master/doc/http-codes/{code}.md
+`URL`: `https://github.com/pllano/api-json-db/blob/master/doc/http-codes/{code}.md`
