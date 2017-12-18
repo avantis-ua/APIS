@@ -85,43 +85,6 @@
 - `GET /_delete/{resource}` Удалить все записи
 - `GET /_delete/{resource}/{id}` Удалить конкретную запись
 
-## Ресурсы
-Список всех поддерживаемых ресурсов
-
-#### Поставщики
-- [`/supplier-product`](https://github.com/pllano/APIS-2018/blob/master/resource/supplier-product.md) `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Каталог товаров
-- [`/supplier-order`](https://github.com/pllano/APIS-2018/blob/master/resource/supplier-order.md) `GET`, `POST`, `PUT`, `PATCH` - Заказы
-- [`/supplier-seller`](https://github.com/pllano/APIS-2018/blob/master/resource/supplier-seller.md) `GET`, `POST`, `PUT`, `PATCH` - Дилеры
-
-#### Платежные сервисы
-- [`/payment`](https://github.com/pllano/APIS-2018/blob/master/resource/payment.md) `POST` - Информация о статусе платежа
-
-#### Транспортные компании
-- [`/delivery`](https://github.com/pllano/APIS-2018/blob/master/resource/delivery.md) `POST` - Информация о статусе груза
-
-#### Торговые площадки
-- [`/marketplace-price`](https://github.com/pllano/APIS-2018/blob/master/resource/marketplace-price.md) `GET` - Каталог товаров с ценами
-- [`/marketplace-order`](https://github.com/pllano/APIS-2018/blob/master/resource/marketplace-order.md) `GET`, `POST`, `PUT`, `PATCH` - Заказы покупателей
-
-#### Сайты работающие через API
-- [`/site`](https://github.com/pllano/APIS-2018/blob/master/resource/site.md) `GET` - Конфигурация сайта
-- [`/price`](https://github.com/pllano/APIS-2018/blob/master/resource/price.md) `GET` - Каталог товаров с ценами
-- [`/account`](https://github.com/pllano/APIS-2018/blob/master/resource/account.md) `GET`, `POST` - Пользователи
-- [`/order`](https://github.com/pllano/APIS-2018/blob/master/resource/order.md) `GET`, `POST` - Заказы покупателей
-- [`/checkout`](https://github.com/pllano/APIS-2018/blob/master/resource/checkout.md) `GET`, `POST` - Создание платежей
-- [`/discount`](https://github.com/pllano/APIS-2018/blob/master/resource/discount.md) `GET` - Акции
-- [`/category`](https://github.com/pllano/APIS-2018/blob/master/resource/category.md) `GET` - Категории товаров
-- [`/brand`](https://github.com/pllano/APIS-2018/blob/master/resource/brand.md) `GET` - Бренды
-- [`/article`](https://github.com/pllano/APIS-2018/blob/master/resource/article.md) `GET` - Статьи
-- [`/article-category`](https://github.com/pllano/APIS-2018/blob/master/resource/article-category.md) `GET` - Категории статей
-- [`/sitemap`](https://github.com/pllano/APIS-2018/blob/master/resource/sitemap.md) `GET` - Карта сайта
-- [`/export`](https://github.com/pllano/APIS-2018/blob/master/resource/export.md) `GET` - Экспорт
-- [`/review`](https://github.com/pllano/APIS-2018/blob/master/resource/review.md) `GET`, `POST` - Отзывы
-- [`/pay`](https://github.com/pllano/APIS-2018/blob/master/resource/pay.md) `GET` - Платежи
-#### Транзитная API сайта работающего через API
-- [`/payment`](https://github.com/pllano/APIS-2018/blob/master/resource/payment.md) `POST` - Информация о статусе платежа
-- [`/delivery`](https://github.com/pllano/APIS-2018/blob/master/resource/delivery.md) `POST` - Информация о статусе груза
-
 ### 2. Структура ответов и запросов к ресурсам должна соответствовать стандарту APIS-2018
 
 Глобальная структура ответа ресурса /price должна иметь следующую форму
@@ -261,6 +224,43 @@
     }
 }
 ```
+
+## Ресурсы
+Список всех поддерживаемых ресурсов
+
+#### Поставщики
+- [`/supplier-product`](https://github.com/pllano/APIS-2018/blob/master/resource/supplier-product.md) `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Каталог товаров
+- [`/supplier-order`](https://github.com/pllano/APIS-2018/blob/master/resource/supplier-order.md) `GET`, `POST`, `PUT`, `PATCH` - Заказы
+- [`/supplier-seller`](https://github.com/pllano/APIS-2018/blob/master/resource/supplier-seller.md) `GET`, `POST`, `PUT`, `PATCH` - Дилеры
+
+#### Платежные сервисы
+- [`/payment`](https://github.com/pllano/APIS-2018/blob/master/resource/payment.md) `POST` - Информация о статусе платежа
+
+#### Транспортные компании
+- [`/delivery`](https://github.com/pllano/APIS-2018/blob/master/resource/delivery.md) `POST` - Информация о статусе груза
+
+#### Торговые площадки
+- [`/marketplace-price`](https://github.com/pllano/APIS-2018/blob/master/resource/marketplace-price.md) `GET` - Каталог товаров с ценами
+- [`/marketplace-order`](https://github.com/pllano/APIS-2018/blob/master/resource/marketplace-order.md) `GET`, `POST`, `PUT`, `PATCH` - Заказы покупателей
+
+#### Сайты работающие через API
+- [`/site`](https://github.com/pllano/APIS-2018/blob/master/resource/site.md) `GET` - Конфигурация сайта
+- [`/price`](https://github.com/pllano/APIS-2018/blob/master/resource/price.md) `GET` - Каталог товаров с ценами
+- [`/account`](https://github.com/pllano/APIS-2018/blob/master/resource/account.md) `GET`, `POST` - Пользователи
+- [`/order`](https://github.com/pllano/APIS-2018/blob/master/resource/order.md) `GET`, `POST` - Заказы покупателей
+- [`/checkout`](https://github.com/pllano/APIS-2018/blob/master/resource/checkout.md) `GET`, `POST` - Создание платежей
+- [`/discount`](https://github.com/pllano/APIS-2018/blob/master/resource/discount.md) `GET` - Акции
+- [`/category`](https://github.com/pllano/APIS-2018/blob/master/resource/category.md) `GET` - Категории товаров
+- [`/brand`](https://github.com/pllano/APIS-2018/blob/master/resource/brand.md) `GET` - Бренды
+- [`/article`](https://github.com/pllano/APIS-2018/blob/master/resource/article.md) `GET` - Статьи
+- [`/article-category`](https://github.com/pllano/APIS-2018/blob/master/resource/article-category.md) `GET` - Категории статей
+- [`/sitemap`](https://github.com/pllano/APIS-2018/blob/master/resource/sitemap.md) `GET` - Карта сайта
+- [`/export`](https://github.com/pllano/APIS-2018/blob/master/resource/export.md) `GET` - Экспорт
+- [`/review`](https://github.com/pllano/APIS-2018/blob/master/resource/review.md) `GET`, `POST` - Отзывы
+- [`/pay`](https://github.com/pllano/APIS-2018/blob/master/resource/pay.md) `GET` - Платежи
+#### Транзитная API сайта работающего через API
+- [`/payment`](https://github.com/pllano/APIS-2018/blob/master/resource/payment.md) `POST` - Информация о статусе платежа
+- [`/delivery`](https://github.com/pllano/APIS-2018/blob/master/resource/delivery.md) `POST` - Информация о статусе груза
 
 ## `Мы ищем единомышленников — Присоединяйтесь!`
 
