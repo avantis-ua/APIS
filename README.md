@@ -240,6 +240,7 @@
 #### Торговые площадки
 - [`/marketplace-price`](https://github.com/pllano/APIS-2018/blob/master/resource/marketplace-price.md) `GET` - Каталог товаров с ценами
 - [`/marketplace-order`](https://github.com/pllano/APIS-2018/blob/master/resource/marketplace-order.md) `GET`, `POST`, `PUT`, `PATCH` - Заказы покупателей
+- [`/marketplace-warehouse`](https://github.com/pllano/APIS-2018/blob/master/resource/marketplace-warehouse.md) `GET`, `POST`, `PUT`, `PATCH` - Склады, точки отгрузки, магазины
 
 #### Сайты работающие через API
 - [`/site`](https://github.com/pllano/APIS-2018/blob/master/resource/site.md) `GET` - Конфигурация сайта
