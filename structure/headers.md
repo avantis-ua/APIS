@@ -1,4 +1,4 @@
-# headers (Заголовки)
+# Заголовки `headers`
 ```json
 {
     "headers": {
