@@ -84,6 +84,9 @@ $response = $client->request('POST', $api_uri, [
 
 ### Получение и обработка данных на стороне REST API
 ``` php
+use Defuse\Crypto\Crypto;
+use Defuse\Crypto\Exception\WrongKeyOrModifiedCiphertextException;
+
 // Полученный вами json массив в теле запроса
 $json = '{public_key: public_key", data: "data"}';
 
@@ -101,7 +104,7 @@ if (strlen($public_key) == 64) {
 
     // Расшифровываем
     try {
-        $decrypt_json = \Defuse\Crypto\Crypto::decrypt(
+        $decrypt_json = Crypto::decrypt(
             base64_decode($arr["data"]),
             Key::loadFromAsciiSafeString($private_key)
         );
