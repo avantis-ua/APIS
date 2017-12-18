@@ -123,12 +123,12 @@
 ### 2. Структура ответов и запросов к ресурсам должна соответствовать стандарту APIS-2018
 
 Глобальная структура ответа ресурса /price должна иметь следующую форму
-- `headers` - заголовки
-- `request` - запрос
-- `response` - ответ
-- `head` - голова (не обязательно)
-- `body` - тело
-- `footer` - подвал (не обязательно)
+- [`headers`](https://github.com/pllano/APIS-2018/blob/master/structure/headers.md) - заголовки
+- [`request`](https://github.com/pllano/APIS-2018/blob/master/structure/request.md) - запрос
+- [`response`](https://github.com/pllano/APIS-2018/blob/master/structure/response.md) - ответ
+- [`head`](https://github.com/pllano/APIS-2018/blob/master/structure/head.md) - голова (не обязательно)
+- [`body`](https://github.com/pllano/APIS-2018/blob/master/structure/body.md) - тело
+- [`footer`](https://github.com/pllano/APIS-2018/blob/master/structure/footer.md) - подвал (не обязательно)
 
 ### 3. Ускорении разработки сайта
 Структура APIS-2018 чем то напоминает структуру сайта и это очень хорошо, так как дает возможность в одном ответе отдать всю структуру html страницы сайта. Получив всю необходимую информацию для формирования страницы и обрабатывать сразу шаблонизатором без дополнительной обработки PHP. Это способно свести разработку сайта к работе верстальщика.
