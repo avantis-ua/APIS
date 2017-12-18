@@ -5,9 +5,9 @@
 - Простота реализации с обоих сторон.
 - Отсекание запросов которые невозможно раскодировать что уменьшает количество запросов к базе данных.
 
-## public_key и шифрование с помощью private_key
+### private_key
 Для автоматической генерации ключей и шифрования мы рекомендуем использовать библиотеку [defuse/php-encryption](https://github.com/defuse/php-encryption) которой доверяют свыше 1,5 млн. разработчиков.
-### Пример генерации ключей
+#### Пример генерации ключей
 ``` php
 // Генерируем private_key
 $crypto = \Defuse\Crypto\Key::createNewRandomKey();
@@ -16,6 +16,29 @@ $private_key = $crypto->saveToAsciiSafeString();
 echo $private_key;
 ```
 ПРИМЕЧАНИЕ: И вы и пользователи вашего API должны использовать одну и туже библиотеку для шифрования !
+### public_key
+Для создания public_key не рекомендуется использовать тот же механизм что и для private_key. Вы можете использовать следующую функцию для генерации public_key.
+``` php
+//	Функция генерации public_key
+function random_public_key($length = 32)
+{
+if(!isset($length) || intval($length) <= 8 ){
+$length = 32;
+}
+if (function_exists('random_bytes')) {
+return bin2hex(random_bytes($length));
+}
+if (function_exists('mcrypt_create_iv')) {
+return bin2hex(mcrypt_create_iv($length, MCRYPT_DEV_URANDOM));
+}
+if (function_exists('openssl_random_pseudo_bytes')) {
+return bin2hex(openssl_random_pseudo_bytes($length));
+}
+}
+
+// Сгенерировать public_key
+$public_key = random_public_key();
+```
 
 ### Пример аутентификации и передачи данных через POST запрос клиентом Guzzle
 ``` php
