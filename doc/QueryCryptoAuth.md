@@ -63,9 +63,12 @@ $public_key = $arr["public_key"];
 // Получаем user_key из базы данных
 $user_key = "";
 
-$decrypt_arr = \Defuse\Crypto\Crypto::decrypt($arr["data"], Key::loadFromAsciiSafeString($user_key));
+$decrypt_json = \Defuse\Crypto\Crypto::decrypt($arr["data"], Key::loadFromAsciiSafeString($user_key));
 
-echo $decrypt_arr;
+// Преобразование расшифрованного json в массив
+$data = json_decode($decrypt_json, true);
+
+echo $data;
 
 /*
 Array
