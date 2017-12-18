@@ -37,7 +37,10 @@ $public_key = ''; // Публичный ключ - идентификатор п
 $crypto_key = ''; // Ключ шифрования
 
 // Шифруем данные
-$data_post = \Defuse\Crypto\Crypto::encrypt($data_json, Key::loadFromAsciiSafeString($crypto_key));
+$data_post = \Defuse\Crypto\Crypto::encrypt(
+    $data_json,
+    Key::loadFromAsciiSafeString($crypto_key)
+);
 
 // URL вашей API
 $api_uri = "https://example.com/api/v1/json/pay";
@@ -66,7 +69,10 @@ $public_key = base64_decode($arr["public_key"]);
 // Получаем user_key из базы данных
 $user_key = "";
 
-$decrypt_json = \Defuse\Crypto\Crypto::decrypt(base64_decode($arr["data"]), Key::loadFromAsciiSafeString($user_key));
+$decrypt_json = \Defuse\Crypto\Crypto::decrypt(
+    base64_decode($arr["data"]),
+    Key::loadFromAsciiSafeString($user_key)
+);
 
 // Преобразование расшифрованного json в массив
 $data = json_decode($decrypt_json, true);
