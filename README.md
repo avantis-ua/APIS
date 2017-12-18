@@ -138,8 +138,8 @@
     "header": {
         "status": "401 Unauthorized",
         "code": 401,
-        "message": "Доступ запрещен. Метод аутентификации не совпадает.",
-        "message_id": "https://github.com/pllano/api-json-db/blob/master/doc/http-codes/401.md"
+        "message": "Access is denied. The authentication method does not match.",
+        "message_id": "https:\/\/github.com\/pllano\/api-json-db\/blob\/master\/doc\/http-codes\/401.md"
     },
     "response": {
         "auth": "CryptoAuth",
