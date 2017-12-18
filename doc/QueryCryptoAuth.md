@@ -46,7 +46,10 @@ $api_uri = "https://example.com/api/v1/json/pay";
 $client = new \GuzzleHttp\Client();
 
 // Отправляем данные
-$response = $client->request('POST', $api_uri, ['public_key' => $public_key, 'data' => $data_post]);
+$response = $client->request('POST', $api_uri, [
+    'public_key' => $public_key, 
+    'data' => $data_post
+    ]);
 ```
 
 ### Получение и обработка данных на стороне REST API
