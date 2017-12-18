@@ -16,7 +16,7 @@ $private_key = $crypto->saveToAsciiSafeString();
 echo $private_key;
 
 ```
-Пример сгенерированного ключа `private_key`: `def0000068b662b915532b74bb9784c61b87984d62be71672d62f3cb7cf392dde16deebfe0a4ed34dd26a2b4c3ae3c84d3a987a820f74d9228b69a36a6e2993385cb4268`
+Пример сгенерированного ключа `private_key`: ` def0000068b662b915532b74bb9784c61b87984d62be71672d62f3cb7cf392dde16deebfe0a4ed34dd26a2b4c3ae3c84d3a987a820f74d9228b69a36a6e2993385cb4268 `
 
 ПРИМЕЧАНИЕ: И вы и пользователи вашего API должны использовать одну и туже библиотеку для шифрования !
 ### public_key
@@ -43,7 +43,7 @@ function random_public_key($length = 16)
 // Сгенерировать public_key
 $public_key = random_public_key(32);
 ```
-Пример сгенерированного ключа `public_key` длиной 64 символа: `3903f7b3fb82c2e609b3f07ccfa119352f1d26c55723c3f7f8fb36a0d0e31dae`
+Пример сгенерированного ключа `public_key` длиной 64 символа: ` 3903f7b3fb82c2e609b3f07ccfa119352f1d26c55723c3f7f8fb36a0d0e31dae `
 
 ### Пример аутентификации и передачи данных через POST запрос клиентом Guzzle
 ``` php
