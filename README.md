@@ -31,16 +31,16 @@
 
 ### LoginPasswordAuth
 
-«[LoginPasswordAuth](https://github.com/pllano/APIS-2018/blob/master/LoginPasswordAuth.md)» — реализация базовой Http аутентификации. Пара логин пароль передаются в виде строки `login:password` в `Authorization` заголовке [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/LoginPasswordAuth.md)
+«[LoginPasswordAuth](https://github.com/pllano/APIS-2018/blob/master/doc/LoginPasswordAuth.md)» — реализация базовой Http аутентификации. Пара логин пароль передаются в виде строки `login:password` в `Authorization` заголовке [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/LoginPasswordAuth.md)
 
-### HttpTokenAuth
-«[HttpTokenAuth](https://github.com/pllano/APIS-2018/blob/master/HttpTokenAuth.md)» — реализация аутентификации по токену `HTTP Bearer token`. Для авторизации с помощью токена нужно передать его в `http` заголовке  [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/HttpTokenAuth.md)
+### HttpTokenAut
+«[HttpTokenAuth](https://github.com/pllano/APIS-2018/blob/master/doc/HttpTokenAuth.md)» — реализация аутентификации по токену `HTTP Bearer token`. Для авторизации с помощью токена нужно передать его в `http` заголовке  [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/HttpTokenAuth.md)
 
 ### QueryKeyAuth
-«[QueryKeyAuth](https://github.com/pllano/APIS-2018/blob/master/QueryKeyAuth.md)» — пожалуй самый простой из имеющихся способов авторизации. Работает по тому-же принципу, что и `HttpTokenAuth`, т.е. идентифицирует пользователя по токену, только в данном случае токен передается в строке запроса, как GET параметр. По умолчанию параметр называется `public_key` [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/QueryKeyAuth.md)
+«[QueryKeyAuth](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md)» — пожалуй самый простой из имеющихся способов авторизации. Работает по тому-же принципу, что и `HttpTokenAuth`, т.е. идентифицирует пользователя по токену, только в данном случае токен передается в строке запроса, как GET параметр. По умолчанию параметр называется `public_key` [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md)
 
 ### QueryPrivateKeyAuth
-«[QueryPrivateKeyAuth](https://github.com/pllano/APIS-2018/blob/master/QueryPrivateKeyAuth.md)» — работает по тому-же принципу, что и `QueryKeyAuth`, т.е. токен передается в строке запроса как `GET` параметр, только в данном случае он в зашифрованном виде с помощью `private_key`. По умолчанию параметр называется `public_key` и его можно расшифровать только зная `private_key` [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/QueryPrivateKeyAuth.md)
+«[QueryPrivateKeyAuth](https://github.com/pllano/APIS-2018/blob/master/doc/QueryPrivateKeyAuth.md)» — работает по тому-же принципу, что и `QueryKeyAuth`, т.е. токен передается в строке запроса как `GET` параметр, только в данном случае он в зашифрованном виде с помощью `private_key`. По умолчанию параметр называется `public_key` и его можно расшифровать только зная `private_key` [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/QueryPrivateKeyAuth.md)
 
 ### URL и типы запросов
 - URL: `https://example.com/{api}/{version}/{resource}/{id}`
