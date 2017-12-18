@@ -69,6 +69,7 @@ $public_key = base64_decode($arr["public_key"]);
 // Получаем user_key из базы данных
 $user_key = "";
 
+// Расшифровываем
 $decrypt_json = \Defuse\Crypto\Crypto::decrypt(
     base64_decode($arr["data"]),
     Key::loadFromAsciiSafeString($user_key)
