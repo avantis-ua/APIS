@@ -1,5 +1,5 @@
 # QueryCryptoAuth
-«QueryCryptoAuth» — работает по тому-же принципу, что и [`QueryKeyAuth`](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md), т.е. токен передается как `GET` или `POST` параметр, только в данном случае данные передаются в зашифрованном виде с помощью [defuse/php-encryption](https://github.com/defuse/php-encryption)
+«QueryCryptoAuth» — работает по тому-же принципу, что и [`QueryKeyAuth`](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md), т.е. токен передается как `GET` или `POST` параметр, только в данном случае данные передаются в зашифрованном виде с помощью `private_key` библиотекой [defuse/php-encryption](https://github.com/defuse/php-encryption)
 
 ## Основные преимущества данного метода:
 - Простота реализации с обоих сторон.
@@ -11,9 +11,9 @@
 ``` php
 // Генерируем public_key
 $crypto = \Defuse\Crypto\Key::createNewRandomKey();
-$crypto_key = $crypto->saveToAsciiSafeString();
+$private_key = $crypto->saveToAsciiSafeString();
 
-echo $crypto_key;
+echo $private_key;
 ```
 ПРИМЕЧАНИЕ: И вы и пользователи вашего API должны использовать одну и туже библиотеку для шифрования !
 
@@ -32,14 +32,14 @@ $data_arr = [
 // Преобразовать массив в json формат
 $data_json = json_encode($data_arr);
 
-// Взять crypto_key и public_key из конфигурации
+// Взять private_key и public_key из конфигурации
 $public_key = ''; // Публичный ключ - идентификатор пользователя API
-$crypto_key = ''; // Ключ шифрования
+$private_key = ''; // Ключ шифрования
 
 // Шифруем данные
 $data_post = \Defuse\Crypto\Crypto::encrypt(
     $data_json,
-    Key::loadFromAsciiSafeString($crypto_key)
+    Key::loadFromAsciiSafeString($private_key)
 );
 
 // URL вашей API
@@ -67,12 +67,12 @@ $arr = json_decode($json, true);
 $public_key = base64_decode($arr["public_key"]);
 
 // Получаем user_key из базы данных
-$user_key = "";
+$private_key = "";
 
 // Расшифровываем
 $decrypt_json = \Defuse\Crypto\Crypto::decrypt(
     base64_decode($arr["data"]),
-    Key::loadFromAsciiSafeString($user_key)
+    Key::loadFromAsciiSafeString($private_key)
 );
 
 // Преобразование расшифрованного json в массив
