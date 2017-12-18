@@ -11,15 +11,34 @@
 ``` php
 // Генерируем public_key
 $crypto = Defuse\Crypto\Key::createNewRandomKey();
-$public_key = $crypto->saveToAsciiSafeString();
+$crypto_key = $crypto->saveToAsciiSafeString();
 
-echo $public_key;
+echo $crypto_key;
 ```
-### Пример аутентификации клиентом Guzzle
-``` php	
-$public_key = ''; // Взять public_key из конфигурации
+ПРИМЕЧАНИЕ: И вы и пользователи вашего API должны использовать одну и туже библиотеку для шифрования !
+
+### Пример аутентификации через GET запрос клиентом Guzzle
+``` php
+// Массив с данными
+$arr = array();
+$arr["user"] = "";
+$arr["pasword"] = "";
+
+// Преобразовываем массив в json формат
+$data = json_encode($arr);
+
+// Взять crypto_key из конфигурации
+$crypto_key = '';
+
+// Шифруем данные
+$public_key = Crypto::encrypt($data, Key::loadFromAsciiSafeString($crypto_key));
+
+// Формируем URL
 $uri = 'https://example.com/api/v1/json/auth?public_key='.$public_key;
 
+// Подключаем Guzzle
 $client = new \GuzzleHttp\Client();
+
+// Отправляем данные
 $response = $client->request('GET', $uri);
 ```
