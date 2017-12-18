@@ -47,26 +47,26 @@ $client = new \GuzzleHttp\Client();
 
 // Отправляем данные
 $response = $client->request('POST', $api_uri, [
-    'public_key' => $public_key, 
-    'data' => $data_post
+    'public_key' => base64_encode($public_key),
+    'data' => base64_encode($data_post)
     ]);
 ```
 
 ### Получение и обработка данных на стороне REST API
 ``` php
 // Полученный вами json массив в теле запроса
-$json = '{public_key: "... ...", data: "... ..."}';
+$json = '{public_key: public_key", data: "data"}';
 
 // Преобразовываем в массив
 $arr = json_decode($json, true);
 
 // Получаем public_key из запроса и по нему находим в своей базе user_key
-$public_key = $arr["public_key"];
+$public_key = base64_decode($arr["public_key"]);
 
 // Получаем user_key из базы данных
 $user_key = "";
 
-$decrypt_json = \Defuse\Crypto\Crypto::decrypt($arr["data"], Key::loadFromAsciiSafeString($user_key));
+$decrypt_json = \Defuse\Crypto\Crypto::decrypt(base64_decode($arr["data"]), Key::loadFromAsciiSafeString($user_key));
 
 // Преобразование расшифрованного json в массив
 $data = json_decode($decrypt_json, true);
