@@ -26,9 +26,11 @@ $api_uri = "https://example.com/api/v1/json/pay";
 $client = new Guzzle();
 
 // Отправляем данные
-$response = $client->request('POST', $api_uri, [
-    'auth' => [$username, $password],
-    'data' => base64_encode($data_post)]
+$response = $client->request('POST', $api_uri, 
+    [
+        'auth' => [$username, $password],
+        'data' => base64_encode($data_post)
+    ]
 );
  
 ```
