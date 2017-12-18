@@ -18,7 +18,7 @@ $data = [
 
 $data_query = http_build_query($data) . "\n";
 
-$uri = 'https://example.com/api/v1/json/auth?'.$data_query;
+$uri = 'https://example.com/api/v1/json/pay?'.$data_query;
 
 $client = new Guzzle();
 $response = $client->request('GET', $uri);
