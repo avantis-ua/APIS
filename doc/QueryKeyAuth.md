@@ -5,7 +5,7 @@
 ``` php
 use GuzzleHttp\Client as Guzzle;
 
-$public_key = ""; // Взять public_key из конфигурации
+$public_key = $config->get('public_key'); // Взять public_key из конфигурации
 
 $data = [
     'public_key' => $public_key,
