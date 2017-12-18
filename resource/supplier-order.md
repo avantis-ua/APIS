@@ -6,7 +6,7 @@
   "header": {
     "status": "200 OK",
     "code": "200",
-    "message": "OK"
+    "message": "OK",
     "message_id": "https:\/\/github.com\/pllano\/api-json-db\/blob\/master\/doc\/http-codes\/200.md"
   },
   "response": {
