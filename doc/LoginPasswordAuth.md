@@ -29,7 +29,7 @@ $client = new Guzzle();
 $response = $client->request('POST', $api_uri, [
     'auth' => [$username, $password],
     'data' => base64_encode($data_post)]
-    );
+);
  
 ```
 #### Документация
