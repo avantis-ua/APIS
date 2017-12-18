@@ -47,7 +47,6 @@ $public_key = random_public_key(32);
 
 ### Пример аутентификации и передачи данных через POST запрос клиентом Guzzle
 ``` php
-
 // Вы можете безопасно передавать любые данные
 $data_arr = [
     'action' => "pay",
@@ -101,31 +100,38 @@ if (strlen($public_key) == 64) {
     $private_key = "";
 
     // Расшифровываем
-    $decrypt_json = \Defuse\Crypto\Crypto::decrypt(
-        base64_decode($arr["data"]),
-        Key::loadFromAsciiSafeString($private_key)
-    );
+    try {
+        $decrypt_json = \Defuse\Crypto\Crypto::decrypt(
+            base64_decode($arr["data"]),
+            Key::loadFromAsciiSafeString($private_key)
+        );
 
-    // Преобразование расшифрованного json в массив
-    $data = json_decode($decrypt_json, true);
+        // Преобразование расшифрованного json в массив
+        $data = json_decode($decrypt_json, true);
 
-    echo $data;
+        echo $data;
 
-/*
-Array
-(
-    ["action"] => pay,
-    ["order_id"] => 12345,
-    ["amount"] => 10.01,
-    ["currency"] => UAH,
-    ["server_url"] => URL ответа
-);
-*/
+        /*
+        Array
+        (
+            ["action"] => pay,
+            ["order_id"] => 12345,
+            ["amount"] => 10.01,
+            ["currency"] => UAH,
+            ["server_url"] => URL ответа
+        );
+        */
+
+    } catch(WrongKeyOrModifiedCiphertextException $ex){
+ 
+        // Не могу расшифровать данные
+ 
+    }
 
 } else {
-
+ 
     // Длина строки не равняется 64 символа !
-
+ 
 }
 ```
  
