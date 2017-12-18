@@ -94,19 +94,22 @@ $arr = json_decode($json, true);
 // Получаем public_key из запроса и по нему находим в своей базе user_key
 $public_key = base64_decode($arr["public_key"]);
 
-// Получаем user_key из базы данных
-$private_key = "";
+// Проверяем длину строки. Должна быть 64 символа.
+if (strlen($public_key) == 64) {
 
-// Расшифровываем
-$decrypt_json = \Defuse\Crypto\Crypto::decrypt(
-    base64_decode($arr["data"]),
-    Key::loadFromAsciiSafeString($private_key)
-);
+    // Получаем user_key из базы данных
+    $private_key = "";
 
-// Преобразование расшифрованного json в массив
-$data = json_decode($decrypt_json, true);
+    // Расшифровываем
+    $decrypt_json = \Defuse\Crypto\Crypto::decrypt(
+        base64_decode($arr["data"]),
+        Key::loadFromAsciiSafeString($private_key)
+    );
 
-echo $data;
+    // Преобразование расшифрованного json в массив
+    $data = json_decode($decrypt_json, true);
+
+    echo $data;
 
 /*
 Array
@@ -118,5 +121,11 @@ Array
     ["server_url"] => URL ответа
 );
 */
+
+} else {
+
+    // Длина строки не равняется 64 символа !
+
+}
 ```
  
