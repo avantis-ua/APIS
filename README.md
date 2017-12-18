@@ -134,6 +134,7 @@
         "status": "200 OK",
         "code": "200",
         "message": "OK"
+	"message_id": "https:\/\/github.com\/pllano\/api-json-db\/blob\/master\/doc\/http-codes\/200.md"
     },
     "response": {
         "auth": "CryptoAuth",
@@ -141,7 +142,7 @@
     },
     "request": {
         "query": "GET",
-        "model": "price",
+        "resource": "price",
         "limit": "10",
         "offset": "0",
         "order": "DESC",
