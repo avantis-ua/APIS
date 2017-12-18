@@ -12,6 +12,6 @@
 }
 ```
 В будущем рассматривается появления таких параметров, например как: 
-- `body`/`memu_items`/`menu_item`/`{arr}`
+- `body`/`memu`/`menu_item`/`{arr}`
 - `body`/`categories`/`category`/`{arr}`
 - и других
