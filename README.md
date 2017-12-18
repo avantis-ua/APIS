@@ -2,7 +2,7 @@
 
 «APIS-2018» — Стандарт обмена информацией между базами данных, торговыми платформами, интернет-магазинами, поставщиками товаров и сторонними платформами через RESTful API интерфейс.
 
-Стандарт «APIS-2018» используют: E-commerce Platform [«API Shop»](https://github.com/API-Shop/api-shop) и база данных на JSON файлах [«API json DB»](https://github.com/pllano/api-json-db) разработки компании PLLANO.com
+Этот стандарт используют: [«API Shop»](https://github.com/API-Shop/api-shop) и база данных [«API json DB»](https://github.com/pllano/api-json-db)
 
 ### `Стандарт APIS-2018 - не является общепринятым !`
 Стандарт является взглядом в будущее и рекомендацией для унификации обмена данными сервер-сервер.
