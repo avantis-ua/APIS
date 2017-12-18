@@ -70,7 +70,7 @@
         "status": 1,
         "delivery": "Novaposhta",
         "delivery_code": "1234567890121",
-        "total_amount": "1005.05",
+        "total_amount": "10501.00",
         "currency_id": "UAH",
         "comment": "Могу принять после 17:00",
         "user": {
