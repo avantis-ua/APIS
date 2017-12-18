@@ -9,8 +9,10 @@
 Для автоматической генерации ключей и шифрования мы рекомендуем использовать библиотеку [defuse/php-encryption](https://github.com/defuse/php-encryption) которой доверяют свыше 1,5 млн. разработчиков.
 #### Пример генерации ключей
 ``` php
+use Defuse\Crypto\Key;
+
 // Генерируем private_key
-$crypto = \Defuse\Crypto\Key::createNewRandomKey();
+$crypto = Key::createNewRandomKey();
 $private_key = $crypto->saveToAsciiSafeString();
 
 echo $private_key;
@@ -47,6 +49,9 @@ $public_key = random_public_key(32);
 
 ### Пример аутентификации и передачи данных через POST запрос клиентом Guzzle
 ``` php
+use Defuse\Crypto\Crypto;
+use GuzzleHttp\Client as Guzzle;
+
 // Вы можете безопасно передавать любые данные
 $data_arr = [
     'action' => "pay",
@@ -64,7 +69,7 @@ $public_key = ''; // Публичный ключ - идентификатор п
 $private_key = ''; // Ключ шифрования
 
 // Шифруем данные
-$data_post = \Defuse\Crypto\Crypto::encrypt(
+$data_post = Crypto::encrypt(
     $data_json,
     Key::loadFromAsciiSafeString($private_key)
 );
@@ -73,7 +78,7 @@ $data_post = \Defuse\Crypto\Crypto::encrypt(
 $api_uri = "https://example.com/api/v1/json/pay";
 
 // Подключаем Guzzle
-$client = new \GuzzleHttp\Client();
+$client = new Guzzle();
 
 // Отправляем данные
 $response = $client->request('POST', $api_uri, [
@@ -85,7 +90,7 @@ $response = $client->request('POST', $api_uri, [
 ### Получение и обработка данных на стороне REST API
 ``` php
 use Defuse\Crypto\Crypto;
-use Defuse\Crypto\Exception\WrongKeyOrModifiedCiphertextException;
+use Defuse\Crypto\Exception\WrongKeyOrModifiedCiphertextException as cException;
 
 // Полученный вами json массив в теле запроса
 $json = '{public_key: public_key", data: "data"}';
@@ -125,7 +130,7 @@ if (strlen($public_key) == 64) {
         );
         */
 
-    } catch(WrongKeyOrModifiedCiphertextException $ex){
+    } catch(cException $ex){
  
         // Не могу расшифровать данные
  
