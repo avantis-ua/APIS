@@ -65,8 +65,8 @@ $data_arr = [
 $data_json = json_encode($data_arr);
 
 // Взять private_key и public_key из конфигурации
-$public_key = ''; // Публичный ключ - идентификатор пользователя API
-$private_key = ''; // Ключ шифрования
+$public_key = $config->get('public_key'); // Публичный ключ - идентификатор пользователя API
+$private_key = $config->get('private_key'); // Ключ шифрования
 
 // Шифруем данные
 $data_post = Crypto::encrypt(
