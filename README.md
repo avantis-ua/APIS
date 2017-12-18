@@ -26,6 +26,48 @@
 - ресурс `/product` обрабатывает только GET запросы и выдает информацию о товаре.
 - ресурс `/search` обрабатывает только GET запросы и его основная задача обслуживание поисковых запросов.
 
+### URL и типы запросов
+- URL: `https://example.com/{api}/{version}/{resource}/{id}`
+- или
+- URL: `https://{api}.example.com/{version}/{resource}/{id}`
+- `{api}` - директория API по умолчанию `api`
+- `{version}` - версия API по умолчанию `v1`
+- `{resource}` - название ресурса к которому обращаемся. Например price или user.
+- `{id}` - уникальный индефикатор
+- `{param}` - праметры запроса
+#### Необходимо потдерживать запросы: `POST` `GET` `PUT` `PATCH` `DELETE`
+- `POST /{table_name}` Создание записи 
+- `POST /{table_name}/{id}` Ошибка
+- `GET /{table_name}` Список всех записей
+- `GET /{table_name}?{param}` Список всех записей с фильтром по параметрам
+- `GET /{table_name}/{id}` Данные конкретной записи
+- `PUT /{table_name}` Обновить данные записей
+- `PUT /{table_name}/{id}` Обновить данные конкретной записи
+- `PATCH /{table_name}` Обновить данные записей
+- `PATCH /{table_name}/{id}` Обновить данные конкретной записи
+- `DELETE /{table_name}` Удалить все записи
+- `DELETE /{table_name}/{id}` Удалить конкретную запись
+#### Параметры GET запроса
+`?offset={offset}&limit={limit}&order={order}&sort={sort}&key={key}`
+- `{key}` - Ключ доступа к API
+- `{limit}` - Записей на страницу. По умолчанию 10
+- `{offset}` - Страница. По умолчанию 0
+- `{order}` - Тип сортировки. По умолчанию asc
+- `{sort}` - Поле сортировки. По умолчанию id
+- `{*}` - Пользовательский параметр
+#### При использовании только `GET` запросов : Не обязательно !
+Если вы хотите дать возможность обращаться к вашему API только с GET запросами, логика URL должна быть следующей:
+- `GET /_post/{table_name}?{param}` Создание записи 
+- `GET /_post/{table_name}/{id}` Ошибка
+- `GET /_get/{table_name}?{param}` Список всех записей с фильтром по параметрам
+- `GET /_get/{table_name}/{id}` Данные конкретной записи
+- `GET /_put/{table_name}?{param}` Обновить данные записей
+- `GET /_put/{table_name}/{id}?{param}` Обновить данные конкретной записи
+- `GET /_patch/{table_name}?{param}` Обновить данные записей
+- `GET /_patch/{table_name}/{id}?{param}` Обновить данные конкретной записи
+- `GET /_delete/{table_name}` Удалить все записи
+- `GET /_delete/{table_name}/{id}` Удалить конкретную запись
+
 #### Поставщики
 - `/supplier-product` `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Каталог товаров
 - `/supplier-order` `GET`, `POST`, `PUT`, `PATCH` - Заказы
