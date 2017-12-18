@@ -31,7 +31,7 @@
 
 «[LoginPasswordAuth](https://github.com/pllano/APIS-2018/blob/master/doc/LoginPasswordAuth.md)» — реализация базовой Http аутентификации. Пара логин пароль передаются в виде строки `login:password` в `Authorization` заголовке. [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/LoginPasswordAuth.md)
 
-### HttpTokenAut
+### HttpTokenAuth
 «[HttpTokenAuth](https://github.com/pllano/APIS-2018/blob/master/doc/HttpTokenAuth.md)» — реализация аутентификации по токену `HTTP Bearer token`. Для авторизации с помощью токена нужно передать его в `http` заголовке.  [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/HttpTokenAuth.md)
 
 ### QueryKeyAuth
