@@ -16,6 +16,6 @@
 ## message
 Сообщение не предназначено для обработки. Оно предназначено для информирования о реальном состоянии. Вы вольны выводить в нем любую информацию на свое усмотрение.
 ## message_id
-Вы можете не писать свое описание а использовать ссылки на раздел: [`Коды состояния HTTP`](https://github.com/pllano/api-json-db/tree/master/doc/http-codes)
+Вы можете использовать ссылки на раздел: [`Коды состояния HTTP`](https://github.com/pllano/api-json-db/tree/master/doc/http-codes)
 
 `URL`: https://github.com/pllano/api-json-db/blob/master/doc/http-codes/{code}.md
