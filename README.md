@@ -21,77 +21,37 @@
 ### 1. Адреса ресурсов и типы запросов с которыми работает [API Shop](https://github.com/API-Shop/api-shop) должны быть одинаковыми
 
 Например:
-
-ресурс `/price` обрабатывает только GET запросы и выдает информацию о товаре, ценах и наличии.
-
-ресурс `/search` обрабатывает только GET запросы и его основная задача обслуживание поисковых запросов.
+- ресурс `/price` обрабатывает только GET запросы и выдает информацию о товаре, ценах и наличии.
+- ресурс `/search` обрабатывает только GET запросы и его основная задача обслуживание поисковых запросов.
 
 #### Поставщики
-
-Каталог товаров - `/supplier-product` `GET`, `POST`, `PUT`, `PATCH`, `DELETE`
-
-Цена товара - product->price
-
-Наличие товара - `product->available` или `product->stock`
-
-Описание товара (Тексты) `product->description` и `description->text`
-
-Характеристики товара (Свойства) - `product->params->param` и `params->param`
-
-Изображения товара (Картинки) - `product->images->image` и `images->image`
-
-Заказы - `/supplier-order` `GET`, `POST`, `PUT`, `PATCH`
-
-Дилеры - `/supplier-seller` `GET`, `POST`, `PUT`, `PATCH`
-
+- `/supplier-product` `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Каталог товаров
+- `/supplier-order` `GET`, `POST`, `PUT`, `PATCH` - Заказы
+- `/supplier-seller` `GET`, `POST`, `PUT`, `PATCH` - Дилеры
 #### Платежные сервисы
-
-Информация о статусе платежа - `/payment` `POST`
-
+- `/payment` `POST` - Информация о статусе платежа
 #### Транспортные компании
-
-Информация о статусе груза - `/delivery` `POST`
-
+- `/delivery` `POST` - Информация о статусе груза
 #### Торговые площадки
-
-Каталог товаров с ценами - `/marketplace-price` `GET`
-
-Заказы покупателей - `/marketplace-order` `GET`, `POST`, `PUT`, `PATCH`
-
+- `/marketplace-price` `GET` - Каталог товаров с ценами
+- `/marketplace-order` `GET`, `POST`, `PUT`, `PATCH` - Заказы покупателей
 #### Сайты работающие на REST API
-
-Конфигурация сайта - `/site` `GET`
-
-Каталог товаров с ценами - `/price` `GET`
-
-Пользователи - `/account` `GET`, `POST`
-
-Заказы покупателей - `/order` `GET`, `POST`
-
-Создание платежей - `/checkout` `GET`, `POST`
-
-Акции - `/discount` `GET`
-
-Категории товаров - `/category` `GET`
-
-Бренды - `/brand` `GET`
-
-Статьи - `/article` `GET`
-
-Категории статей - `/article-category` `GET`
-
-Карта сайта - `/sitemap` `GET`
-
-Экспорт - `/export` `GET`
-
-Отзывы - `/review` `GET`, `POST`
-
-
+- `/site` `GET` - Конфигурация сайта
+- `/price` `GET` - Каталог товаров с ценами
+- `/account` `GET`, `POST` - Пользователи
+- `/order` `GET`, `POST` - Заказы покупателей
+- `/checkout` `GET`, `POST` - Создание платежей
+- `/discount` `GET` - Акции
+- `/category` `GET` - Категории товаров
+- `/brand` `GET` - Бренды
+- `/article` `GET` - Статьи
+- `/article-category` `GET` - Категории статей
+- `/sitemap` `GET` - Карта сайта
+- `/export` `GET` - Экспорт
+- `/review` `GET`, `POST` - Отзывы
 #### Транзитная API сайта работающего на PLLANO API
-
-Информация о статусе платежа - `/payment` `POST`
-
-Информация о статусе груза - `/delivery` `POST`
+- `/payment` `POST` - Информация о статусе платежа
+- `/delivery` `POST` - Информация о статусе груза
 
 ### 2. Структура ответов и запросов к ресурсам должна соответствовать стандарту APIS-2018
 
