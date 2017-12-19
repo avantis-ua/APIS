@@ -25,7 +25,8 @@ $data = [
     'sort' => "created",
     'state' => 1,
     'date_from' => "2017-12-07",
-    'date_to' => "2017-12-14"
+    'date_to' => "2017-12-14",
+    'relations' => "product,user,address"
 ];
 
 // Массив в строку параметров
@@ -84,7 +85,8 @@ print_r($records);
     "sort": "created",
     "state": "1",
     "date_from": "2017-12-07",
-    "date_to": "2017-12-14"
+    "date_to": "2017-12-14",
+    "relations": "product, user, address"
   },
   "body": {
     "items": [{
