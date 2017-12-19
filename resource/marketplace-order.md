@@ -13,8 +13,10 @@
 ``` php
 use GuzzleHttp\Client as Guzzle;
 
-$public_key = $config->get('public_key'); // Взять public_key из конфигурации
+// Взять public_key из конфигурации
+$public_key = $config->get('public_key');
 
+// Наш запрос
 $data = [
     'public_key' => $public_key,
     'limit' => 10,
@@ -27,20 +29,22 @@ $data = [
     'search' => "Ноутбук"
 ];
 
+// Массив в строку параметров
 $data_query = http_build_query($data) . "\n";
 
+// Формируем URL запроса
 $uri = 'https://example.com/api/v1/json/marketplace-order?'.$data_query;
 
+// Подключаем Guzzle
 $client = new Guzzle();
+
+// Отправляем запрос
 $response = $client->request('GET', $uri);
 
+// Получаем тело ответа
 $output = $response->getBody();
 
-// Чистим все что не нужно, иначе json_decode не сможет конвертировать json в массив
-for ($i = 0; $i <= 31; ++$i) {$output = str_replace(chr($i), "", $output);}
-$output = str_replace(chr(127), "", $output);
-if (0 === strpos(bin2hex($output), 'efbbbf')) {$output = substr($output, 3);}
-
+// json в массив
 $records = json_decode($output, true);
 
 if (isset($records['headers']['code'])) {
@@ -55,11 +59,11 @@ if ($records['headers']['code'] == '200') {
 }
 }
 ```
-## Структура данных ответа торговой площадки на `GET` запрос
+## Структура данных ответа торговой площадки на наш `GET` запрос
 ``` php
 print_r($records);
 ```
-Выведет json код ответа
+Вывести на экран json
 ```json
 {
   "header": {
