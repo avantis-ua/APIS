@@ -2,13 +2,13 @@
 ## Склады, точки отгрузки, магазины
 Пример запроса продавца и ответа торговой площадки
 ### Торговая площадка должна потдерживать запросы: `POST` `GET` `PUT`
-- `POST /marketplace-warehouse` Создание склада (точки отгрузки)
-- `POST /marketplace-warehouse/{id}` Ошибка
-- `GET /marketplace-warehouse` Список всех складов (Точек отгрузки)
-- `GET /marketplace-warehouse?{param}` Список всех складов с фильтром по параметрам
-- `GET /marketplace-warehouse/{id}` Данные конкретного склада по `id`
-- `PUT /marketplace-warehouse` Обновить данные складов
-- `PUT /marketplace-warehouse/{id}` Обновить данные конкретного склада по `id`
+- `POST /warehouse` Создание склада (точки отгрузки)
+- `POST /warehouse/{id}` Ошибка
+- `GET /warehouse` Список всех складов (Точек отгрузки)
+- `GET /warehouse?{param}` Список всех складов с фильтром по параметрам
+- `GET /warehouse/{id}` Данные конкретного склада по `id`
+- `PUT /warehouse` Обновить данные складов
+- `PUT /warehouse/{id}` Обновить данные конкретного склада по `id`
 
 ### Пример `GET` запроса с HTTP клиентом Guzzle
 
