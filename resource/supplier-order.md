@@ -78,10 +78,21 @@
         "fname": "Иванов",
         "oname": "Петрович",
         "phone": "380670000001",
-        "email": "user@example.com",
-        "address": "г. Киев, пр. Бажана 12, кв. 75"
+        "email": "user@example.com"
+        },
+		"address": {
+        "country": "Украина",
+        "region": "Киевская область",
+        "postal_code": 0,
+        "city": "Киев",
+        "district": "Позняки",
+		"street": "Бажана",
+		"number": "12а/17",
+		"parade": "0",
+        "floor": "0",
+		"apartment": "75",
+		"additional": "Код на парадном 107"
         }
   }
 }
- 
 ```
