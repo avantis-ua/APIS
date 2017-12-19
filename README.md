@@ -227,10 +227,10 @@
 ## Ресурсы
 Список всех поддерживаемых ресурсов
 
-#### Поставщики
-- [`/supplier-product`](https://github.com/pllano/APIS-2018/blob/master/resource/supplier-product.md) `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Каталог товаров
-- [`/supplier-order`](https://github.com/pllano/APIS-2018/blob/master/resource/supplier-order.md) `GET`, `POST`, `PUT`, `PATCH` - Заказы
-- [`/supplier-seller`](https://github.com/pllano/APIS-2018/blob/master/resource/supplier-seller.md) `GET`, `POST`, `PUT`, `PATCH` - Дилеры
+#### Торговые площадки
+- [`/marketplace-order`](https://github.com/pllano/APIS-2018/blob/master/resource/marketplace-order.md) `GET`, `POST`, `PUT`, `PATCH` - Заказы покупателей
+- [`/marketplace-warehouse`](https://github.com/pllano/APIS-2018/blob/master/resource/marketplace-warehouse.md) `GET`, `POST`, `PUT`, `PATCH` - Склады, точки отгрузки, магазины
+- [`/marketplace-price`](https://github.com/pllano/APIS-2018/blob/master/resource/marketplace-price.md) `GET` - Каталог товаров с ценами
 
 #### Платежные сервисы
 - [`/payment`](https://github.com/pllano/APIS-2018/blob/master/resource/payment.md) `POST` - Информация о статусе платежа
@@ -238,10 +238,10 @@
 #### Транспортные компании
 - [`/delivery`](https://github.com/pllano/APIS-2018/blob/master/resource/delivery.md) `POST` - Информация о статусе груза
 
-#### Торговые площадки
-- [`/marketplace-price`](https://github.com/pllano/APIS-2018/blob/master/resource/marketplace-price.md) `GET` - Каталог товаров с ценами
-- [`/marketplace-order`](https://github.com/pllano/APIS-2018/blob/master/resource/marketplace-order.md) `GET`, `POST`, `PUT`, `PATCH` - Заказы покупателей
-- [`/marketplace-warehouse`](https://github.com/pllano/APIS-2018/blob/master/resource/marketplace-warehouse.md) `GET`, `POST`, `PUT`, `PATCH` - Склады, точки отгрузки, магазины
+#### Поставщики
+- [`/supplier-product`](https://github.com/pllano/APIS-2018/blob/master/resource/supplier-product.md) `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Каталог товаров
+- [`/supplier-order`](https://github.com/pllano/APIS-2018/blob/master/resource/supplier-order.md) `GET`, `POST`, `PUT`, `PATCH` - Заказы
+- [`/supplier-seller`](https://github.com/pllano/APIS-2018/blob/master/resource/supplier-seller.md) `GET`, `POST`, `PUT`, `PATCH` - Дилеры
 
 #### Сайты работающие через API
 - [`/site`](https://github.com/pllano/APIS-2018/blob/master/resource/site.md) `GET` - Конфигурация сайта
