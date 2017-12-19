@@ -46,6 +46,7 @@ $output = $response->getBody();
 // json в массив
 $records = json_decode($output, true);
 
+// Работаем с массивом
 if (isset($records['headers']['code'])) {
 if ($records['headers']['code'] == '200') {
 	$count = count($records['body']['items']);
