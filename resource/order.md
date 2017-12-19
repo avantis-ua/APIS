@@ -2,12 +2,12 @@
 Пример запроса продавца и ответа торговой площадки
 ### Торговая площадка должна потдерживать запросы: `POST` `GET` `PUT`
 - `POST /order` Создание заказа 
-- `POST /order/{id}` Ошибка
+- `POST /order/{order_id}` Ошибка
 - `GET /order` Список всех заказов
 - `GET /order?{param}` Список всех заказов с фильтром по параметрам
-- `GET /order/{id}` Данные конкретного заказа по `id`
+- `GET /order/{order_id}` Данные конкретного заказа по `order_id`
 - `PUT /order` Обновить данные заказов
-- `PUT /order/{id}` Обновить данные конкретного заказа по `id`
+- `PUT /order/{order_id}` Обновить данные конкретного заказа по `order_id`
 
 ### Пример `GET` запроса с HTTP клиентом Guzzle
 
@@ -82,7 +82,7 @@ print_r($records);
   },
   "request": {
     "query": "GET",
-    "resource": "orders",
+    "resource": "order",
     "limit": "10",
     "offset": "0",
     "order": "DESC",
