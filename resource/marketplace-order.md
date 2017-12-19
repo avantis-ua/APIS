@@ -31,7 +31,7 @@ $data = [
     'relations' => "product,user,address"
 ];
 
-// Массив в строку параметров
+// Массив в URL-кодированную строку запроса
 $data_query = http_build_query($data) . "\n";
 
 // Формируем URL запроса
