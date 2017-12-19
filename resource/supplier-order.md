@@ -80,7 +80,7 @@
         "phone": "380670000001",
         "email": "user@example.com"
         },
-		"address": {
+        "address": {
         "country": "Украина",
         "region": "Киевская область",
         "postal_code": 0,
