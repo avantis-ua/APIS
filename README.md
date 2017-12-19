@@ -130,15 +130,15 @@
 ### Параметр `relations`
 `relations` - Очень важный параметр запроса позволяющий получать в ответе необходимые данные из других связанных ресурсов.
 
-Сами ресурсы перечисляем через запятую `'product','user','address'`
+Сами ресурсы перечисляем через запятую `'product','user','address'` экранируя одинарными кавычками
 ```
-'relations' => "'product','user','address'"
+"relations" => "'product','user','address'"
 ```
 
-Если необходимо запросить конкретные данные указываем их через двуеточие `'user':'phone'` если нужно несколько через запятую `'product':'type_id,brand_id,serie_id,articul'`
+Если необходимо запросить конкретные данные указываем их через двуеточие `'user:phone'` если нужно несколько через запятую `'product:type_id,brand_id,serie_id,articul'`
 
 ```
-'relations' => "'product':'type_id,brand_id,serie_id,articul','user':'phone','address':'street_id'"
+"relations" => "'product:type_id,brand_id,serie_id,articul','user:phone','address:street_id'"
 ```
 
 В нашем запросе к ресурсу `order` мы хотим дополнительно получить: 
@@ -151,32 +151,32 @@
 use GuzzleHttp\Client as Guzzle;
 
 // Взять public_key из конфигурации
-$public_key = $config->get('public_key');
+$public_key = $config->get("public_key");
 
 // Наш запрос
 $data = [
-    'public_key' => $public_key,
-    'limit' => 10,
-    'offset' => 0,
-    'order' => "DESC",
-    'sort' => "created",
-    'state' => 1,
-    'date_from' => "2017-12-07",
-    'date_to' => "2017-12-14",
-    'relations' => "'product','user','address'"
+    "public_key" => $public_key,
+    "limit" => 10,
+    "offset" => 0,
+    "order" => "DESC",
+    "sort" => "created",
+    "state" => 1,
+    "date_from" => "2017-12-07",
+    "date_to" => "2017-12-14",
+    "relations" => "'product','user','address'"
 ];
 
 // Массив в URL-кодированную строку запроса
 $data_query = http_build_query($data) . "\n";
 
 // Формируем URL запроса
-$uri = 'https://example.com/api/v1/json/order?'.$data_query;
+$uri = "https://example.com/api/v1/json/order?".$data_query;
 
 // Подключаем Guzzle
 $client = new Guzzle();
 
 // Отправляем запрос
-$response = $client->request('GET', $uri);
+$response = $client->request("GET", $uri);
 
 // Получаем тело ответа
 $output = $response->getBody();
@@ -185,13 +185,13 @@ $output = $response->getBody();
 $records = json_decode($output, true);
 
 // Работаем с массивом
-if (isset($records['headers']['code'])) {
-if ($records['headers']['code'] == '200') {
-	$count = count($records['body']['items']);
+if (isset($records["headers"]["code"])) {
+if ($records["headers"]["code"] == 200) {
+	$count = count($records["body"]["items"]);
 	if ($count >= 1) {
-		foreach($records['body']['items'] as $item)
+		foreach($records["body"]["items"] as $item)
 		{
-			print_r($item['item']);
+			print_r($item["item"]);
 		}
 	}
 }
