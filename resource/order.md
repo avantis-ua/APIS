@@ -62,6 +62,8 @@ if ($records['headers']['code'] == '200') {
 }
 }
 
+```
+``` php
 // Вывести на экран json
 print_r($records);
 ```
@@ -213,7 +215,8 @@ if (isset($records["headers"]["code"])) {
 	// выведет: Киев, Бажана 12а/17
     }
 }
-
+```
+``` php
 // Вывести на экран json
 print_r($records);
 ```
