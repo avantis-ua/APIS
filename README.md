@@ -63,9 +63,9 @@
 - `GET /_delete/{resource}/{id}` Удалить конкретную запись
 
 ## Ресурсы
-Список всех поддерживаемых ресурсов
-#### Вы можете использовать только необходимые вам ресурсы
-- [`/seller`](https://github.com/pllano/APIS-2018/blob/master/resource/seller.md) `GET`, `POST`, `PUT`, `PATCH` - Продавцы
+### Список всех поддерживаемых ресурсов
+Использование всех ресурсов не является обязательным. Вы можете использовать только необходимые вам ресурсы.
+
 - [`/order`](https://github.com/pllano/APIS-2018/blob/master/resource/order.md) `GET`, `POST`, `PUT`, `PATCH` - Заказы покупателей
 - [`/warehouse`](https://github.com/pllano/APIS-2018/blob/master/resource/warehouse.md) `GET`, `POST`, `PUT`, `PATCH` - Склады, точки отгрузки, магазины
 - [`/delivery`](https://github.com/pllano/APIS-2018/blob/master/resource/delivery.md) `POST` - Информация о статусе груза
@@ -84,6 +84,7 @@
 - [`/article`](https://github.com/pllano/APIS-2018/blob/master/resource/article.md) `GET` - Статьи
 - [`/article-category`](https://github.com/pllano/APIS-2018/blob/master/resource/article-category.md) `GET` - Категории статей
 - [`/site`](https://github.com/pllano/APIS-2018/blob/master/resource/site.md) `GET` - Конфигурация сайта
+- [`/seller`](https://github.com/pllano/APIS-2018/blob/master/resource/seller.md) `GET`, `POST`, `PUT`, `PATCH` - Продавцы
 
 ### 2. Структура ответов и запросов к ресурсам должна соответствовать стандарту APIS-2018
 
