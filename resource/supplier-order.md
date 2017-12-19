@@ -31,35 +31,35 @@
         "products": [
            {
              "product": {
-             "product_id": "2001500",
-             "status": 1,
-             "name": "Type BrendName SerieName Articul",
-             "price": "2500.50",
-             "oldprice": "2500.50",
-             "num": 2,
-             "available": 20,
-             "total_price": "5001.00",
-             "currency_id": "UAH",
-             "guarantee": 24,
-             "pay_online": 1
+               "product_id": "2001500",
+               "status": 1,
+               "name": "Type BrendName SerieName Articul",
+               "price": "2500.50",
+               "oldprice": "2500.50",
+               "num": 2,
+               "available": 20,
+               "total_price": "5001.00",
+               "currency_id": "UAH",
+               "guarantee": 24,
+               "pay_online": 1
              }
            }, {
              "product": {
-             "product_id": "1000120",
-             "status": 1,
-             "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
-             "type": "Ноутбук",
-             "brand": "Asus",
-             "type": "X751NV",
-             "articul": "(X751NV-TY001) Black",
-             "price": "5750.50",
-             "oldprice": "5500.00",
-             "num": 1,
-             "available": 5,
-             "total_price": "5500.00",
-             "currency_id": "UAH",
-             "guarantee": 36,
-             "pay_online": 1
+               "product_id": "1000120",
+               "status": 1,
+               "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
+               "type": "Ноутбук",
+               "brand": "Asus",
+               "type": "X751NV",
+               "articul": "(X751NV-TY001) Black",
+               "price": "5750.50",
+               "oldprice": "5500.00",
+               "num": 1,
+               "available": 5,
+               "total_price": "5500.00",
+               "currency_id": "UAH",
+               "guarantee": 36,
+               "pay_online": 1
              }
            }
         ]
@@ -74,24 +74,24 @@
         "currency_id": "UAH",
         "comment": "Могу принять после 17:00",
         "user": {
-        "iname": "Юрий",
-        "fname": "Иванов",
-        "oname": "Петрович",
-        "phone": "380670000001",
-        "email": "user@example.com"
+          "iname": "Юрий",
+          "fname": "Иванов",
+          "oname": "Петрович",
+          "phone": "380670000001",
+          "email": "user@example.com"
         },
         "address": {
-        "country": "Украина",
-        "region": "Киевская область",
-        "postal_code": 0,
-        "city": "Киев",
-        "district": "Позняки",
-	"street": "Бажана",
-	"number": "12а/17",
-	"parade": "0",
-        "floor": "0",
-	"apartment": "75",
-	"additional": "Код на парадном 107"
+          "country": "Украина",
+          "region": "Киевская область",
+          "postal_code": 0,
+          "city": "Киев",
+          "district": "Позняки",
+	  "street": "Бажана",
+	  "number": "12а/17",
+	  "parade": "0",
+          "floor": "0",
+	  "apartment": "75",
+	  "additional": "Код на парадном 107"
         }
   }
 }
