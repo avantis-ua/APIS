@@ -65,6 +65,57 @@ if ($records['headers']['code'] == '200') {
 // Вывести на экран json
 print_r($records);
 ```
+### Получить данные заказа по `order_id`
+
+``` php
+use GuzzleHttp\Client as Guzzle;
+
+// Взять public_key из конфигурации
+$public_key = $config->get('public_key');
+
+// Получить id заказа в своей базе
+$order_id = 10;
+
+// Строка запроса
+$data = [
+    'public_key' => $public_key,
+    'relations' => "product,user,address"
+];
+
+// Массив в URL-кодированную строку запроса
+$data_query = http_build_query($data) . "\n";
+
+// Формируем URL запроса
+$uri = 'https://example.com/api/v1/json/order/'.$order_id.'?'.$data_query;
+
+// Подключаем Guzzle
+$client = new Guzzle();
+
+// Отправляем запрос
+$response = $client->request('GET', $uri);
+
+// Получаем тело ответа
+$output = $response->getBody();
+
+// json в массив
+$records = json_decode($output, true);
+
+// Работаем с массивом
+if (isset($records['headers']['code'])) {
+if ($records['headers']['code'] == '200') {
+	$count = count($records['body']['items']);
+	if ($count >= 1) {
+		foreach($records['body']['items'] as $item)
+		{
+			print_r($item['item']);
+		}
+	}
+}
+}
+
+// Вывести на экран json
+print_r($records);
+```
 ## Структура ответа торговой площадки на наш `GET` запрос в json формате
 ```json
 {
