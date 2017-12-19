@@ -83,7 +83,7 @@ print_r($records);
     "message_id": "https:\/\/github.com\/pllano\/api-json-db\/blob\/master\/doc\/http-codes\/200.md"
   },
   "response": {
-    "auth": "CryptoAuth",
+    "auth": "QueryKeyAuth",
     "total": "10"
   },
   "request": {
