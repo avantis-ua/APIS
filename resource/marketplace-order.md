@@ -1,5 +1,79 @@
 # marketplace-order
-## Структура данных заказа на торговой площадке
+
+## URL и типы запросов
+- URL: `https://example.com/{api}/{version}/{type}/marketplace-order/{id}`
+- или
+- URL: `https://{api}.example.com/{version}/{type}/marketplace-order/{id}`
+- `{api}` - директория API по умолчанию `api`
+- `{version}` - версия API по умолчанию `v1`
+- `{type}` - тип данных `json`
+- `{resource}` - `marketplace-order`
+- `{id}` - уникальный индефикатор
+- `{param}` - праметры запроса
+### Необходимо потдерживать запросы: `POST` `GET` `PUT` `PATCH` `DELETE`
+- `POST /marketplace-order` Создание заказа 
+- `POST /marketplace-order/{id}` Ошибка
+- `GET /marketplace-order` Список всех заказов
+- `GET /marketplace-order?{param}` Список всех заказов с фильтром по параметрам
+- `GET /marketplace-order/{id}` Данные конкретного заказа по `id`
+- `PUT /marketplace-order` Обновить данные заказов
+- `PUT /marketplace-order/{id}` Обновить данные конкретного заказа по `id`
+- `PATCH /marketplace-order` Обновить данные заказов
+- `PATCH /marketplace-order/{id}` Обновить данные конкретного заказа по `id`
+- `DELETE /marketplace-order` Удалить все заказы
+- `DELETE /marketplace-order/{id}` Удалить конкретный заказ
+
+### Пример `GET` запроса с HTTP клиентом Guzzle
+``` php
+use GuzzleHttp\Client as Guzzle;
+
+$public_key = $config->get('public_key'); // Взять public_key из конфигурации
+
+$data = [
+    'public_key' => $public_key,
+    'limit' => 10,
+    'offset' => 0,
+    'order' => "DESC",
+    'sort' => "created",
+    'state' => 1,
+    'date_from' => "2017-12-07",
+    'date_to' => "2017-12-14",
+    'search' => "Ноутбук"
+];
+
+$data_query = http_build_query($data) . "\n";
+
+$uri = 'https://example.com/api/v1/json/marketplace-order'.$data_query;
+
+$client = new Guzzle();
+$response = $client->request('GET', $uri);
+
+$output = $response->getBody();
+
+// Чистим все что не нужно, иначе json_decode не сможет конвертировать json в массив
+for ($i = 0; $i <= 31; ++$i) {$output = str_replace(chr($i), "", $output);}
+$output = str_replace(chr(127), "", $output);
+if (0 === strpos(bin2hex($output), 'efbbbf')) {$output = substr($output, 3);}
+
+$records = json_decode($output, true);
+
+if (isset($records['headers']['code'])) {
+if ($records['headers']['code'] == '200') {
+	$count = count($records['body']['items']);
+	if ($count >= 1) {
+		foreach($records['body']['items'] as $item)
+		{
+			print_r($item['item']);
+		}
+	}
+}
+}
+```
+## Структура данных ответа торговой площадки на `GET` запрос
+``` php
+print_r($records);
+```
+Выведет json код ответа
 ```json
 {
   "header": {
