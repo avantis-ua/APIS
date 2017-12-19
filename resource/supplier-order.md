@@ -86,12 +86,12 @@
         "postal_code": 0,
         "city": "Киев",
         "district": "Позняки",
-		"street": "Бажана",
-		"number": "12а/17",
-		"parade": "0",
+	"street": "Бажана",
+	"number": "12а/17",
+	"parade": "0",
         "floor": "0",
-		"apartment": "75",
-		"additional": "Код на парадном 107"
+	"apartment": "75",
+	"additional": "Код на парадном 107"
         }
   }
 }
