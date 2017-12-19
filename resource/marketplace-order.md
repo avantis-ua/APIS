@@ -1,16 +1,6 @@
 # marketplace-order
 
-## URL и типы запросов
-- URL: `https://example.com/{api}/{version}/{type}/marketplace-order/{id}`
-- или
-- URL: `https://{api}.example.com/{version}/{type}/marketplace-order/{id}`
-- `{api}` - директория API по умолчанию `api`
-- `{version}` - версия API по умолчанию `v1`
-- `{type}` - тип данных `json`
-- `{resource}` - `marketplace-order`
-- `{id}` - уникальный индефикатор
-- `{param}` - праметры запроса
-### Необходимо потдерживать запросы: `POST` `GET` `PUT` `PATCH` `DELETE`
+### Необходимо потдерживать запросы: `POST` `GET` `PUT`
 - `POST /marketplace-order` Создание заказа 
 - `POST /marketplace-order/{id}` Ошибка
 - `GET /marketplace-order` Список всех заказов
@@ -18,10 +8,6 @@
 - `GET /marketplace-order/{id}` Данные конкретного заказа по `id`
 - `PUT /marketplace-order` Обновить данные заказов
 - `PUT /marketplace-order/{id}` Обновить данные конкретного заказа по `id`
-- `PATCH /marketplace-order` Обновить данные заказов
-- `PATCH /marketplace-order/{id}` Обновить данные конкретного заказа по `id`
-- `DELETE /marketplace-order` Удалить все заказы
-- `DELETE /marketplace-order/{id}` Удалить конкретный заказ
 
 ### Пример `GET` запроса с HTTP клиентом Guzzle
 ``` php
@@ -43,7 +29,7 @@ $data = [
 
 $data_query = http_build_query($data) . "\n";
 
-$uri = 'https://example.com/api/v1/json/marketplace-order'.$data_query;
+$uri = 'https://example.com/api/v1/json/marketplace-order?'.$data_query;
 
 $client = new Guzzle();
 $response = $client->request('GET', $uri);
