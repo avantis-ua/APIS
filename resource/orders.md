@@ -1,13 +1,13 @@
-# Заказы на торговой площадке `marketplace-order`
+# Заказы на торговой площадке `orders`
 Пример запроса продавца и ответа торговой площадки
 ### Торговая площадка должна потдерживать запросы: `POST` `GET` `PUT`
-- `POST /marketplace-order` Создание заказа 
-- `POST /marketplace-order/{id}` Ошибка
-- `GET /marketplace-order` Список всех заказов
-- `GET /marketplace-order?{param}` Список всех заказов с фильтром по параметрам
-- `GET /marketplace-order/{id}` Данные конкретного заказа по `id`
-- `PUT /marketplace-order` Обновить данные заказов
-- `PUT /marketplace-order/{id}` Обновить данные конкретного заказа по `id`
+- `POST /orders` Создание заказа 
+- `POST /orders/{id}` Ошибка
+- `GET /orders` Список всех заказов
+- `GET /orders?{param}` Список всех заказов с фильтром по параметрам
+- `GET /orders/{id}` Данные конкретного заказа по `id`
+- `PUT /orders` Обновить данные заказов
+- `PUT /orders/{id}` Обновить данные конкретного заказа по `id`
 
 ### Пример `GET` запроса с HTTP клиентом Guzzle
 
@@ -35,7 +35,7 @@ $data = [
 $data_query = http_build_query($data) . "\n";
 
 // Формируем URL запроса
-$uri = 'https://example.com/api/v1/json/marketplace-order?'.$data_query;
+$uri = 'https://example.com/api/v1/json/orders?'.$data_query;
 
 // Подключаем Guzzle
 $client = new Guzzle();
@@ -80,7 +80,7 @@ print_r($records);
   },
   "request": {
     "query": "GET",
-    "resource": "supplier-order",
+    "resource": "orders",
     "limit": "10",
     "offset": "0",
     "order": "DESC",
