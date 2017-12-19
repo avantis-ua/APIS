@@ -198,15 +198,12 @@ $records = json_decode($output, true);
 
 // Работаем с массивом
 if (isset($records['headers']['code'])) {
-if ($records['headers']['code'] == '200') {
-	$count = count($records['body']['items']);
-	if ($count >= 1) {
-		foreach($records['body']['items'] as $item)
-		{
-			print_r($item['item']);
-		}
-	}
-}
+    if ($records['headers']['code'] == '200') {
+        $order = $records['body']['items']['item'];
+	
+        echo $order['order_id']; // выведет: 10
+        echo $order['user']['fname'].' '.$order['user']['iname']; // выведет: Иванов Юрий
+    }
 }
 
 // Вывести на экран json
@@ -234,7 +231,7 @@ print_r($records);
   "body": {
     "items": [{
       "item": {
-        "id": "10",
+        "order_id": "10",
         "created": "2017-12-11 10:30",
         "status": 1,
         "delivery": "Novaposhta",
