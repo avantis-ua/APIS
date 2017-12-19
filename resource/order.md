@@ -197,12 +197,20 @@ $output = $response->getBody();
 $records = json_decode($output, true);
 
 // Работаем с массивом
-if (isset($records['headers']['code'])) {
-    if ($records['headers']['code'] == '200') {
-        $order = $records['body']['items']['item'];
+if (isset($records["headers"]["code"])) {
+    if ($records["headers"]["code"] == 200) {
+	// Присвоим значения
+        $order = $records["body"]["items"]["item"];
+	$user = $records["body"]["items"]["item"]["user"];
+	$address = $records["body"]["items"]["item"]["address"];
+	$products = $records["body"]["items"]["item"]["products"];
 	
-        echo $order['order_id']; // выведет: 10
-        echo $order['user']['fname'].' '.$order['user']['iname']; // выведет: Иванов Юрий
+        echo $order["order_id"];
+	// выведет: 10
+        echo $user["fname"].' '.$user["iname'];
+	// выведет: Иванов Юрий
+	echo $address["city"].', '.$address["street'].' '.$address["number'];
+	// выведет: Киев, Бажана 12а/17
     }
 }
 
