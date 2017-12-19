@@ -147,8 +147,8 @@ print_r($records);
         "currency_id": "UAH",
         "comment": "Могу принять после 17:00",
         "user": {
-          "iname": "Юрий",
           "fname": "Иванов",
+          "iname": "Юрий",
           "oname": "Петрович",
           "phone": "380670000001",
           "email": "user@example.com"
