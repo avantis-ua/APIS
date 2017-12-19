@@ -130,15 +130,15 @@
 ### Параметр `relations`
 `relations` - Очень важный параметр запроса позволяющий получать в ответе необходимые данные из других связанных ресурсов.
 
-Сами ресурсы перечисляем через запятую `'product','user','address'` экранируя одинарными кавычками
+Сами ресурсы перечисляем через точку `'product'.'user'.'address'` экранируя одинарными кавычками
 ```
-"relations" => "'product','user','address'"
+"relations" => "'product'.'user'.'address'"
 ```
 
 Если необходимо запросить конкретные данные указываем их через двуеточие `'user:phone'` если нужно несколько через запятую `'product:type_id,brand_id,serie_id,articul'`
 
 ```
-"relations" => "'product:type_id,brand_id,serie_id,articul','user:phone','address:street_id'"
+"relations" => "'product:type_id,brand_id,serie_id,articul'.'user:phone'.'address:street_id'"
 ```
 
 В нашем запросе к ресурсу `order` мы хотим дополнительно получить: 
@@ -163,7 +163,7 @@ $data = [
     "state" => 1,
     "date_from" => "2017-12-07",
     "date_to" => "2017-12-14",
-    "relations" => "'product','user','address'"
+    "relations" => "'product'.'user'.'address'"
 ];
 
 // Массив в URL-кодированную строку запроса
