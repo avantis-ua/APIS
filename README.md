@@ -129,103 +129,166 @@
 }
 ```
 
-### Структура ответа API
+### Параметр `relations`
+`relations` - Очень важный параметр запроса позволяющий получать в ответе необходимые данные из связанных с этим ресурсом других ресурсов. 
+
+В нашем запросе к ресурсу `order` мы хотим дополнительно получить: 
+- `product` - товары в заказе
+- `user` - данные покупателя
+- `address` -  данные адреса покупателя
+
+### Пример `GET` запроса к ресурсу `order` через HTTP клиент Guzzle
+``` php
+use GuzzleHttp\Client as Guzzle;
+
+// Взять public_key из конфигурации
+$public_key = $config->get('public_key');
+
+// Наш запрос
+$data = [
+    'public_key' => $public_key,
+    'limit' => 10,
+    'offset' => 0,
+    'order' => "DESC",
+    'sort' => "created",
+    'state' => 1,
+    'date_from' => "2017-12-07",
+    'date_to' => "2017-12-14",
+    'relations' => "product,user,address"
+];
+
+// Массив в URL-кодированную строку запроса
+$data_query = http_build_query($data) . "\n";
+
+// Формируем URL запроса
+$uri = 'https://example.com/api/v1/json/order?'.$data_query;
+
+// Подключаем Guzzle
+$client = new Guzzle();
+
+// Отправляем запрос
+$response = $client->request('GET', $uri);
+
+// Получаем тело ответа
+$output = $response->getBody();
+
+// json в массив
+$records = json_decode($output, true);
+
+// Работаем с массивом
+if (isset($records['headers']['code'])) {
+if ($records['headers']['code'] == '200') {
+	$count = count($records['body']['items']);
+	if ($count >= 1) {
+		foreach($records['body']['items'] as $item)
+		{
+			print_r($item['item']);
+		}
+	}
+}
+}
+
+```
+``` php
+// Вывести на экран json
+print_r($records);
+```
+### Структура ответа торговой площадки на наш `GET` запрос в json формате
 ```json
 {
-    "header": {
-        "status": "200 OK",
-        "code": "200",
-        "message": "OK",
-	"message_id": "https:\/\/github.com\/pllano\/api-json-db\/blob\/master\/doc\/http-codes\/200.md"
-    },
-    "response": {
-        "auth": "CryptoAuth",
-        "total": "100"
-    },
-    "request": {
-        "query": "GET",
-        "resource": "price",
-        "limit": "10",
-        "offset": "0",
-        "order": "DESC",
-        "sort": "id",
-        "state": "1",
-        "type": "",
-        "brand": "",
-        "serie": "",
-        "articul": "",
-        "brand_id": "",
-        "product_id": "",
-        "search": ""
-    },
-    "head": {
-        "meta": "",
-        "link": "",
-        "script": ""
-    },
-    "body": {
-        "items": [
-            {
-                "item": {
-                    "id": "",
-                    "product_id": "",
-                    "parent_id": "",
-                    "brand_id": "",
-                    "price": "",
-                    "oldprice": "",
-                    "available": "",
-                    "guarantee": "",
-                    "ean": "",
-                    "category": {
-                        "id": "",
-                        "parent_id": "",
-                        "name": "",
-                        "alias": ""
-                    },
-                    "supplier": {
-                        "id": "",
-                        "dropshipping": "",
-                        "pay_online": ""
-                    },
-                    "seller": {
-                        "id": "",
-                        "name": ""
-                    },
-                    "delivery": {
-                        "terms": ""
-                    },
-                    "currency": {
-                        "currency_id": "UAH",
-                        "short_sign": "₴",
-                        "name": "грн.",
-                    },
-                    "name": "",
-                    "type": "",
-                    "brand": "",
-                    "serie": "",
-                    "articul": "",
-                    "url": "",
-                    "image": {
-                        "1": "",
-                        "2": ""
-                    },
-                    "description": "-",
-                    "param": {
-                        "Гарантия": "12 месяцев",
-                        "Страна производитель": "Украина"
-                    }
-		}
-            }
-         ]
-    },
-    "footer": {
-        "html": "",
-        "link": "",
-        "script": ""
-    }
+  "header": {
+    "status": "200 OK",
+    "code": "200",
+    "message": "OK",
+    "message_id": "https:\/\/github.com\/pllano\/api-json-db\/blob\/master\/doc\/http-codes\/200.md"
+  },
+  "response": {
+    "auth": "QueryKeyAuth",
+    "total": "10"
+  },
+  "request": {
+    "query": "GET",
+    "resource": "order",
+    "limit": "10",
+    "offset": "0",
+    "order": "DESC",
+    "sort": "created",
+    "state": "1",
+    "date_from": "2017-12-07",
+    "date_to": "2017-12-14",
+    "relations": "product, user, address"
+  },
+  "body": {
+    "items": [{
+      "item": {
+        "id": "1234567890",
+        "created": "2017-12-11 10:30",
+        "status": 1,
+        "delivery": "Novaposhta",
+        "delivery_code": "1234567890121",
+        "total_amount": "10501.00",
+        "currency_id": "UAH",
+        "comment": "Могу принять после 17:00",
+        "user": {
+          "fname": "Иванов",
+          "iname": "Юрий",
+          "oname": "Петрович",
+          "phone": "380670000001",
+          "email": "user@example.com"
+        },
+        "address": {
+          "country": "Украина",
+          "region": "Киевская область",
+          "postal_code": 0,
+          "city": "Киев",
+          "district": "Позняки",
+	  "street": "Бажана",
+	  "number": "12а/17",
+	  "parade": "0",
+          "floor": "0",
+	  "apartment": "75",
+	  "additional": "Код на парадном 107"
+        },
+        "products": [
+           {
+             "product": {
+               "product_id": "2001500",
+               "status": 1,
+               "name": "Type BrendName SerieName Articul",
+               "price": "2500.50",
+               "oldprice": "2500.50",
+               "num": 2,
+               "available": 20,
+               "total_price": "5001.00",
+               "currency_id": "UAH",
+               "guarantee": 24,
+               "pay_online": 1
+             }
+           }, {
+             "product": {
+               "product_id": "1000120",
+               "status": 1,
+               "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
+               "type": "Ноутбук",
+               "brand": "Asus",
+               "type": "X751NV",
+               "articul": "(X751NV-TY001) Black",
+               "price": "5750.50",
+               "oldprice": "5500.00",
+               "num": 1,
+               "available": 5,
+               "total_price": "5500.00",
+               "currency_id": "UAH",
+               "guarantee": 36,
+               "pay_online": 1
+             }
+           }
+        ]
+      }
+    }]
+  }
 }
 ```
-
 ## Аутентификация
 Вы должны поддерживать один из нижеуказанных методов аутентификации.
 
