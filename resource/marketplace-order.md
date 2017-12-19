@@ -10,6 +10,8 @@
 - `PUT /marketplace-order/{id}` Обновить данные конкретного заказа по `id`
 
 ### Пример `GET` запроса с HTTP клиентом Guzzle
+
+В параметре `relations` - мы указываем какие связанные данные получить,в нашем случае: `product` `user` `address`
 ``` php
 use GuzzleHttp\Client as Guzzle;
 
