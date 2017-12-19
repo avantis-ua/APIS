@@ -65,7 +65,6 @@
 ## Ресурсы
 ### Список всех поддерживаемых ресурсов
 Использование всех ресурсов не является обязательным. Вы можете использовать только необходимые вам ресурсы.
-
 - [`/order`](https://github.com/pllano/APIS-2018/blob/master/resource/order.md) `GET`, `POST`, `PUT`, `PATCH` - Заказы покупателей
 - [`/user`](https://github.com/pllano/APIS-2018/blob/master/resource/user.md) `GET`, `POST` - Пользователи
 - [`/price`](https://github.com/pllano/APIS-2018/blob/master/resource/price.md) `GET` - Каталог товаров продавца
@@ -74,7 +73,6 @@
 - [`/pay`](https://github.com/pllano/APIS-2018/blob/master/resource/pay.md) `GET` - Платежи
 - [`/checkout`](https://github.com/pllano/APIS-2018/blob/master/resource/checkout.md) `GET`, `POST` - Создание платежей
 - [`/payment`](https://github.com/pllano/APIS-2018/blob/master/resource/payment.md) `POST` - Информация о статусе платежа
-
 - [`/price-list`](https://github.com/pllano/APIS-2018/blob/master/resource/price-list.md) `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Каталог товаров от поставщиков
 - [`/discount`](https://github.com/pllano/APIS-2018/blob/master/resource/discount.md) `GET` - Акции
 - [`/category`](https://github.com/pllano/APIS-2018/blob/master/resource/category.md) `GET` - Категории товаров
