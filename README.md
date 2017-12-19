@@ -100,22 +100,6 @@
 - [`body`](https://github.com/pllano/APIS-2018/blob/master/structure/body.md) - тело
 - [`footer`](https://github.com/pllano/APIS-2018/blob/master/structure/footer.md) - подвал (не обязательно)
 
-## Аутентификация
-Вы должны поддерживать один из нижеуказанных методов аутентификации.
-
-### LoginPasswordAuth
-
-[«LoginPasswordAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/LoginPasswordAuth.md) — реализация базовой Http аутентификации. Пара логин пароль передаются в виде строки `login:password` в `Authorization` заголовке. [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/LoginPasswordAuth.md)
-
-### HttpTokenAuth
-[«HttpTokenAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/HttpTokenAuth.md) — реализация аутентификации по токену `HTTP Bearer token`. Для авторизации с помощью токена нужно передать его в `http` заголовке.  [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/HttpTokenAuth.md)
-
-### QueryKeyAuth
-[«QueryKeyAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md) — пожалуй самый простой из имеющихся способов авторизации. Работает по тому-же принципу, что и `HttpTokenAuth`, т.е. идентифицирует пользователя по токену, только в данном случае токен передается в строке запроса, как GET параметр. По умолчанию параметр называется `public_key`. [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md)
-
-### CryptoAuth
-[«CryptoAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/CryptoAuth.md) работает по тому-же принципу, что и [`QueryKeyAuth`](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md), т.е. токен передается как `GET` или `POST` параметр, только в данном случае данные передаются в зашифрованном виде с помощью `private_key` библиотекой [defuse/php-encryption](https://github.com/defuse/php-encryption) или подобной. [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/CryptoAuth.md)
-
 ### Структура ответа API при ошибке аутентификации
 ```json
 {
@@ -244,6 +228,22 @@
     }
 }
 ```
+
+## Аутентификация
+Вы должны поддерживать один из нижеуказанных методов аутентификации.
+
+### LoginPasswordAuth
+
+[«LoginPasswordAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/LoginPasswordAuth.md) — реализация базовой Http аутентификации. Пара логин пароль передаются в виде строки `login:password` в `Authorization` заголовке. [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/LoginPasswordAuth.md)
+
+### HttpTokenAuth
+[«HttpTokenAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/HttpTokenAuth.md) — реализация аутентификации по токену `HTTP Bearer token`. Для авторизации с помощью токена нужно передать его в `http` заголовке.  [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/HttpTokenAuth.md)
+
+### QueryKeyAuth
+[«QueryKeyAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md) — пожалуй самый простой из имеющихся способов авторизации. Работает по тому-же принципу, что и `HttpTokenAuth`, т.е. идентифицирует пользователя по токену, только в данном случае токен передается в строке запроса, как GET параметр. По умолчанию параметр называется `public_key`. [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md)
+
+### CryptoAuth
+[«CryptoAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/CryptoAuth.md) работает по тому-же принципу, что и [`QueryKeyAuth`](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md), т.е. токен передается как `GET` или `POST` параметр, только в данном случае данные передаются в зашифрованном виде с помощью `private_key` библиотекой [defuse/php-encryption](https://github.com/defuse/php-encryption) или подобной. [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/CryptoAuth.md)
 
 ## `Мы ищем единомышленников — Присоединяйтесь!`
 
