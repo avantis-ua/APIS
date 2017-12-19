@@ -116,7 +116,7 @@
 ### CryptoAuth
 [«CryptoAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/CryptoAuth.md) работает по тому-же принципу, что и [`QueryKeyAuth`](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md), т.е. токен передается как `GET` или `POST` параметр, только в данном случае данные передаются в зашифрованном виде с помощью `private_key` библиотекой [defuse/php-encryption](https://github.com/defuse/php-encryption) или подобной. [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/CryptoAuth.md)
 
-## Структура ответа API при ошибке аутентификации
+### Структура ответа API при ошибке аутентификации
 ```json
 {
     "header": {
@@ -132,7 +132,7 @@
 }
 ```
 
-#### Минимальная структура ответа API
+### Минимальная структура ответа API
 ```json
 {
     "header": {
@@ -148,7 +148,7 @@
 }
 ```
 
-#### Структура ответа API
+### Структура ответа API
 ```json
 {
     "header": {
