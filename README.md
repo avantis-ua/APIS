@@ -24,22 +24,6 @@
 - ресурс `/product` обрабатывает только GET запросы и выдает информацию о товаре.
 - ресурс `/search` обрабатывает только GET запросы и его основная задача обслуживание поисковых запросов.
 
-## Аутентификация
-Вы должны поддерживать один из нижеуказанных методов аутентификации.
-
-### LoginPasswordAuth
-
-[«LoginPasswordAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/LoginPasswordAuth.md) — реализация базовой Http аутентификации. Пара логин пароль передаются в виде строки `login:password` в `Authorization` заголовке. [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/LoginPasswordAuth.md)
-
-### HttpTokenAuth
-[«HttpTokenAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/HttpTokenAuth.md) — реализация аутентификации по токену `HTTP Bearer token`. Для авторизации с помощью токена нужно передать его в `http` заголовке.  [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/HttpTokenAuth.md)
-
-### QueryKeyAuth
-[«QueryKeyAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md) — пожалуй самый простой из имеющихся способов авторизации. Работает по тому-же принципу, что и `HttpTokenAuth`, т.е. идентифицирует пользователя по токену, только в данном случае токен передается в строке запроса, как GET параметр. По умолчанию параметр называется `public_key`. [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md)
-
-### CryptoAuth
-[«CryptoAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/CryptoAuth.md) работает по тому-же принципу, что и [`QueryKeyAuth`](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md), т.е. токен передается как `GET` или `POST` параметр, только в данном случае данные передаются в зашифрованном виде с помощью `private_key` библиотекой [defuse/php-encryption](https://github.com/defuse/php-encryption) или подобной. [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/CryptoAuth.md)
-
 ### URL и типы запросов
 - URL: `https://example.com/{api}/{version}/{type}/{resource}/{id}`
 - или
@@ -115,6 +99,22 @@
 - [`head`](https://github.com/pllano/APIS-2018/blob/master/structure/head.md) - голова (не обязательно)
 - [`body`](https://github.com/pllano/APIS-2018/blob/master/structure/body.md) - тело
 - [`footer`](https://github.com/pllano/APIS-2018/blob/master/structure/footer.md) - подвал (не обязательно)
+
+## Аутентификация
+Вы должны поддерживать один из нижеуказанных методов аутентификации.
+
+### LoginPasswordAuth
+
+[«LoginPasswordAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/LoginPasswordAuth.md) — реализация базовой Http аутентификации. Пара логин пароль передаются в виде строки `login:password` в `Authorization` заголовке. [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/LoginPasswordAuth.md)
+
+### HttpTokenAuth
+[«HttpTokenAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/HttpTokenAuth.md) — реализация аутентификации по токену `HTTP Bearer token`. Для авторизации с помощью токена нужно передать его в `http` заголовке.  [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/HttpTokenAuth.md)
+
+### QueryKeyAuth
+[«QueryKeyAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md) — пожалуй самый простой из имеющихся способов авторизации. Работает по тому-же принципу, что и `HttpTokenAuth`, т.е. идентифицирует пользователя по токену, только в данном случае токен передается в строке запроса, как GET параметр. По умолчанию параметр называется `public_key`. [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md)
+
+### CryptoAuth
+[«CryptoAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/CryptoAuth.md) работает по тому-же принципу, что и [`QueryKeyAuth`](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md), т.е. токен передается как `GET` или `POST` параметр, только в данном случае данные передаются в зашифрованном виде с помощью `private_key` библиотекой [defuse/php-encryption](https://github.com/defuse/php-encryption) или подобной. [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/CryptoAuth.md)
 
 ### 3. Ускорении разработки сайта
 Структура APIS-2018 чем то напоминает структуру сайта и это очень хорошо, так как дает возможность в одном ответе отдать всю структуру html страницы сайта. Получив всю необходимую информацию для формирования страницы и обрабатывать сразу шаблонизатором без дополнительной обработки PHP. Это способно свести разработку сайта к работе верстальщика.
