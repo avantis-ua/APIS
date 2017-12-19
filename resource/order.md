@@ -1,13 +1,13 @@
-# Заказы на торговой площадке `orders`
+# Заказы на торговой площадке `order`
 Пример запроса продавца и ответа торговой площадки
 ### Торговая площадка должна потдерживать запросы: `POST` `GET` `PUT`
-- `POST /orders` Создание заказа 
-- `POST /orders/{id}` Ошибка
-- `GET /orders` Список всех заказов
-- `GET /orders?{param}` Список всех заказов с фильтром по параметрам
-- `GET /orders/{id}` Данные конкретного заказа по `id`
-- `PUT /orders` Обновить данные заказов
-- `PUT /orders/{id}` Обновить данные конкретного заказа по `id`
+- `POST /order` Создание заказа 
+- `POST /order/{id}` Ошибка
+- `GET /order` Список всех заказов
+- `GET /order?{param}` Список всех заказов с фильтром по параметрам
+- `GET /order/{id}` Данные конкретного заказа по `id`
+- `PUT /order` Обновить данные заказов
+- `PUT /order/{id}` Обновить данные конкретного заказа по `id`
 
 ### Пример `GET` запроса с HTTP клиентом Guzzle
 
@@ -35,7 +35,7 @@ $data = [
 $data_query = http_build_query($data) . "\n";
 
 // Формируем URL запроса
-$uri = 'https://example.com/api/v1/json/orders?'.$data_query;
+$uri = 'https://example.com/api/v1/json/order?'.$data_query;
 
 // Подключаем Guzzle
 $client = new Guzzle();
