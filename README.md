@@ -135,7 +135,7 @@
 "relations" => "'product'.'user'.'address'"
 ```
 
-Если необходимо запросить конкретные данные указываем их через двуеточие `'user:phone'` если нужно несколько через запятую `'product:type_id,brand_id,serie_id,articul'`
+Если необходимо запросить конкретные данные указываем их через двоеточие `'user:phone'` если нужно несколько через запятую `'product:type_id,brand_id,serie_id,articul'`
 
 ```
 "relations" => "'product:type_id,brand_id,serie_id,articul'.'user:phone'.'address:street_id'"
@@ -163,7 +163,7 @@ $data = [
     "state" => 1,
     "date_from" => "2017-12-07",
     "date_to" => "2017-12-14",
-    "relations" => "'product'.'user'.'address'"
+    "relations" => "'product'.'user'.'user_data'.'address'"
 ];
 
 // Массив в URL-кодированную строку запроса
@@ -239,11 +239,13 @@ print_r($records);
         "currency_id": "UAH",
         "comment": "Могу принять после 17:00",
         "user": {
-          "fname": "Иванов",
-          "iname": "Юрий",
-          "oname": "Петрович",
           "phone": "380670000001",
           "email": "user@example.com"
+        },
+        "user_data": {
+          "fname": "Иванов",
+          "iname": "Юрий",
+          "oname": "Петрович"
         },
         "address": {
           "country": "Украина",
