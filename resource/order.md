@@ -207,9 +207,9 @@ if (isset($records["headers"]["code"])) {
 	
         echo $order["order_id"];
 	// выведет: 10
-        echo $user["fname"].' '.$user["iname'];
+        echo $user["fname"].' '.$user["iname"];
 	// выведет: Иванов Юрий
-	echo $address["city"].', '.$address["street'].' '.$address["number'];
+	echo $address["city"].', '.$address["street"].' '.$address["number"];
 	// выведет: Киев, Бажана 12а/17
     }
 }
