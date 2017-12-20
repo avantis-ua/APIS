@@ -28,7 +28,7 @@ $data = [
     'state' => 1,
     'date_from' => "2017-12-07",
     'date_to' => "2017-12-14",
-    'relations' => "product,user,address"
+    'relations' => "'product'.'user'.'user_data'.'address'"
 ];
 
 // Массив в URL-кодированную строку запроса
@@ -90,7 +90,7 @@ print_r($records);
     "state": "1",
     "date_from": "2017-12-07",
     "date_to": "2017-12-14",
-    "relations": "product, user, address"
+    "relations": "'product'.'user'.'user_data'.'address'"
   },
   "body": {
     "items": [{
@@ -104,11 +104,13 @@ print_r($records);
         "currency_id": "UAH",
         "comment": "Могу принять после 17:00",
         "user": {
-          "fname": "Иванов",
-          "iname": "Юрий",
-          "oname": "Петрович",
           "phone": "380670000001",
           "email": "user@example.com"
+        },
+	"user_data": {
+          "fname": "Иванов",
+          "iname": "Юрий",
+          "oname": "Петрович"
         },
         "address": {
           "country": "Украина",
@@ -177,7 +179,7 @@ $order_id = 10;
 // Строка запроса
 $data = [
     'public_key' => $public_key,
-    'relations' => "product,user,address"
+    'relations' => "'product'.'user'.'user_data'.'address'"
 ];
 
 // Массив в URL-кодированную строку запроса
@@ -237,7 +239,7 @@ print_r($records);
     "query": "GET",
     "resource": "order",
     "order_id": "10",
-    "relations": "product, user, address"
+    "relations": "'product'.'user'.'user_data'.'address'"
   },
   "body": {
     "items": [{
