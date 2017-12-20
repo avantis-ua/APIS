@@ -9,6 +9,28 @@
 - `PUT /order` - Обновить данные заказов
 - `PUT /order/{order_id}` - Обновить данные конкретного заказа по `order_id`
 
+### Параметр `relations`
+`relations` - Очень важный параметр запроса позволяющий получать в ответе необходимые данные из других связанных ресурсов.
+
+Используется четыри символа: `'` `.` `,` `:`
+
+Сами ресурсы перечисляем через точку `'product'.'user'.'user_data'.'address'` экранируя одинарными кавычками
+```
+"relations" => "'product'.'user'.'user_data'.'address'"
+```
+
+Если необходимо запросить конкретные данные указываем их через двоеточие `'product'.'user:email,phone'.'user_data:iname,fname,oname'.'address'` если нужно несколько через запятую `'product'.'user:email,phone'.'user_data:iname,fname,oname'.'address'`
+
+В нашем запросе к ресурсу `user` мы хотим дополнительно получить:
+- из таблицы `product` - все данные
+- из таблицы `user` - поля: `email` `phone`
+- из таблицы `user_data` - поля: `iname` `fname` `oname`
+- из таблицы `address` - все данные
+
+```
+"relations" => "'product'.'user:email,phone'.'user_data:iname,fname,oname'.'address'"
+```
+
 ### Пример `GET` запроса с HTTP клиентом Guzzle
 
 В параметре `relations` - мы указываем какие связанные данные получить,в нашем случае: `product` `user` `address`
@@ -28,7 +50,7 @@ $data = [
     'state' => 1,
     'date_from' => "2017-12-07",
     'date_to' => "2017-12-14",
-    'relations' => "'product'.'user'.'user_data'.'address'"
+    'relations' => "'product'.'user:email,phone'.'user_data:iname,fname,oname'.'address'"
 ];
 
 // Массив в URL-кодированную строку запроса
@@ -70,99 +92,99 @@ print_r($records);
 ### Структура ответа торговой площадки на наш `GET` запрос в json формате
 ```json
 {
-  "header": {
-    "status": "200 OK",
-    "code": "200",
-    "message": "OK",
-    "message_id": "https:\/\/github.com\/pllano\/APIS-2018\/tree\/master\/http-codes\/200.md"
-  },
-  "response": {
-    "auth": "QueryKeyAuth",
-    "total": "10"
-  },
-  "request": {
-    "query": "GET",
-    "resource": "order",
-    "limit": "10",
-    "offset": "0",
-    "order": "DESC",
-    "sort": "created",
-    "state": "1",
-    "date_from": "2017-12-07",
-    "date_to": "2017-12-14",
-    "relations": "'product'.'user'.'user_data'.'address'"
-  },
-  "body": {
-    "items": [{
-      "item": {
-        "id": "1234567890",
-        "created": "2017-12-11 10:30",
-        "status": 1,
-        "delivery": "Novaposhta",
-        "delivery_code": "1234567890121",
-        "total_amount": "10501.00",
-        "currency_id": "UAH",
-        "comment": "Могу принять после 17:00",
-        "user": {
-          "phone": "380670000001",
-          "email": "user@example.com"
-        },
-	"user_data": {
-          "fname": "Иванов",
-          "iname": "Юрий",
-          "oname": "Петрович"
-        },
-        "address": {
-          "country": "Украина",
-          "region": "Киевская область",
-          "postal_code": 0,
-          "city": "Киев",
-          "district": "Позняки",
-	  "street": "Бажана",
-	  "number": "12а/17",
-	  "parade": "0",
-          "floor": "0",
-	  "apartment": "75",
-	  "additional": "Код на парадном 107"
-        },
-        "products": [
-           {
-             "product": {
-               "product_id": "2001500",
-               "status": 1,
-               "name": "Type BrendName SerieName Articul",
-               "price": "2500.50",
-               "oldprice": "2500.50",
-               "num": 2,
-               "available": 20,
-               "total_price": "5001.00",
-               "currency_id": "UAH",
-               "guarantee": 24,
-               "pay_online": 1
-             }
-           }, {
-             "product": {
-               "product_id": "1000120",
-               "status": 1,
-               "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
-               "type": "Ноутбук",
-               "brand": "Asus",
-               "type": "X751NV",
-               "articul": "(X751NV-TY001) Black",
-               "price": "5750.50",
-               "oldprice": "5500.00",
-               "num": 1,
-               "available": 5,
-               "total_price": "5500.00",
-               "currency_id": "UAH",
-               "guarantee": 36,
-               "pay_online": 1
-             }
-           }
+    "header": {
+        "status": "200 OK",
+        "code": "200",
+        "message": "OK",
+        "message_id": "https:\/\/github.com\/pllano\/APIS-2018\/tree\/master\/http-codes\/200.md"
+    },
+    "response": {
+        "auth": "QueryKeyAuth",
+        "total": "10"
+    },
+    "request": {
+        "query": "GET",
+        "resource": "order",
+        "limit": "10",
+        "offset": "0",
+        "order": "DESC",
+        "sort": "created",
+        "state": "1",
+        "date_from": "2017-12-07",
+        "date_to": "2017-12-14",
+        "relations": "'product'.'user:email,phone'.'user_data:iname,fname,oname'.'address'"
+    },
+    "body": {
+        "items": [{
+                "item": {
+                    "id": "1234567890",
+                    "created": "2017-12-11 10:30",
+                    "status": 1,
+                    "delivery": "Novaposhta",
+                    "delivery_code": "1234567890121",
+                    "total_amount": "10501.00",
+                    "currency_id": "UAH",
+                    "comment": "Могу принять после 17:00",
+                    "user": {
+                        "phone": "380670000001",
+                        "email": "user@example.com"
+                    },
+                    "user_data": {
+                        "fname": "Иванов",
+                        "iname": "Юрий",
+                        "oname": "Петрович"
+                    },
+                    "address": {
+                        "country": "Украина",
+                        "region": "Киевская область",
+                        "postal_code": 0,
+                        "city": "Киев",
+                        "district": "Позняки",
+                        "street": "Бажана",
+                        "number": "12а/17",
+                        "parade": "0",
+                        "floor": "0",
+                        "apartment": "75",
+                        "additional": "Код на парадном 107"
+                    },
+                    "products": [{
+                            "product": {
+                                "product_id": "2001500",
+                                "status": 1,
+                                "name": "Type BrendName SerieName Articul",
+                                "price": "2500.50",
+                                "oldprice": "2500.50",
+                                "num": 2,
+                                "available": 20,
+                                "total_price": "5001.00",
+                                "currency_id": "UAH",
+                                "guarantee": 24,
+                                "pay_online": 1
+                            }
+                        }, {
+                            "product": {
+                                "product_id": "1000120",
+                                "status": 1,
+                                "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
+                                "type": "Ноутбук",
+                                "brand": "Asus",
+                                "type": "X751NV",
+                                "articul": "(X751NV-TY001) Black",
+                                "price": "5750.50",
+                                "oldprice": "5500.00",
+                                "num": 1,
+                                "available": 5,
+                                "total_price": "5500.00",
+                                "currency_id": "UAH",
+                                "guarantee": 36,
+                                "pay_online": 1
+                            }
+                        }
+                    ]
+                }
+            }
         ]
-      }
-    }]
-  }
+    }
 }
 ```
 ### Получить данные заказа по `order_id`
@@ -228,94 +250,95 @@ print_r($records);
 ### Структура ответа торговой площадки на наш `GET` запрос в json формате
 ```json
 {
-  "header": {
-    "status": "200 OK",
-    "code": "200",
-    "message": "OK",
-    "message_id": "https:\/\/github.com\/pllano\/APIS-2018\/tree\/master\/http-codes\/200.md"
-  },
-  "response": {
-    "auth": "QueryKeyAuth",
-    "total": "1"
-  },
-  "request": {
-    "query": "GET",
-    "resource": "order",
-    "order_id": "10",
-    "relations": "'product'.'user'.'user_data'.'address'"
-  },
-  "body": {
-    "items": [{
-      "item": {
+    "header": {
+        "status": "200 OK",
+        "code": "200",
+        "message": "OK",
+        "message_id": "https:\/\/github.com\/pllano\/APIS-2018\/tree\/master\/http-codes\/200.md"
+    },
+    "response": {
+        "auth": "QueryKeyAuth",
+        "total": "1"
+    },
+    "request": {
+        "query": "GET",
+        "resource": "order",
         "order_id": "10",
-        "created": "2017-12-11 10:30",
-        "status": 1,
-        "delivery": "Novaposhta",
-        "delivery_code": "1234567890121",
-        "total_amount": "10501.00",
-        "currency_id": "UAH",
-        "comment": "Могу принять после 17:00",
-        "user": {
-          "phone": "380670000001",
-          "email": "user@example.com"
-        },
-        "user_data": {
-          "fname": "Иванов",
-          "iname": "Юрий",
-          "oname": "Петрович"
-        },
-        "address": {
-          "country": "Украина",
-          "region": "Киевская область",
-          "postal_code": 0,
-          "city": "Киев",
-          "district": "Позняки",
-	  "street": "Бажана",
-	  "number": "12а/17",
-	  "parade": "0",
-          "floor": "0",
-	  "apartment": "75",
-	  "additional": "Код на парадном 107"
-        },
-        "products": [
-           {
-             "product": {
-               "product_id": "2001500",
-               "status": 1,
-               "name": "Type BrendName SerieName Articul",
-               "price": "2500.50",
-               "oldprice": "2500.50",
-               "num": 2,
-               "available": 20,
-               "total_price": "5001.00",
-               "currency_id": "UAH",
-               "guarantee": 24,
-               "pay_online": 1
-             }
-           }, {
-             "product": {
-               "product_id": "1000120",
-               "status": 1,
-               "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
-               "type": "Ноутбук",
-               "brand": "Asus",
-               "type": "X751NV",
-               "articul": "(X751NV-TY001) Black",
-               "price": "5750.50",
-               "oldprice": "5500.00",
-               "num": 1,
-               "available": 5,
-               "total_price": "5500.00",
-               "currency_id": "UAH",
-               "guarantee": 36,
-               "pay_online": 1
-             }
-           }
+        "relations": "'product'.'user:email,phone'.'user_data:iname,fname,oname'.'address'"
+    },
+    "body": {
+        "items": [{
+                "item": {
+                    "order_id": "10",
+                    "created": "2017-12-11 10:30",
+                    "status": 1,
+                    "delivery": "Novaposhta",
+                    "delivery_code": "1234567890121",
+                    "total_amount": "10501.00",
+                    "currency_id": "UAH",
+                    "comment": "Могу принять после 17:00",
+                    "user": {
+                        "phone": "380670000001",
+                        "email": "user@example.com"
+                    },
+                    "user_data": {
+                        "fname": "Иванов",
+                        "iname": "Юрий",
+                        "oname": "Петрович"
+                    },
+                    "address": {
+                        "country": "Украина",
+                        "region": "Киевская область",
+                        "postal_code": 0,
+                        "city": "Киев",
+                        "district": "Позняки",
+                        "street": "Бажана",
+                        "number": "12а/17",
+                        "parade": "0",
+                        "floor": "0",
+                        "apartment": "75",
+                        "additional": "Код на парадном 107"
+                    },
+                    "products": [{
+                            "product": {
+                                "product_id": "2001500",
+                                "status": 1,
+                                "name": "Type BrendName SerieName Articul",
+                                "price": "2500.50",
+                                "oldprice": "2500.50",
+                                "num": 2,
+                                "available": 20,
+                                "total_price": "5001.00",
+                                "currency_id": "UAH",
+                                "guarantee": 24,
+                                "pay_online": 1
+                            }
+                        }, {
+                            "product": {
+                                "product_id": "1000120",
+                                "status": 1,
+                                "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
+                                "type": "Ноутбук",
+                                "brand": "Asus",
+                                "type": "X751NV",
+                                "articul": "(X751NV-TY001) Black",
+                                "price": "5750.50",
+                                "oldprice": "5500.00",
+                                "num": 1,
+                                "available": 5,
+                                "total_price": "5500.00",
+                                "currency_id": "UAH",
+                                "guarantee": 36,
+                                "pay_online": 1
+                            }
+                        }
+                    ]
+                }
+            }
         ]
-      }
-    }]
-  }
+    }
 }
+
 ```
 ### Проверка запроса, игнорирование и ошибки
 Ваша API должна проверять запрашиваемые поля, и если данные отдавать не разрешено игнорировать. Если вы проигнорировали некоторые поля запроса в конце обработки запроса рекомендуется отправить `POST` на ресурс [`/feedback`](https://github.com/pllano/APIS-2018/blob/master/resource/feedback.md) в котором сообщить подробности об ошибке. Также необходимо в `request` вернуть те поля которые ваша API обработала успешно, и не выводить те, которые проигнорировала, чтобы запрашиваемая сторона могла обработать результат запроса и скорректировать его в будущем.
