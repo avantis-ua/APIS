@@ -164,34 +164,34 @@ print_r($records);
   }
 }
 ```
-### Получить данные заказа по `order_id`
+### Получить данные пользователя по `user_id`
 
 ``` php
 use GuzzleHttp\Client as Guzzle;
 
 // Взять public_key из конфигурации
-$public_key = $config->get('public_key');
+$public_key = $config->get("public_key");
 
-// Получить id заказа в своей базе
-$order_id = 10;
+// Получить id пользователя из базы данных
+$user_id = 100001;
 
 // Строка запроса
 $data = [
-    'public_key' => $public_key,
-    'relations' => "product,user,address"
+    "public_key" => $public_key,
+    "relations" => "'user_data'"
 ];
 
 // Массив в URL-кодированную строку запроса
 $data_query = http_build_query($data) . "\n";
 
 // Формируем URL запроса
-$uri = 'https://example.com/api/v1/json/order/'.$order_id.'?'.$data_query;
+$uri = 'https://example.com/api/v1/json/user/".$user_id."?'.$data_query;
 
 // Подключаем Guzzle
 $client = new Guzzle();
 
 // Отправляем запрос
-$response = $client->request('GET', $uri);
+$response = $client->request("GET", $uri);
 
 // Получаем тело ответа
 $output = $response->getBody();
