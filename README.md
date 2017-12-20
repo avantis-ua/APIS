@@ -118,7 +118,7 @@
 Достаточно подставлять код ошибки `$code` в URL
 ```php
 $code = 200;
-$message_id = "https://github.com/pllano/APIS-2018/tree/master/http-codes/".$code.".md"
+$message_id = "https://github.com/pllano/APIS-2018/tree/master/http-codes/".$code.".md";
 ```
 
 ### Минимальная структура ответа API
