@@ -74,7 +74,7 @@ print_r($records);
     "status": "200 OK",
     "code": "200",
     "message": "OK",
-    "message_id": "https:\/\/github.com\/pllano\/api-json-db\/blob\/master\/doc\/http-codes\/200.md"
+    "message_id": "https:\/\/github.com\/pllano\/APIS-2018\/tree\/master\/http-codes\/200.md"
   },
   "response": {
     "auth": "QueryKeyAuth",
@@ -227,7 +227,7 @@ print_r($records);
     "status": "200 OK",
     "code": "200",
     "message": "OK",
-    "message_id": "https:\/\/github.com\/pllano\/api-json-db\/blob\/master\/doc\/http-codes\/200.md"
+    "message_id": "https:\/\/github.com\/pllano\/APIS-2018\/tree\/master\/http-codes\/200.md"
   },
   "response": {
     "auth": "QueryKeyAuth",
