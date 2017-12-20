@@ -106,7 +106,6 @@
 - [`/seller`](https://github.com/pllano/APIS-2018/blob/master/resource/seller.md) `GET`, `POST`, `PUT`, `PATCH` - Продавцы
 - [`/feedback`](https://github.com/pllano/APIS-2018/blob/master/resource/feedback.md) `POST` - Сообщить об ошибке
 
-
 ### 2. Структура ответов и запросов должна быть одинаковая
 
 Глобальная структура ответа всех ресурсов должна иметь следующую форму:
