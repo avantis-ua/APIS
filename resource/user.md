@@ -98,7 +98,8 @@ print_r($records);
   "request": {
     "query": "GET",
     "resource": "user",
-    "user_id": "5"
+    "user_id": "5",
+    "relations": "'user_data:iname,fname,oname'.'address'"
   },
   "body": {
     "items": [{
@@ -107,29 +108,29 @@ print_r($records);
         "role_id": 1,
         "password": "password hash",
         "phone": "380670000001",
-        "email": "user@example.com",
-        "language": "ru",
-        "cookie": "cookie hash",
+        "email": "user@example.com"
+        "language": "ru"
+        "cookie": "cookie hash"
         "created": "2017-12-10 12:35",
         "alias": "alias hash",
         "state": 1,
         "user_data": {
-        "iname": "Юрий",
-        "fname": "Иванов",
-        "oname": "Петрович"
+            "iname": "Юрий",
+            "fname": "Иванов",
+            "oname": "Петрович"
         },
         "address": {
-        "country": "Украина",
-        "region": "Киевская область",
-        "postal_code": 0,
-        "city": "Киев",
-        "district": "Позняки",
-        "street": "Бажана",
-        "number": "12а/17",
-        "parade": "0",
-        "floor": "0",
-        "apartment": "75",
-        "additional": "Код на парадном 107"
+            "country": "Украина",
+            "region": "Киевская область",
+            "postal_code": 0,
+            "city": "Киев",
+            "district": "Позняки",
+            "street": "Бажана",
+            "number": "12а/17",
+            "parade": "0",
+            "floor": "0",
+            "apartment": "75",
+            "additional": "Код на парадном 107"
         }
       }
     }]
