@@ -62,6 +62,24 @@
 - `GET /_delete/{resource}` Удалить все записи
 - `GET /_delete/{resource}/{id}` Удалить конкретную запись
 
+### Транзитная API
+#### Типы запросов : `POST` `GET` `PUT` `PATCH` `DELETE`
+`{service_name}` - Название сервиса который будет выполнять запрос к транзитной API
+
+Пример: `/liqpay/pay`
+
+- `POST /{service_name}/{resource}` Создание записи
+- `POST /{service_name}/{resource}/{id}` Ошибка
+- `GET /{service_name}/{resource}` Список всех записей
+- `GET /{service_name}/{resource}?{param}` Список всех записей
+- `GET /{service_name}/{resource}/{id}` Данные конкретной записи
+- `PUT /{service_name}/{resource}` Обновить данные записей
+- `PUT /{service_name}/{resource}/{id}` Обновить данные конкретной записи
+- `PATCH /{service_name}/{resource}` Обновить данные записей
+- `PATCH /{service_name}/{resource}/{id}` Обновить данные конкретной записи
+- `DELETE /{service_name}/{resource}` Удалить все записи
+- `DELETE /{service_name}/{resource}/{id}` Удалить конкретную запись
+
 ## Ресурсы
 ### Список всех поддерживаемых ресурсов
 Использование всех ресурсов не является обязательным. Вы можете использовать только необходимые вам ресурсы.
