@@ -85,55 +85,56 @@ print_r($records);
 ### Структура ответа торговой площадки на наш `GET` запрос в json формате
 ```json
 {
-  "header": {
-    "status": "200 OK",
-    "code": "200",
-    "message": "OK",
-    "message_id": "https:\/\/github.com\/pllano\/api-json-db\/blob\/master\/doc\/http-codes\/200.md"
-  },
-  "response": {
-    "auth": "CryptoAuth",
-    "total": "1"
-  },
-  "request": {
-    "query": "GET",
-    "resource": "user",
-    "user_id": "5",
-    "relations": "'user_data:iname,fname,oname'.'address'"
-  },
-  "body": {
-    "items": [{
-      "item": {
-        "user_id": 5,
-        "role_id": 1,
-        "password": "password hash",
-        "phone": "380670000001",
-        "email": "user@example.com",
-        "language": "ru",
-        "cookie": "cookie hash",
-        "created": "2017-12-10 12:35",
-        "alias": "alias hash",
-        "state": 1,
-        "user_data": {
-            "iname": "Юрий",
-            "fname": "Иванов",
-            "oname": "Петрович"
-        },
-        "address": {
-            "country": "Украина",
-            "region": "Киевская область",
-            "postal_code": 0,
-            "city": "Киев",
-            "district": "Позняки",
-            "street": "Бажана",
-            "number": "12а/17",
-            "parade": "0",
-            "floor": "0",
-            "apartment": "75",
-            "additional": "Код на парадном 107"
-        }
-      }
-    }]
-  }
+    "header": {
+        "status": "200 OK",
+        "code": "200",
+        "message": "OK",
+        "message_id": "https:\/\/github.com\/pllano\/api-json-db\/blob\/master\/doc\/http-codes\/200.md"
+    },
+    "response": {
+        "auth": "CryptoAuth",
+        "total": "1"
+    },
+    "request": {
+        "query": "GET",
+        "resource": "user",
+        "user_id": "5",
+        "relations": "'user_data:iname,fname,oname'.'address'"
+    },
+    "body": {
+        "items": [{
+                "item": {
+                    "user_id": 5,
+                    "role_id": 1,
+                    "password": "password hash",
+                    "phone": "380670000001",
+                    "email": "user@example.com",
+                    "language": "ru",
+                    "cookie": "cookie hash",
+                    "created": "2017-12-10 12:35",
+                    "alias": "alias hash",
+                    "state": 1,
+                    "user_data": {
+                        "iname": "Юрий",
+                        "fname": "Иванов",
+                        "oname": "Петрович"
+                    },
+                    "address": {
+                        "country": "Украина",
+                        "region": "Киевская область",
+                        "postal_code": 0,
+                        "city": "Киев",
+                        "district": "Позняки",
+                        "street": "Бажана",
+                        "number": "12а/17",
+                        "parade": "0",
+                        "floor": "0",
+                        "apartment": "75",
+                        "additional": "Код на парадном 107"
+                    }
+                }
+            }
+        ]
+    }
 }
 ```
