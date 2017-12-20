@@ -102,7 +102,7 @@
         "status": "401 Unauthorized",
         "code": 401,
         "message": "Access is denied. The authentication method does not match.",
-        "message_id": "https:\/\/github.com\/pllano\/api-json-db\/blob\/master\/doc\/http-codes\/401.md"
+        "message_id": "https:\/\/github.com\/pllano\/APIS-2018\/tree\/master\/http-codes\/401.md"
     },
     "response": {
         "auth": "CryptoAuth",
@@ -118,7 +118,7 @@
         "status": "200 OK",
         "code": 200,
         "message": "RESTfull API json DB works!",
-        "message_id": "https:\/\/github.com\/pllano\/api-json-db\/blob\/master\/doc\/http-codes\/200.md"
+        "message_id": "https:\/\/github.com\/pllano\/APIS-2018\/tree\/master\/http-codes\/200.md"
     },
     "response": {
         "auth": "CryptoAuth",
@@ -212,7 +212,7 @@ print_r($records);
     "status": "200 OK",
     "code": "200",
     "message": "OK",
-    "message_id": "https:\/\/github.com\/pllano\/api-json-db\/blob\/master\/doc\/http-codes\/200.md"
+    "message_id": "https:\/\/github.com\/pllano\/APIS-2018\/tree\/master\/http-codes\/200.md"
   },
   "response": {
     "auth": "QueryKeyAuth",
