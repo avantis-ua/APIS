@@ -110,7 +110,7 @@
     }
 }
 ```
-
+[Коды состояния HTTP](https://github.com/pllano/api-json-db/tree/master/doc/http-codes)
 ### Минимальная структура ответа API
 ```json
 {
