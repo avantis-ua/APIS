@@ -84,6 +84,8 @@
 - [`/article-category`](https://github.com/pllano/APIS-2018/blob/master/resource/article-category.md) `GET` - Категории статей
 - [`/site`](https://github.com/pllano/APIS-2018/blob/master/resource/site.md) `GET` - Конфигурация сайта
 - [`/seller`](https://github.com/pllano/APIS-2018/blob/master/resource/seller.md) `GET`, `POST`, `PUT`, `PATCH` - Продавцы
+- [`/feedback`](https://github.com/pllano/APIS-2018/blob/master/resource/feedback.md) `POST` - Сообщить об ошибке
+
 
 ### 2. Структура ответов и запросов должна быть одинаковая
 
