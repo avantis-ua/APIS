@@ -22,21 +22,17 @@
 "relations" => "'product'.'user'.'user_data'.'address'"
 ```
 
-Если необходимо запросить конкретные данные указываем их через двоеточие `'product'.'user:email,phone'.'user_data:iname,fname,oname'.'address'` если нужно несколько через запятую `'product'.'user:email,phone'.'user_data:iname,fname,oname'.'address'`
+Если необходимо запросить конкретные данные указываем их через двоеточие, если нужно несколько через запятую `'product'.'user:email,phone'.'user_data:iname,fname,oname'.'address'`
 
 В нашем запросе к ресурсу `user` мы хотим дополнительно получить:
 - из таблицы `product` - все данные
 - из таблицы `user` - поля: `email` `phone`
 - из таблицы `user_data` - поля: `iname` `fname` `oname`
 - из таблицы `address` - все данные
-
 ```
 "relations" => "'product'.'user:email,phone'.'user_data:iname,fname,oname'.'address'"
 ```
-
-### Пример `GET` запроса с HTTP клиентом Guzzle
-
-В параметре `relations` - мы указываем какие связанные данные получить,в нашем случае: `product` `user` `address`
+### Пример `GET` запроса HTTP клиентом Guzzle
 ``` php
 use GuzzleHttp\Client as Guzzle;
 
