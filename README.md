@@ -104,9 +104,15 @@
         "message": "Access is denied. The authentication method does not match.",
         "message_id": "https:\/\/github.com\/pllano\/APIS-2018\/tree\/master\/http-codes\/401.md"
     },
+    "request": {
+        /* данные запроса */
+    },
     "response": {
         "auth": "CryptoAuth",
         "total": 0
+    },
+    "body": {
+        "items": []
     }
 }
 ```
@@ -130,9 +136,15 @@ $message_id = "https://github.com/pllano/APIS-2018/tree/master/http-codes/".$cod
         "message": "RESTfull API json DB works!",
         "message_id": "https:\/\/github.com\/pllano\/APIS-2018\/tree\/master\/http-codes\/200.md"
     },
+    "request": {
+        /* данные запроса */
+    },
     "response": {
         "auth": "CryptoAuth",
         "total": 0
+    },
+    "body": {
+        "items": []
     }
 }
 ```
