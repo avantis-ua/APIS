@@ -206,12 +206,15 @@ if (isset($records["headers"]["code"])) {
 	// Присвоим значения
         $order = $records["body"]["items"]["item"];
 	$user = $records["body"]["items"]["item"]["user"];
+	$user_data = $records["body"]["items"]["item"]["user_data"];
 	$address = $records["body"]["items"]["item"]["address"];
 	$products = $records["body"]["items"]["item"]["products"];
 	
         echo $order["order_id"];
 	// выведет: 10
-        echo $user["fname"].' '.$user["iname"];
+        echo $user["email"];
+	// выведет: user@example.com
+        echo $user_data["fname"].' '.$user_data["iname"];
 	// выведет: Иванов Юрий
 	echo $address["city"].', '.$address["street"].' '.$address["number"];
 	// выведет: Киев, Бажана 12а/17
@@ -253,11 +256,13 @@ print_r($records);
         "currency_id": "UAH",
         "comment": "Могу принять после 17:00",
         "user": {
-          "fname": "Иванов",
-          "iname": "Юрий",
-          "oname": "Петрович",
           "phone": "380670000001",
           "email": "user@example.com"
+        },
+        "user_data": {
+          "fname": "Иванов",
+          "iname": "Юрий",
+          "oname": "Петрович"
         },
         "address": {
           "country": "Украина",
