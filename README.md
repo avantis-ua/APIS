@@ -87,7 +87,7 @@
 
 ### 2. Структура ответов и запросов должна быть одинаковая
 
-Глобальная структура ответа ресурса /price должна иметь следующую форму
+Глобальная структура ответа всех ресурсов должна иметь следующую форму:
 - [`headers`](https://github.com/pllano/APIS-2018/blob/master/structure/headers.md) - заголовки
 - [`request`](https://github.com/pllano/APIS-2018/blob/master/structure/request.md) - запрос
 - [`response`](https://github.com/pllano/APIS-2018/blob/master/structure/response.md) - ответ
