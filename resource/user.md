@@ -20,7 +20,7 @@
 "relations" => "'user_data'.'address'"
 ```
 
-Если необходимо запросить конкретные данные указываем их через двоеточие `'user_data:iname,fname,oname'` если нужно несколько через запятую `''user_data:iname,fname,oname'.'address''`
+Если необходимо запросить конкретные данные указываем их через двоеточие `'user_data:iname,fname,oname'` если нужно несколько через запятую `'user_data:iname,fname,oname'.'address'`
 
 В нашем запросе к ресурсу `user` мы хотим дополнительно получить: 
 - из таблицы `user_data` - поля: `iname` `fname` `oname`
