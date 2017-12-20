@@ -52,8 +52,8 @@ if (isset($records["headers"]["code"])) {
 	$user_data = $records["body"]["items"]["item"]["user_data"];
 	$address = $records["body"]["items"]["item"]["address"];
  
-        echo $user["fname"].' '.$user["iname"];
-	// выведет: Иванов Юрий
+        echo $user_data["fname"].' '.$user_data["iname"].' '.$user_data["oname"];
+	// выведет: Иванов Юрий Петрович
 	echo $address["city"].', '.$address["street"].' '.$address["number"];
 	// выведет: Киев, Бажана 12а/17
     }
