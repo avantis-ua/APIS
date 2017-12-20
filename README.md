@@ -66,8 +66,6 @@
 #### Типы запросов : `POST` `GET` `PUT` `PATCH` `DELETE`
 `{service_name}` - Название сервиса который будет выполнять запрос к транзитной API
 
-Пример: `/liqpay/pay`
-
 - `POST /{service_name}/{resource}` Создание записи
 - `POST /{service_name}/{resource}/{id}` Ошибка
 - `GET /{service_name}/{resource}` Список всех записей
@@ -79,6 +77,9 @@
 - `PATCH /{service_name}/{resource}/{id}` Обновить данные конкретной записи
 - `DELETE /{service_name}/{resource}` Удалить все записи
 - `DELETE /{service_name}/{resource}/{id}` Удалить конкретную запись
+
+##### Пример ответа от LiqPay в виде GET запроса к ресурсу `/liqpay/pay`
+`https://example.com/api/v1/json/liqpay/pay/1234?status=success`
 
 ## Ресурсы
 ### Список всех поддерживаемых ресурсов
