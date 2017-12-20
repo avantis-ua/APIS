@@ -108,9 +108,9 @@ print_r($records);
         "role_id": 1,
         "password": "password hash",
         "phone": "380670000001",
-        "email": "user@example.com"
-        "language": "ru"
-        "cookie": "cookie hash"
+        "email": "user@example.com",
+        "language": "ru",
+        "cookie": "cookie hash",
         "created": "2017-12-10 12:35",
         "alias": "alias hash",
         "state": 1,
