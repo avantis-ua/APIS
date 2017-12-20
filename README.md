@@ -105,7 +105,7 @@
         "message_id": "https:\/\/github.com\/pllano\/APIS-2018\/tree\/master\/http-codes\/401.md"
     },
     "request": {
-        /* данные запроса */
+        "Параметр запроса": "Значение параметра"
     },
     "response": {
         "auth": "CryptoAuth",
@@ -137,7 +137,7 @@ $message_id = "https://github.com/pllano/APIS-2018/tree/master/http-codes/".$cod
         "message_id": "https:\/\/github.com\/pllano\/APIS-2018\/tree\/master\/http-codes\/200.md"
     },
     "request": {
-        /* данные запроса */
+        "Параметр запроса": "Значение параметра"
     },
     "response": {
         "auth": "CryptoAuth",
