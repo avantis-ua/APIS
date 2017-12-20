@@ -78,6 +78,7 @@
 - `DELETE /{service_name}/{resource}` Удалить все записи
 - `DELETE /{service_name}/{resource}/{id}` Удалить конкретную запись
 
+Пример реализации: [api-shop/api](https://github.com/pllano/api-shop/tree/master/api)
 ##### Пример ответа от LiqPay в виде GET запроса к ресурсу `/liqpay/pay`
 `https://example.com/api/v1/json/liqpay/pay/1234?status=success`
 
