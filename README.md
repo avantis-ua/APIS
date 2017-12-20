@@ -98,7 +98,7 @@
 ### Структура ответа API при ошибке аутентификации
 ```json
 {
-    "header": {
+    "headers": {
         "status": "401 Unauthorized",
         "code": 401,
         "message": "Access is denied. The authentication method does not match.",
@@ -124,7 +124,7 @@ $message_id = "https://github.com/pllano/APIS-2018/tree/master/http-codes/".$cod
 ### Минимальная структура ответа API
 ```json
 {
-    "header": {
+    "headers": {
         "status": "200 OK",
         "code": 200,
         "message": "RESTfull API json DB works!",
@@ -218,7 +218,7 @@ print_r($records);
 ### Структура ответа торговой площадки на наш `GET` запрос в json формате
 ```json
 {
-  "header": {
+  "headers": {
     "status": "200 OK",
     "code": "200",
     "message": "OK",
