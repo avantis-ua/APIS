@@ -28,7 +28,14 @@
 - из таблицы `property_product` - все данные
 
 ```
-"relations" => "'product'.'type:title'.'brand:title'.'serie:title'.'image:image_path,sort'.'seo:seo_title'.'property_product'"
+"relations" => 
+    "'product'.
+    'type:title'.
+    'brand:title'.
+    'serie:title'.
+    'image:image_path,sort'.
+    'seo:seo_title'.
+    'property_product'"
 ```
 ### Пример `GET` запроса HTTP клиентом Guzzle
 
