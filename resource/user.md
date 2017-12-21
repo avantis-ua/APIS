@@ -101,7 +101,7 @@ print_r($records);
         "query": "GET",
         "resource": "user",
         "user_id": "5",
-        "relations": "'user_data:iname,fname,oname'.'address'"
+        "relations": "'address'"
     },
     "body": {
         "items": [{
