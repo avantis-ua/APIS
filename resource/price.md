@@ -29,8 +29,8 @@
 - из ресурса `property_product` - все данные
 
 ```
-"relations" => 
-    "'currency:name,iso_code'.
+"relations" => "
+    'currency:name,iso_code'.
     'product'.
     'type:title'.
     'brand:title'.
@@ -55,8 +55,8 @@ $data = [
     'order' => "DESC",
     'sort' => "score",
     'state' => 1,
-    'relations' => 
-        "'currency:name,iso_code'.
+    'relations' => "
+        'currency:name,iso_code'.
         'product'.
         'type:title'.
         'brand:title'.
@@ -64,8 +64,8 @@ $data = [
         'image:image_path,sort'.
         'seo:seo_title'.
         'property_product'.
-        'delivery:terms'"
-];
+        'delivery:terms'
+	"];
 
 // Массив в URL-кодированную строку запроса
 $data_query = http_build_query($data) . "\n";
