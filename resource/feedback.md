@@ -9,6 +9,7 @@
 ### Создать запись об ошибке
 ``` php
 use GuzzleHttp\Client as Guzzle;
+
 // Взять public_key из конфигурации
 $public_key = $config->get("public_key");
 
@@ -24,8 +25,10 @@ $data = [
 
 // Формируем URL запроса
 $uri = 'https://example.com/api/v1/json/feedback";
+
 // Подключаем Guzzle
 $client = new Guzzle();
+
 // Отправляем запрос
 $response = $client->request("POST", $uri, $data);
 ```
