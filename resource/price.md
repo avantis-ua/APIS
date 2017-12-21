@@ -55,7 +55,16 @@ $data = [
     'order' => "DESC",
     'sort' => "score",
     'state' => 1,
-    'relations' => "'currency:name,iso_code'.'product'.'type:title'.'brand:title'.'serie:title'.'image:image_path,sort'.'seo:seo_title'.'property_product'.'delivery:terms'"
+    'relations' => 
+        "'currency:name,iso_code'.
+        'product'.
+        'type:title'.
+        'brand:title'.
+        'serie:title'.
+        'image:image_path,sort'.
+        'seo:seo_title'.
+        'property_product'.
+        'delivery:terms'"
 ];
 
 // Массив в URL-кодированную строку запроса
