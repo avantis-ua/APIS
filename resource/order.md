@@ -19,20 +19,19 @@
 
 Используется четыри символа: `'` `.` `,` `:`
 
-Сами ресурсы перечисляем через точку `'product'.'user'.'user_data'.'address'` экранируя одинарными кавычками
+Сами ресурсы перечисляем через точку `'product'.'user'.'address'` экранируя одинарными кавычками
 ```
-"relations" => "'product'.'user'.'user_data'.'address'"
+"relations" => "'product'.'user'.'address'"
 ```
 
-Если необходимо запросить конкретные данные указываем их через двоеточие, если нужно несколько через запятую `'product'.'user:email,phone'.'user_data:iname,fname,oname'.'address'`
+Если необходимо запросить конкретные данные указываем их через двоеточие, если нужно несколько через запятую `'product'.'user:email,phone,iname,fname,oname'.'address'`
 
 В нашем запросе к ресурсу `user` мы хотим дополнительно получить:
 - из таблицы `product` - все данные
-- из таблицы `user` - поля: `email` `phone`
-- из таблицы `user_data` - поля: `iname` `fname` `oname`
+- из таблицы `user` - поля: `email` `phone` `iname` `fname` `oname`
 - из таблицы `address` - все данные
 ```
-"relations" => "'product'.'user:email,phone'.'user_data:iname,fname,oname'.'address'"
+"relations" => "'product'.'user:email,phone,iname,fname,oname'.'address'"
 ```
 ### Пример `GET` запроса HTTP клиентом Guzzle
 ``` php
@@ -51,7 +50,7 @@ $data = [
     'state' => 1,
     'date_from' => "2017-12-07",
     'date_to' => "2017-12-14",
-    'relations' => "'product'.'user:email,phone'.'user_data:iname,fname,oname'.'address'"
+    'relations' => "'product'.'user:email,phone,iname,fname,oname'.'address'"
 ];
 
 // Массив в URL-кодированную строку запроса
@@ -113,7 +112,7 @@ print_r($records);
         "state": "1",
         "date_from": "2017-12-07",
         "date_to": "2017-12-14",
-        "relations": "'product'.'user:email,phone'.'user_data:iname,fname,oname'.'address'"
+        "relations": "'product'.'user:email,phone,iname,fname,oname'.'address'"
     },
     "body": {
         "items": [{
@@ -201,7 +200,7 @@ $order_id = 10;
 // Строка запроса
 $data = [
     'public_key' => $public_key,
-    'relations' => "'product'.'user'.'user_data'.'address'"
+    'relations' => "'product'.'user:email,phone,iname,fname,oname'.'address'"
 ];
 
 // Массив в URL-кодированную строку запроса
@@ -264,7 +263,7 @@ print_r($records);
         "query": "GET",
         "resource": "order",
         "order_id": "10",
-        "relations": "'product'.'user:email,phone'.'user_data:iname,fname,oname'.'address'"
+        "relations": "'product'.'user:email,phone,iname,fname,oname'.'address'"
     },
     "body": {
         "items": [{
