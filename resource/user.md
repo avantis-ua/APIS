@@ -18,19 +18,18 @@
 
 Используется четыри символа: `'` `.` `,` `:`
 
-Сами ресурсы перечисляем через точку `'user_data'.'address'` экранируя одинарными кавычками
+Сами ресурсы перечисляем через точку `'address'` экранируя одинарными кавычками
 ```
-"relations" => "'user_data'.'address'"
+"relations" => "'address'"
 ```
 
-Если необходимо запросить конкретные данные указываем их через двоеточие `'user_data:iname,fname,oname'` если нужно несколько через запятую `'user_data:iname,fname,oname'.'address'`
+Если необходимо запросить конкретные данные указываем их через двоеточие, если нужно несколько через запятую `'address'`
 
-В нашем запросе к ресурсу `user` мы хотим дополнительно получить: 
-- из таблицы `user_data` - поля: `iname` `fname` `oname`
+В нашем запросе к ресурсу `user` мы хотим дополнительно получить:
 - из таблицы `address` - все данные
 
 ```
-"relations" => "'user_data:iname,fname,oname'.'address'"
+"relations" => "'address'"
 ```
 ### Получить данные пользователя по `user_id`
 
@@ -46,7 +45,7 @@ $user_id = 5;
 // Строка запроса
 $data = [
     "public_key" => $public_key,
-    "relations" => "'user_data:iname,fname,oname'.'address'"
+    "relations" => "'address'"
 ];
 
 // Массив в URL-кодированную строку запроса
@@ -71,10 +70,10 @@ $records = json_decode($output, true);
 if (isset($records["headers"]["code"])) {
     if ($records["headers"]["code"] == 200) {
 	// Присвоим значения
-	$user_data = $records["body"]["items"]["item"]["user_data"];
+	$user = $records["body"]["items"]["item"]["user"];
 	$address = $records["body"]["items"]["item"]["address"];
  
-        echo $user_data["fname"].' '.$user_data["iname"].' '.$user_data["oname"];
+        echo $user["fname"].' '.$user["iname"].' '.$user["oname"];
 	// выведет: Иванов Юрий Петрович
 	echo $address["city"].', '.$address["street"].' '.$address["number"];
 	// выведет: Киев, Бажана 12а/17
@@ -109,19 +108,21 @@ print_r($records);
                 "item": {
                     "user_id": 5,
                     "role_id": 1,
+                    "password": 0,
                     "password": "password hash",
-                    "phone": "380670000001",
                     "email": "user@example.com",
+                    "phone": "380670000001",
                     "language": "ru",
+                    "ticketed": 1,
+                    "admin_access": 0,
+                    "iname": "Юрий",
+                    "fname": "Иванов",
+                    "oname": "Петрович",
                     "cookie": "cookie hash",
                     "created": "2017-12-10 12:35",
                     "alias": "alias hash",
                     "state": 1,
-                    "user_data": {
-                        "iname": "Юрий",
-                        "fname": "Иванов",
-                        "oname": "Петрович"
-                    },
+                    "score": "",
                     "address": {
                         "country": "Украина",
                         "region": "Киевская область",
