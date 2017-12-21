@@ -227,7 +227,6 @@ if (isset($records["headers"]["code"])) {
 	// Присвоим значения
         $order = $records["body"]["items"]["item"];
 	$user = $records["body"]["items"]["item"]["user"];
-	$user_data = $records["body"]["items"]["item"]["user_data"];
 	$address = $records["body"]["items"]["item"]["address"];
 	$products = $records["body"]["items"]["item"]["products"];
 	
@@ -235,7 +234,7 @@ if (isset($records["headers"]["code"])) {
 	// выведет: 10
         echo $user["email"];
 	// выведет: user@example.com
-        echo $user_data["fname"].' '.$user_data["iname"];
+        echo $user["fname"].' '.$user["iname"];
 	// выведет: Иванов Юрий
 	echo $address["city"].', '.$address["street"].' '.$address["number"];
 	// выведет: Киев, Бажана 12а/17
