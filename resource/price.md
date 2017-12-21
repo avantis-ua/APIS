@@ -13,12 +13,12 @@
 
 Используется четыри символа: `'` `.` `,` `:`
 
-Сами ресурсы перечисляем через точку `'product'.'type'.'brand'.'serie'.'image'.'seo'.'property_product'` экранируя одинарными кавычками
+Сами ресурсы перечисляем через точку `'product'.'type'.'brand'.'serie'.'image'.'seo'.'params'` экранируя одинарными кавычками
 ```
-"relations" => "'product'.'type'.'brand'.'serie'.'image'.'seo'.'property_product'"
+"relations" => "'product'.'type'.'brand'.'serie'.'image'.'seo'.'params'"
 ```
 
-Если необходимо запросить конкретные данные указываем их через двоеточие, если нужно несколько через запятую `'product'.'type:title'.'brand:title'.'serie:title'.'image:image_path,sort'.'seo:seo_title'.'property_product'`
+Если необходимо запросить конкретные данные указываем их через двоеточие, если нужно несколько через запятую `'currency:name,iso_code'.'product'.'type:title'.'brand:title'.'serie:title'.'image:image_path,sort'.'seo:seo_title'.'params'.'delivery:terms'`
 
 В нашем запросе к ресурсу `price` мы хотим дополнительно получить: 
 - из ресурса `currency` - поля: `name` `iso_code`
@@ -28,7 +28,7 @@
 - из ресурса `serie` - поля: `title`
 - из ресурса `image` - поля: `image_path` `sort`
 - из ресурса `seo` - поля: `seo_title`
-- из ресурса `property_product` - все данные
+- из ресурса `params` - все данные
 
 ```
 "relations" => "
@@ -39,7 +39,8 @@
     'serie:title'.
     'image:image_path,sort'.
     'seo:seo_title'.
-    'property_product'"
+    'params'.
+    'delivery:terms'"
 ```
 ### Пример `GET` запроса HTTP клиентом Guzzle
 
@@ -65,7 +66,7 @@ $data = [
         'serie:title'.
         'image:image_path,sort'.
         'seo:seo_title'.
-        'property_product'.
+        'params'.
         'delivery:terms'
 	"];
 
@@ -126,7 +127,7 @@ print_r($records);
         "order": "ASC",
         "sort": "created",
         "state": "1",
-        "relations": "'currency:name,iso_code'.'product'.'type:title'.'brand:title'.'serie:title'.'image:image_path,sort'.'seo:seo_title'.'property_product'.'delivery:terms'"
+        "relations": "'currency:name,iso_code'.'product'.'type:title'.'brand:title'.'serie:title'.'image:image_path,sort'.'seo:seo_title'.'params'.'delivery:terms'"
     },
     "body": {
         "items": [{
@@ -201,8 +202,9 @@ print_r($records);
                     "delivery": {
                         "terms": ""
                     },
-                    "properties": [{
-                            "property_product": {
+                    "params": [{
+                            "param": {
+                                "param_id": 85321,
                                 "product_id": 85321,
                                 "field": "Диагональ",
                                 "value": "7",
@@ -212,7 +214,8 @@ print_r($records);
                                 "sort": 1,
                                 "score": ""
                             },
-                            "property_product": {
+                            "param": {
+                                "param_id": 85321,
                                 "product_id": 85321,
                                 "field": "Экран",
                                 "value": "LED",
