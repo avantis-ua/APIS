@@ -19,6 +19,7 @@
 Если необходимо запросить конкретные данные указываем их через двоеточие, если нужно несколько через запятую `'product'.'type:title'.'brand:title'.'serie:title'.'image:image_path,sort'.'seo:seo_title'.'property_product'`
 
 В нашем запросе к ресурсу `price` мы хотим дополнительно получить: 
+- из таблицы `currency` - поля: `name` `iso_code`
 - из таблицы `product` - все данные
 - из таблицы `type` - поля: `title`
 - из таблицы `brand` - поля: `title`
@@ -29,7 +30,8 @@
 
 ```
 "relations" => 
-    "'product'.
+    "'currency:name,iso_code'.
+    'product'.
     'type:title'.
     'brand:title'.
     'serie:title'.
@@ -53,7 +55,7 @@ $data = [
     'order' => "DESC",
     'sort' => "score",
     'state' => 1,
-    'relations' => "'product'.'type:title'.'brand:title'.'serie:title'.'image:image_path,sort'.'seo:seo_title'.'property_product'"
+    'relations' => "'currency:name,iso_code'.'product'.'type:title'.'brand:title'.'serie:title'.'image:image_path,sort'.'seo:seo_title'.'property_product'.'delivery:terms'"
 ];
 
 // Массив в URL-кодированную строку запроса
