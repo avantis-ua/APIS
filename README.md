@@ -83,6 +83,7 @@
 `https://example.com/api/v1/json/liqpay/pay/1234?status=success`
 
 ## Ресурсы
+Какие поля должны поддерживать ресурсы вы можете посмотреть в структуре базы данных [db.json](https://github.com/pllano/db.json)
 ### Список всех поддерживаемых ресурсов
 Использование всех ресурсов не является обязательным. Вы можете использовать только необходимые вам ресурсы.
 - [`/order`](https://github.com/pllano/APIS-2018/blob/master/resource/order.md) `GET`, `POST`, `PUT`, `PATCH` - Заказы
