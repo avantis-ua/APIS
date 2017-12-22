@@ -268,7 +268,7 @@ print_r($records);
     "date_from": "2017-12-07",
     "date_to": "2017-12-14",
     "relations": {
-        "product": ["type_id","brand_id","serie_id","articul"],
+        "product": ["product_id","name","type","brand","serie","articul","price","oldprice","num","available","total_price","currency_id","guarantee","pay_online"],
         "user": true,
         "address": true
     }
@@ -309,26 +309,28 @@ print_r($records);
         "products": [
            {
              "product": {
-               "product_id": "2001500",
-               "status": 1,
-               "name": "Type BrendName SerieName Articul",
-               "price": "2500.50",
-               "oldprice": "2500.50",
-               "num": 2,
-               "available": 20,
-               "total_price": "5001.00",
+               "product_id": "1000120",
+               "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
+               "type": "Ноутбук",
+               "brand": "Asus",
+               "serie": "X751NV",
+               "articul": "(X751NV-TY001) Black",
+               "price": "5750.50",
+               "oldprice": "5500.00",
+               "num": 1,
+               "available": 5,
+               "total_price": "5500.00",
                "currency_id": "UAH",
-               "guarantee": 24,
+               "guarantee": 36,
                "pay_online": 1
              }
            }, {
              "product": {
                "product_id": "1000120",
-               "status": 1,
                "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
                "type": "Ноутбук",
                "brand": "Asus",
-               "type": "X751NV",
+               "serie": "X751NV",
                "articul": "(X751NV-TY001) Black",
                "price": "5750.50",
                "oldprice": "5500.00",
