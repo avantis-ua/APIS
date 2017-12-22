@@ -26,10 +26,9 @@ $relations = json_decode(base64_decode('$arr["relations"]'), true);
 foreach($relations as $value)
 {
     if ($value == "all") {
-
-
+        // Отдаем все поля
     } else {
-    
+        // Дополнительная обработка
     }
 }
 ```
