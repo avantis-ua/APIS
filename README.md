@@ -173,19 +173,10 @@ $message_id = "https://github.com/pllano/APIS-2018/tree/master/http-codes/".$cod
 
 ### Параметр `relations`
 `relations` - Очень важный параметр запроса позволяющий получать в ответе необходимые данные из других связанных ресурсов.
-
-Используется четыри символа: `'` `.` `,` `:`
-
-Сами ресурсы перечисляем через точку `'product'.'user'.'address'` экранируя одинарными кавычками
-```
-"relations" => "'product'.'user'.'address'"
-```
-
-Если необходимо запросить конкретные данные указываем их через двоеточие `'user:phone'` если нужно несколько через запятую `'product:type_id,brand_id,serie_id,articul'`
-
-```
-"relations" => "'product:type_id,brand_id,serie_id,articul'.'user:phone'.'address:street_id'"
-```
+ 
+Для передачи дополнительных параметров в `json` формате с последующим кодированием данных в формат MIME base64 функцией base64_encode
+ 
+Параметры: Название связаного ресурса и `true` или строка с параметрами
 
 В нашем запросе к ресурсу `order` мы хотим дополнительно получить: 
 - `product` - товары в заказе
@@ -210,7 +201,11 @@ $data = [
     "state" => 1,
     "date_from" => "2017-12-07",
     "date_to" => "2017-12-14",
-    "relations" => "'product'.'user'.'user_data'.'address'"
+    "relations" => base64_encode('{
+        "product": ["type_id","brand_id","serie_id","articul"],
+        "user": true,
+        "address": true
+    }')
 ];
 
 // Массив в URL-кодированную строку запроса
@@ -272,7 +267,11 @@ print_r($records);
     "state": "1",
     "date_from": "2017-12-07",
     "date_to": "2017-12-14",
-    "relations": "product, user, address"
+    "relations": [
+        "product": ["type_id","brand_id","serie_id","articul"],
+        "user": true,
+        "address": true
+    ]
   },
   "body": {
     "items": [{
