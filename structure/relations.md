@@ -20,6 +20,6 @@ $arr = [
 ];
 ```
 ```php
-// Конвертируем relations в массив
+// Декодируем relations в массив
 $relations = json_decode(base64_decode('$arr["relations"]'), true);
 ```
