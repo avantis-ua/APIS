@@ -176,7 +176,7 @@ $message_id = "https://github.com/pllano/APIS-2018/tree/master/http-codes/".$cod
  
 Для передачи дополнительных параметров в `json` формате с последующим кодированием данных в формат MIME base64 функцией base64_encode
  
-Параметры: Название связаного ресурса и `true` или строка с параметрами
+Параметры: Название связаного ресурса равно `"all"` или строка с параметрами
 
 В нашем запросе к ресурсу `order` мы хотим дополнительно получить: 
 - `product` - товары в заказе
@@ -202,9 +202,9 @@ $data = [
     "date_from" => "2017-12-07",
     "date_to" => "2017-12-14",
     "relations" => base64_encode('{
-        "product": true,
+        "product": "all",
         "user": ["phone","email","fname","iname","oname"],
-        "address": true
+        "address": "all"
     }')
 ];
 
@@ -268,9 +268,9 @@ print_r($records);
     "date_from": "2017-12-07",
     "date_to": "2017-12-14",
     "relations": {
-        "product": true,
+        "product": "all",
         "user": ["phone","email","fname","iname","oname"],
-        "address": true
+        "address": "all"
     }
   },
   "body": {
