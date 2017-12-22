@@ -202,8 +202,8 @@ $data = [
     "date_from" => "2017-12-07",
     "date_to" => "2017-12-14",
     "relations" => base64_encode('{
-        "product": ["type_id","brand_id","serie_id","articul"],
-        "user": true,
+        "product": true,
+        "user": ["phone","email","fname","iname","oname"],
         "address": true
     }')
 ];
@@ -268,8 +268,8 @@ print_r($records);
     "date_from": "2017-12-07",
     "date_to": "2017-12-14",
     "relations": {
-        "product": ["product_id","name","type","brand","serie","articul","price","oldprice","num","available","total_price","currency_id","guarantee","pay_online"],
-        "user": true,
+        "product": true,
+        "user": ["phone","email","fname","iname","oname"],
         "address": true
     }
   },
@@ -287,8 +287,6 @@ print_r($records);
         "user": {
           "phone": "380670000001",
           "email": "user@example.com"
-        },
-        "user_data": {
           "fname": "Иванов",
           "iname": "Юрий",
           "oname": "Петрович"
