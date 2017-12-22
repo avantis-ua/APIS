@@ -8,17 +8,12 @@
 
 Какие поля должен поддерживать ресурс `price` вы можете посмотреть в структуре базы данных [db/price](https://github.com/pllano/db.json/blob/master/db/price.md)
 
-### Параметр `relations`
-`relations` - Очень важный параметр запроса позволяющий получать в ответе необходимые данные из других связанных ресурсов.
-
-Используется четыри символа: `'` `.` `,` `:`
-
-Сами ресурсы перечисляем через точку `'product'.'type'.'brand'.'serie'.'image'.'seo'.'params'` экранируя одинарными кавычками
-```
-"relations" => "'product'.'type'.'brand'.'serie'.'image'.'seo'.'params'"
-```
-
-Если необходимо запросить конкретные данные указываем их через двоеточие, если нужно несколько через запятую `'currency:name,iso_code'.'product'.'type:title'.'brand:title'.'serie:title'.'image:image_path,sort'.'seo:seo_title'.'params'.'delivery:terms'`
+### Параметр [`relations`](https://github.com/pllano/APIS-2018/blob/master/structure/relations.md)
+[`relations`](https://github.com/pllano/APIS-2018/blob/master/structure/relations.md) - Очень важный параметр запроса позволяющий получать в ответе необходимые данные из других связанных ресурсов.
+ 
+Для передачи дополнительных параметров в `json` формате с последующим кодированием данных в формат MIME base64 функцией base64_encode
+ 
+Параметры: Название связаного ресурса равно `"all"` или строка с параметрами
 
 В нашем запросе к ресурсу `price` мы хотим дополнительно получить: 
 - из ресурса `currency` - поля: `name` `iso_code`
@@ -31,16 +26,16 @@
 - из ресурса `params` - все данные
 
 ```
-"relations" => "
-    'currency:name,iso_code'.
-    'product'.
-    'type:title'.
-    'brand:title'.
-    'serie:title'.
-    'image:image_path,sort'.
-    'seo:seo_title'.
-    'params'.
-    'delivery:terms'"
+"relations" => base64_encode('{
+    "currency": ["name","iso_code"],
+    "product": "all",
+    "type": ["title"],
+    "brand": ["title"],
+    "serie": ["title"],
+    "image": ["image_path","sort"],
+    "seo": ["seo_title"],
+    "params": "all"
+}')
 ```
 ### Пример `GET` запроса HTTP клиентом Guzzle
 
@@ -52,23 +47,23 @@ $public_key = $config->get('public_key');
 
 // Наш запрос
 $data = [
-    'public_key' => $public_key,
-    'limit' => 10,
-    'offset' => 0,
-    'order' => "DESC",
-    'sort' => "score",
-    'state' => 1,
-    'relations' => "
-        'currency:name,iso_code'.
-        'product'.
-        'type:title'.
-        'brand:title'.
-        'serie:title'.
-        'image:image_path,sort'.
-        'seo:seo_title'.
-        'params'.
-        'delivery:terms'
-	"];
+    "public_key" => $public_key,
+    "limit" => 10,
+    "offset" => 0,
+    "order" => "DESC",
+    "sort" => "score",
+    "state" => 1,
+    "relations" => base64_encode('{
+        "currency": ["name","iso_code"],
+        "product": "all",
+        "type": ["title"],
+        "brand": ["title"],
+        "serie": ["title"],
+        "image": ["image_path","sort"],
+        "seo": ["seo_title"],
+        "params": "all"
+    }')
+];
 
 // Массив в URL-кодированную строку запроса
 $data_query = http_build_query($data) . "\n";
@@ -127,7 +122,16 @@ print_r($records);
         "order": "ASC",
         "sort": "created",
         "state": "1",
-        "relations": "'currency:name,iso_code'.'product'.'type:title'.'brand:title'.'serie:title'.'image:image_path,sort'.'seo:seo_title'.'params'.'delivery:terms'"
+        "relations": {
+            "currency": ["name","iso_code"],
+            "product": "all",
+            "type": ["title"],
+            "brand": ["title"],
+            "serie": ["title"],
+            "image": ["image_path","sort"],
+            "seo": ["seo_title"],
+            "params": "all"
+        }
     },
     "body": {
         "items": [{
