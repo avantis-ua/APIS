@@ -267,11 +267,11 @@ print_r($records);
     "state": "1",
     "date_from": "2017-12-07",
     "date_to": "2017-12-14",
-    "relations": [
+    "relations": {
         "product": ["type_id","brand_id","serie_id","articul"],
         "user": true,
         "address": true
-    ]
+    }
   },
   "body": {
     "items": [{
