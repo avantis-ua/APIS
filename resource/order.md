@@ -116,9 +116,9 @@ print_r($records);
         "date_from": "2017-12-07",
         "date_to": "2017-12-14",
         "relations": {
-        "product": "all",
-        "user": ["phone","email","fname","iname","oname"],
-        "address": "all"
+            "product": "all",
+            "user": ["phone","email","fname","iname","oname"],
+            "address": "all"
         }
     },
     "body": {
