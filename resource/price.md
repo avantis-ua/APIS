@@ -29,11 +29,11 @@
 "relations" => base64_encode('{
     "currency": ["name","iso_code"],
     "product": "all",
-    "type": ["title"],
-    "brand": ["title"],
-    "serie": ["title"],
+    "type": "title",
+    "brand": "title",
+    "serie": "title",
     "image": ["image_path","sort"],
-    "seo": ["seo_title"],
+    "seo": "seo_title",
     "params": "all"
 }')
 ```
@@ -56,11 +56,11 @@ $data = [
     "relations" => base64_encode('{
         "currency": ["name","iso_code"],
         "product": "all",
-        "type": ["title"],
-        "brand": ["title"],
-        "serie": ["title"],
+        "type": "title",
+        "brand": "title",
+        "serie": "title",
         "image": ["image_path","sort"],
-        "seo": ["seo_title"],
+        "seo": "seo_title",
         "params": "all"
     }')
 ];
@@ -125,11 +125,11 @@ print_r($records);
         "relations": {
             "currency": ["name","iso_code"],
             "product": "all",
-            "type": ["title"],
-            "brand": ["title"],
-            "serie": ["title"],
+            "type": "title",
+            "brand": "title",
+            "serie": "title",
             "image": ["image_path","sort"],
-            "seo": ["seo_title"],
+            "seo": "seo_title",
             "params": "all"
         }
     },
