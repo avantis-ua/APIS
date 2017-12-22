@@ -176,9 +176,9 @@ $message_id = "https://github.com/pllano/APIS-2018/tree/master/http-codes/".$cod
 
 Используется четыри символа: `'` `.` `,` `:`
 
-Сами ресурсы перечисляем через точку `'product'.'user'.'user_data'.'address'` экранируя одинарными кавычками
+Сами ресурсы перечисляем через точку `'product'.'user'.'address'` экранируя одинарными кавычками
 ```
-"relations" => "'product'.'user'.'user_data'.'address'"
+"relations" => "'product'.'user'.'address'"
 ```
 
 Если необходимо запросить конкретные данные указываем их через двоеточие `'user:phone'` если нужно несколько через запятую `'product:type_id,brand_id,serie_id,articul'`
