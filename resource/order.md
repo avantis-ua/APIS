@@ -14,24 +14,23 @@
 
 Какие поля должен поддерживать ресурс `order` вы можете посмотреть в структуре базы данных [db/order](https://github.com/pllano/db.json/blob/master/db/order.md)
 
-### Параметр `relations`
-`relations` - Очень важный параметр запроса позволяющий получать в ответе необходимые данные из других связанных ресурсов.
-
-Используется четыри символа: `'` `.` `,` `:`
-
-Сами ресурсы перечисляем через точку `'product'.'user'.'address'` экранируя одинарными кавычками
-```
-"relations" => "'product'.'user'.'address'"
-```
-
-Если необходимо запросить конкретные данные указываем их через двоеточие, если нужно несколько через запятую `'product'.'user:email,phone,iname,fname,oname'.'address'`
+### Параметр [`relations`](https://github.com/pllano/APIS-2018/blob/master/structure/relations.md)
+[`relations`](https://github.com/pllano/APIS-2018/blob/master/structure/relations.md) - Очень важный параметр запроса позволяющий получать в ответе необходимые данные из других связанных ресурсов.
+ 
+Для передачи дополнительных параметров в `json` формате с последующим кодированием данных в формат MIME base64 функцией base64_encode
+ 
+Параметры: Название связаного ресурса равно `"all"` или строка с параметрами
 
 В нашем запросе к ресурсу `user` мы хотим дополнительно получить:
 - из таблицы `product` - все данные
 - из таблицы `user` - поля: `email` `phone` `iname` `fname` `oname`
 - из таблицы `address` - все данные
 ```
-"relations" => "'product'.'user:email,phone,iname,fname,oname'.'address'"
+"relations" => base64_encode('{
+    "product": "all",
+    "user": ["phone","email","fname","iname","oname"],
+    "address": "all"
+}')
 ```
 ### Пример `GET` запроса HTTP клиентом Guzzle
 ``` php
@@ -50,7 +49,11 @@ $data = [
     'state' => 1,
     'date_from' => "2017-12-07",
     'date_to' => "2017-12-14",
-    'relations' => "'product'.'user:email,phone,iname,fname,oname'.'address'"
+    "relations" => base64_encode('{
+        "product": "all",
+        "user": ["phone","email","fname","iname","oname"],
+        "address": "all"
+    }')
 ];
 
 // Массив в URL-кодированную строку запроса
@@ -112,7 +115,11 @@ print_r($records);
         "state": "1",
         "date_from": "2017-12-07",
         "date_to": "2017-12-14",
-        "relations": "'product'.'user:email,phone,iname,fname,oname'.'address'"
+        "relations": {
+        "product": "all",
+        "user": ["phone","email","fname","iname","oname"],
+        "address": "all"
+        }
     },
     "body": {
         "items": [{
@@ -147,16 +154,20 @@ print_r($records);
                     },
                     "products": [{
                             "product": {
-                                "product_id": "2001500",
+                                "product_id": "1000120",
                                 "status": 1,
-                                "name": "Type BrendName SerieName Articul",
-                                "price": "2500.50",
-                                "oldprice": "2500.50",
-                                "num": 2,
-                                "available": 20,
-                                "total_price": "5001.00",
+                                "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
+                                "type": "Ноутбук",
+                                "brand": "Asus",
+                                "type": "X751NV",
+                                "articul": "(X751NV-TY001) Black",
+                                "price": "5750.50",
+                                "oldprice": "5500.00",
+                                "num": 1,
+                                "available": 5,
+                                "total_price": "5500.00",
                                 "currency_id": "UAH",
-                                "guarantee": 24,
+                                "guarantee": 36,
                                 "pay_online": 1
                             }
                         }, {
@@ -200,7 +211,11 @@ $order_id = 10;
 // Строка запроса
 $data = [
     'public_key' => $public_key,
-    'relations' => "'product'.'user:email,phone,iname,fname,oname'.'address'"
+    "relations" => base64_encode('{
+        "product": "all",
+        "user": ["phone","email","fname","iname","oname"],
+        "address": "all"
+    }')
 ];
 
 // Массив в URL-кодированную строку запроса
@@ -262,7 +277,11 @@ print_r($records);
         "query": "GET",
         "resource": "order",
         "order_id": "10",
-        "relations": "'product'.'user:email,phone,iname,fname,oname'.'address'"
+        "relations": {
+            "product": "all",
+            "user": ["phone","email","fname","iname","oname"],
+            "address": "all"
+        }
     },
     "body": {
         "items": [{
@@ -297,16 +316,20 @@ print_r($records);
                     },
                     "products": [{
                             "product": {
-                                "product_id": "2001500",
+                                "product_id": "1000120",
                                 "status": 1,
-                                "name": "Type BrendName SerieName Articul",
-                                "price": "2500.50",
-                                "oldprice": "2500.50",
-                                "num": 2,
-                                "available": 20,
-                                "total_price": "5001.00",
+                                "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
+                                "type": "Ноутбук",
+                                "brand": "Asus",
+                                "type": "X751NV",
+                                "articul": "(X751NV-TY001) Black",
+                                "price": "5750.50",
+                                "oldprice": "5500.00",
+                                "num": 1,
+                                "available": 5,
+                                "total_price": "5500.00",
                                 "currency_id": "UAH",
-                                "guarantee": 24,
+                                "guarantee": 36,
                                 "pay_online": 1
                             }
                         }, {
