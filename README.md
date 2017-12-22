@@ -286,7 +286,7 @@ print_r($records);
         "comment": "Могу принять после 17:00",
         "user": {
           "phone": "380670000001",
-          "email": "user@example.com"
+          "email": "user@example.com",
           "fname": "Иванов",
           "iname": "Юрий",
           "oname": "Петрович"
