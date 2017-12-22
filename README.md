@@ -171,8 +171,8 @@ $message_id = "https://github.com/pllano/APIS-2018/tree/master/http-codes/".$cod
 }
 ```
 
-### Параметр `relations`
-`relations` - Очень важный параметр запроса позволяющий получать в ответе необходимые данные из других связанных ресурсов.
+### Параметр [`relations`](https://github.com/pllano/APIS-2018/blob/master/structure/relations.md)
+[`relations`](https://github.com/pllano/APIS-2018/blob/master/structure/relations.md) - Очень важный параметр запроса позволяющий получать в ответе необходимые данные из других связанных ресурсов.
  
 Для передачи дополнительных параметров в `json` формате с последующим кодированием данных в формат MIME base64 функцией base64_encode
  
