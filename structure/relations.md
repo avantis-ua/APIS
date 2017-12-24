@@ -22,7 +22,7 @@ $arr = [
 ## Получение и обработка параметра `relations`
 ```php
 // Декодируем relations в массив
-$relations = json_decode(base64_decode('$arr["relations"]'), true);
+$relations = json_decode(base64_decode($arr["relations"]), true);
 
 foreach($relations as $value)
 {
