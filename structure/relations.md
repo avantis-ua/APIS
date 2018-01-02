@@ -17,6 +17,16 @@ use GuzzleHttp\Client as Guzzle;
 // Взять public_key из конфигурации
 $public_key = $config->get("public_key");
 
+// Если нужно только нужные поля
+$relations = base64_encode('{
+    "product": "all",
+    "user": ["phone","email","fname","iname","oname"],
+    "address": "all"
+}');
+
+// Или просто через запятую (выведет все поля указанных ресурсов)
+$relations = "product,user,address";
+
 // Наш запрос
 $data = [
     "public_key" => $public_key,
@@ -27,11 +37,7 @@ $data = [
     "state" => 1,
     "date_from" => "2017-12-07",
     "date_to" => "2017-12-14",
-    "relations" => base64_encode('{
-        "product": "all",
-        "user": ["phone","email","fname","iname","oname"],
-        "address": "all"
-    }')
+    "relations" => $relations
 ];
 
 // Массив в URL-кодированную строку запроса
