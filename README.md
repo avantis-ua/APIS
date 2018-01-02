@@ -6,7 +6,14 @@
 
 Вы можете писать свою API зная что другим API использующим стандарт APIS-2018 не придется тратиться на дополнительную доработку и интеграцию с вашим API. Для подключения к вашему API будет необходимо только получить данные аутентификации для доступа к учетной записи. Пример использования: [pllano-api](https://github.com/pllano/pllano-api)
 
-Этот стандарт используют: [«API Shop»](https://github.com/API-Shop/api-shop) и база данных [«API json DB»](https://github.com/pllano/api-json-db)
+Этот стандарт используют: [«API Shop»](https://github.com/pllano/api-shop) и база данных [«jsonDB»](https://github.com/pllano/json-db)
+
+### Демо база данных [`https://xti.com.ua/json-db/`](https://xti.com.ua/json-db/) работает через RESTful API интерфейс
+Для удобства мы отключили авторизацию через `public_key`
+
+Примеры демо запросов: [demo](https://github.com/pllano/json-db/blob/master/demo.md)
+
+Демо сайт работающий через API - https://xti.com.ua/
 
 ## Стандарт APIS-2018 стоит на двух основных принципах: 
 - Адреса ресурсов и их назначение должны быть одинаковыми
