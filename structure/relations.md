@@ -111,47 +111,45 @@ print_r($records);
                 "total_amount": "10501.00",
                 "currency_id": "UAH",
                 "comment": "Могу принять после 17:00",
-                "user": {
+                "user": [{
                     "phone": "380670000001",
                     "email": "user@example.com",
                     "fname": "Иванов",
                     "iname": "Юрий",
                     "oname": "Петрович"
-                },
-                "cart": [
-                    {
-                        "product_id": "1000120",
-                        "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
-                        "type": "Ноутбук",
-                        "brand": "Asus",
-                        "serie": "X751NV",
-                        "articul": "(X751NV-TY001) Black",
-                        "price": "5750.50",
-                        "oldprice": "5500.00",
-                        "num": 1,
-                        "available": 5,
-                        "total_price": "5500.00",
-                        "currency_id": "UAH",
-                        "guarantee": 36,
-                        "pay_online": 1
-                    }, {
-                        "product_id": "1000120",
-                        "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
-                        "type": "Ноутбук",
-                        "brand": "Asus",
-                        "serie": "X751NV",
-                        "articul": "(X751NV-TY001) Black",
-                        "price": "5750.50",
-                        "oldprice": "5500.00",
-                        "num": 1,
-                        "available": 5,
-                        "total_price": "5500.00",
-                        "currency_id": "UAH",
-                        "guarantee": 36,
-                        "pay_online": 1
-                    }
-                ],
-                "address": {
+                }],
+                "cart": [{
+                    "product_id": "1000120",
+                    "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
+                    "type": "Ноутбук",
+                    "brand": "Asus",
+                    "serie": "X751NV",
+                    "articul": "(X751NV-TY001) Black",
+                    "price": "5750.50",
+                    "oldprice": "5500.00",
+                    "num": 1,
+                    "available": 5,
+                    "total_price": "5500.00",
+                    "currency_id": "UAH",
+                    "guarantee": 36,
+                    "pay_online": 1
+                }, {
+                    "product_id": "1000120",
+                    "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
+                    "type": "Ноутбук",
+                    "brand": "Asus",
+                    "serie": "X751NV",
+                    "articul": "(X751NV-TY001) Black",
+                    "price": "5750.50",
+                    "oldprice": "5500.00",
+                    "num": 1,
+                    "available": 5,
+                    "total_price": "5500.00",
+                    "currency_id": "UAH",
+                    "guarantee": 36,
+                    "pay_online": 1
+                }],
+                "address": [{
                     "country": "Украина",
                     "region": "Киевская область",
                     "postal_code": 0,
@@ -163,9 +161,9 @@ print_r($records);
                     "floor": "0",
                     "apartment": "75",
                     "additional": "Код на парадном 107"
-                }
+                }]
             }
         }]
     }
-}
+} 
 ```
