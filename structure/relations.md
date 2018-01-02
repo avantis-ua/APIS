@@ -10,6 +10,8 @@
 - `user` - данные покупателя
 - `address` -  данные адреса покупателя
 
+- Пример URL `https://xti.com.ua/json-db/order?relation=address,cart,user:user_id:iname:oname:phone:email`
+
 ### Пример `GET` запроса к ресурсу `order` через HTTP клиент Guzzle
 ``` php
 use GuzzleHttp\Client as Guzzle;
@@ -136,9 +138,8 @@ print_r($records);
 	  "apartment": "75",
 	  "additional": "Код на парадном 107"
         },
-        "products": [
+        "cart": [
            {
-             "product": {
                "product_id": "1000120",
                "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
                "type": "Ноутбук",
@@ -153,9 +154,7 @@ print_r($records);
                "currency_id": "UAH",
                "guarantee": 36,
                "pay_online": 1
-             }
            }, {
-             "product": {
                "product_id": "1000120",
                "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
                "type": "Ноутбук",
@@ -170,7 +169,6 @@ print_r($records);
                "currency_id": "UAH",
                "guarantee": 36,
                "pay_online": 1
-             }
            }
         ]
       }
