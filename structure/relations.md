@@ -21,15 +21,15 @@ use GuzzleHttp\Client as Guzzle;
 // Взять public_key из конфигурации
 $public_key = $config->get("public_key");
 
-// Если нужно только нужные поля
+// Если нужно только необходимые поля
 $relations = base64_encode('{
-    "product": "all",
-    "user": ["phone","email","fname","iname","oname"],
+    "cart": "all",
+    "user": ["phone","email","fname","iname"],
     "address": "all"
 }');
 
-// Или просто через запятую (выведет все поля указанных ресурсов)
-$relations = "product,user,address";
+// Или просто через запятую, а необходимые поля через двоеточие
+$relations = "cart,user:phone:email:fname:iname,address";
 
 // Наш запрос
 $data = [
@@ -38,27 +38,20 @@ $data = [
     "offset" => 0,
     "order" => "DESC",
     "sort" => "created",
-    "state" => 1,
-    "date_from" => "2017-12-07",
-    "date_to" => "2017-12-14",
+    "state" => 1
     "relations" => $relations
 ];
 
 // Массив в URL-кодированную строку запроса
 $data_query = http_build_query($data) . "\n";
-
 // Формируем URL запроса
 $uri = "https://example.com/api/v1/json/order?".$data_query;
-
 // Подключаем Guzzle
 $client = new Guzzle();
-
 // Отправляем запрос
 $response = $client->request("GET", $uri);
-
 // Получаем тело ответа
 $output = $response->getBody();
-
 // json в массив
 $records = json_decode($output, true);
 
@@ -101,8 +94,6 @@ print_r($records);
     "order": "DESC",
     "sort": "created",
     "state": "1",
-    "date_from": "2017-12-07",
-    "date_to": "2017-12-14",
     "relations": {
         "product": "all",
         "user": ["phone","email","fname","iname","oname"],
@@ -112,68 +103,68 @@ print_r($records);
   "body": {
     "items": [{
       "item": {
-        "id": "1234567890",
-        "created": "2017-12-11 10:30",
-        "status": 1,
-        "delivery": "Novaposhta",
-        "delivery_code": "1234567890121",
-        "total_amount": "10501.00",
-        "currency_id": "UAH",
-        "comment": "Могу принять после 17:00",
-        "user": {
-          "phone": "380670000001",
-          "email": "user@example.com",
-          "fname": "Иванов",
-          "iname": "Юрий",
-          "oname": "Петрович"
-        },
-        "address": {
-          "country": "Украина",
-          "region": "Киевская область",
-          "postal_code": 0,
-          "city": "Киев",
-          "district": "Позняки",
-	  "street": "Бажана",
-	  "number": "12а/17",
-	  "parade": "0",
-          "floor": "0",
-	  "apartment": "75",
-	  "additional": "Код на парадном 107"
-        },
-        "cart": [
-           {
-               "product_id": "1000120",
-               "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
-               "type": "Ноутбук",
-               "brand": "Asus",
-               "serie": "X751NV",
-               "articul": "(X751NV-TY001) Black",
-               "price": "5750.50",
-               "oldprice": "5500.00",
-               "num": 1,
-               "available": 5,
-               "total_price": "5500.00",
-               "currency_id": "UAH",
-               "guarantee": 36,
-               "pay_online": 1
-           }, {
-               "product_id": "1000120",
-               "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
-               "type": "Ноутбук",
-               "brand": "Asus",
-               "serie": "X751NV",
-               "articul": "(X751NV-TY001) Black",
-               "price": "5750.50",
-               "oldprice": "5500.00",
-               "num": 1,
-               "available": 5,
-               "total_price": "5500.00",
-               "currency_id": "UAH",
-               "guarantee": 36,
-               "pay_online": 1
-           }
-        ]
-      }
+          "id": "1234567890",
+          "created": "2017-12-11 10:30",
+          "status": 1,
+          "delivery": "Novaposhta",
+          "delivery_code": "1234567890121",
+          "total_amount": "10501.00",
+          "currency_id": "UAH",
+          "comment": "Могу принять после 17:00",
+          "user": {
+              "phone": "380670000001",
+              "email": "user@example.com",
+              "fname": "Иванов",
+              "iname": "Юрий",
+              "oname": "Петрович"
+          },
+          "cart": [
+               {
+                   "product_id": "1000120",
+                   "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
+                   "type": "Ноутбук",
+                   "brand": "Asus",
+                   "serie": "X751NV",
+                   "articul": "(X751NV-TY001) Black",
+                   "price": "5750.50",
+                   "oldprice": "5500.00",
+                   "num": 1,
+                   "available": 5,
+                   "total_price": "5500.00",
+                   "currency_id": "UAH",
+                   "guarantee": 36,
+                   "pay_online": 1
+               }, {
+                   "product_id": "1000120",
+                   "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
+                   "type": "Ноутбук",
+                   "brand": "Asus",
+                   "serie": "X751NV",
+                   "articul": "(X751NV-TY001) Black",
+                   "price": "5750.50",
+                   "oldprice": "5500.00",
+                   "num": 1,
+                   "available": 5,
+                   "total_price": "5500.00",
+                   "currency_id": "UAH",
+                   "guarantee": 36,
+                   "pay_online": 1
+               }
+          ]
+      },
+          "address": {
+              "country": "Украина",
+              "region": "Киевская область",
+              "postal_code": 0,
+              "city": "Киев",
+              "district": "Позняки",
+	      "street": "Бажана",
+	      "number": "12а/17",
+	      "parade": "0",
+              "floor": "0",
+	      "apartment": "75",
+	      "additional": "Код на парадном 107"
+          }
     }]
   }
 }
