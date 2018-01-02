@@ -10,7 +10,7 @@
 - `user` - данные покупателя
 - `address` -  данные адреса покупателя
 
-- Пример URL `https://xti.com.ua/json-db/order?relation=address,cart,user:user_id:iname:oname:phone:email`
+- Пример URL [`https://xti.com.ua/json-db/order?relation=address,cart,user:user_id:iname:oname:phone:email`](https://xti.com.ua/json-db/order?relation=address,cart,user:user_id:iname:oname:phone:email)
 
 ### Пример `GET` запроса к ресурсу `order` через HTTP клиент Guzzle
 ``` php
