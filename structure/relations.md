@@ -54,7 +54,7 @@ $getArr = [
 
 $response = $db->get($resource, $getArr);
 
-// Вернет массив
+// Обрабатываем ответ
 if (isset($records["headers"]["code"])) {
     if ($records["headers"]["code"] == 200) {
         $count = count($records["body"]["items"]);
@@ -115,7 +115,7 @@ $output = $response->getBody();
 // json в массив
 $records = json_decode($output, true);
 
-// Работаем с массивом
+// Обрабатываем ответ
 if (isset($records["headers"]["code"])) {
     if ($records["headers"]["code"] == 200) {
         $count = count($records["body"]["items"]);
