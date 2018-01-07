@@ -130,101 +130,131 @@ if (isset($records["headers"]["code"])) {
 }
 
 ```
+### Вывести результат
 ``` php
-// Вывести на экран json
-print_r($response);
+print_r($records);
 ```
-### Структура ответа торговой площадки на наш `GET` запрос в json формате
 ```json
-{
-    "headers": {
-        "status": "200 OK",
-        "code": "200",
-        "message": "OK",
-        "message_id": "https:\/\/github.com\/pllano\/APIS-2018\/tree\/master\/http-codes\/200.md"
-    },
-    "response": {
-        "auth": "QueryKeyAuth",
-        "total": "10"
-    },
-    "request": {
-        "query": "GET",
-        "resource": "order",
-        "limit": "10",
-        "offset": "0",
-        "order": "DESC",
-        "sort": "created",
-        "state": "1",
-        "relations": {
-            "product": "all",
-            "user": ["phone","email","fname","iname","oname"],
-            "address": "all"
-        }
-    },
-    "body": {
-        "items": [{
-            "item": {
-                "id": "1234567890",
-                "created": "2017-12-11 10:30",
-                "status": 1,
-                "delivery": "Novaposhta",
-                "delivery_code": "1234567890121",
-                "total_amount": "10501.00",
-                "currency_id": "UAH",
-                "comment": "Могу принять после 17:00",
-                "user": [{
-                    "phone": "380670000001",
-                    "email": "user@example.com",
-                    "fname": "Иванов",
-                    "iname": "Юрий",
-                    "oname": "Петрович"
-                }],
-                "cart": [{
-                    "product_id": "1000120",
-                    "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
-                    "type": "Ноутбук",
-                    "brand": "Asus",
-                    "serie": "X751NV",
-                    "articul": "(X751NV-TY001) Black",
-                    "price": "5750.50",
-                    "oldprice": "5500.00",
-                    "num": 1,
-                    "available": 5,
-                    "total_price": "5500.00",
-                    "currency_id": "UAH",
-                    "guarantee": 36,
-                    "pay_online": 1
-                }, {
-                    "product_id": "1000120",
-                    "name": "Ноутбук Asus X751NV (X751NV-TY001) Black",
-                    "type": "Ноутбук",
-                    "brand": "Asus",
-                    "serie": "X751NV",
-                    "articul": "(X751NV-TY001) Black",
-                    "price": "5750.50",
-                    "oldprice": "5500.00",
-                    "num": 1,
-                    "available": 5,
-                    "total_price": "5500.00",
-                    "currency_id": "UAH",
-                    "guarantee": 36,
-                    "pay_online": 1
-                }],
-                "address": [{
-                    "country": "Украина",
-                    "region": "Киевская область",
-                    "postal_code": 0,
-                    "city": "Киев",
-                    "district": "Позняки",
-                    "street": "Бажана",
-                    "number": "12а/17",
-                    "parade": "0",
-                    "floor": "0",
-                    "apartment": "75",
-                    "additional": "Код на парадном 107"
-                }]
-            }
-        }]
-    }
-} 
+array (
+  'headers' => 
+  array (
+    'status' => '200 OK',
+    'code' => '200',
+    'message' => 'OK',
+    'message_id' => 'https://github.com/pllano/APIS-2018/tree/master/http-codes/200.md',
+  ),
+  'response' => 
+  array (
+    'auth' => 'QueryKeyAuth',
+    'total' => '10',
+  ),
+  'request' => 
+  array (
+    'query' => 'GET',
+    'resource' => 'order',
+    'limit' => '10',
+    'offset' => '0',
+    'order' => 'DESC',
+    'sort' => 'created',
+    'state' => '1',
+    'relations' => 
+    array (
+      'product' => 'all',
+      'user' => 
+      array (
+        0 => 'phone',
+        1 => 'email',
+        2 => 'fname',
+        3 => 'iname',
+        4 => 'oname',
+      ),
+      'address' => 'all',
+    ),
+  ),
+  'body' => 
+  array (
+    'items' => 
+    array (
+      0 => 
+      array (
+        'item' => 
+        array (
+          'id' => '1234567890',
+          'created' => '2017-12-11 10:30',
+          'status' => 1,
+          'delivery' => 'Novaposhta',
+          'delivery_code' => '1234567890121',
+          'total_amount' => '10501.00',
+          'currency_id' => 'UAH',
+          'comment' => 'Могу принять после 17:00',
+          'user' => 
+          array (
+            0 => 
+            array (
+              'phone' => '380670000001',
+              'email' => 'user@example.com',
+              'fname' => 'Иванов',
+              'iname' => 'Юрий',
+              'oname' => 'Петрович',
+            ),
+          ),
+          'cart' => 
+          array (
+            0 => 
+            array (
+              'product_id' => '1000120',
+              'name' => 'Ноутбук Asus X751NV (X751NV-TY001) Black',
+              'type' => 'Ноутбук',
+              'brand' => 'Asus',
+              'serie' => 'X751NV',
+              'articul' => '(X751NV-TY001) Black',
+              'price' => '5750.50',
+              'oldprice' => '5500.00',
+              'num' => 1,
+              'available' => 5,
+              'total_price' => '5500.00',
+              'currency_id' => 'UAH',
+              'guarantee' => 36,
+              'pay_online' => 1,
+            ),
+            1 => 
+            array (
+              'product_id' => '1000120',
+              'name' => 'Ноутбук Asus X751NV (X751NV-TY001) Black',
+              'type' => 'Ноутбук',
+              'brand' => 'Asus',
+              'serie' => 'X751NV',
+              'articul' => '(X751NV-TY001) Black',
+              'price' => '5750.50',
+              'oldprice' => '5500.00',
+              'num' => 1,
+              'available' => 5,
+              'total_price' => '5500.00',
+              'currency_id' => 'UAH',
+              'guarantee' => 36,
+              'pay_online' => 1,
+            ),
+          ),
+          'address' => 
+          array (
+            0 => 
+            array (
+              'country' => 'Украина',
+              'region' => 'Киевская область',
+              'postal_code' => 0,
+              'city' => 'Киев',
+              'district' => 'Позняки',
+              'street' => 'Бажана',
+              'number' => '12а/17',
+              'parade' => '0',
+              'floor' => '0',
+              'apartment' => '75',
+              'additional' => 'Код на парадном 107',
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
+)
 ```
