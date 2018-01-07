@@ -26,6 +26,41 @@
 - `user` - данные покупателя
 - `address` - адрес покупателя
 
+#### Получение данных `GET`
+```php
+// Или более простой вариант: ресурсы через запятую, а необходимые поля через двоеточие
+$relations = "cart,user:phone:email:fname:iname,address";
+
+// Массив с данными запроса
+$getArr = [
+    "limit" => 5,
+    "offset" => 0,
+    "order" => "DESC",
+    "sort" => "created",
+    "state" => 1,
+    "relations" => $relations
+];
+
+$response = $db->get($resource, $getArr);
+
+// Вернет массив
+if (isset($records["headers"]["code"])) {
+    if ($records["headers"]["code"] == 200) {
+        $count = count($records["body"]["items"]);
+        if ($count >= 1) {
+            foreach($records["body"]["items"] as $value)
+            {
+                // Если $value object переводим в array
+		$item = is_array($value["item"]) ? $item["item"] : (array)$value["item"];
+                // Получаем данные
+                print_r($item["name"]);
+            }
+        }
+    }
+}
+ 
+```
+
 Пример URL [`https://xti.com.ua/json-db/order?relation=address,cart,user:user_id:iname:oname:phone:email`](https://xti.com.ua/json-db/order?relation=address,cart,user:user_id:iname:oname:phone:email)
 
 ### Пример `GET` запроса к ресурсу `order` через HTTP клиент Guzzle
@@ -71,15 +106,18 @@ $records = json_decode($output, true);
 
 // Работаем с массивом
 if (isset($records["headers"]["code"])) {
-if ($records["headers"]["code"] == 200) {
-	$count = count($records["body"]["items"]);
-	if ($count >= 1) {
-		foreach($records["body"]["items"] as $item)
-		{
-			print_r($item["item"]);
-		}
-	}
-}
+    if ($records["headers"]["code"] == 200) {
+        $count = count($records["body"]["items"]);
+        if ($count >= 1) {
+            foreach($records["body"]["items"] as $item)
+            {
+                // Если $value object переводим в array
+                $item = is_array($value["item"]) ? $item["item"] : (array)$value["item"];
+                // Получаем данные
+                print_r($item["name"]);
+            }
+        }
+    }
 }
 
 ```
