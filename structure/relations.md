@@ -134,8 +134,8 @@ if (isset($records["headers"]["code"])) {
 ``` php
 print_r($records);
 ```
-```json
-array (
+```php
+$records = array (
   'headers' => array (
     'status' => '200 OK',
     'code' => '200',
@@ -240,5 +240,5 @@ array (
       ),
     ),
   ),
-)
+);
 ```
