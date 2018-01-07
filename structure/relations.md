@@ -30,7 +30,7 @@
 ```php
 use RouterDb\Db;
  
-// Подключаемся к базе
+// Подключаемся к базе mysql или другой
 $db = new Db("mysql", $config);
 // Передача дополнительных параметров в строке с разделителями
 $relations = "cart,user:phone:email:fname:iname,address";
