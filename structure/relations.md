@@ -132,7 +132,7 @@ if (isset($records["headers"]["code"])) {
 ```
 ``` php
 // Вывести на экран json
-print_r($records);
+print_r($response);
 ```
 ### Структура ответа торговой площадки на наш `GET` запрос в json формате
 ```json
