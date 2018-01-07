@@ -28,7 +28,18 @@
 
 #### Получение данных `GET`
 ```php
-// Или более простой вариант: ресурсы через запятую, а необходимые поля через двоеточие
+use RouterDb\Db;
+use RouterDb\Router;
+
+// Ресурс (таблица) к которому обращаемся
+$resource = "user";
+// Отдаем роутеру RouterDb конфигурацию.
+$router = new Router($config);
+// Получаем название базы для указанного ресурса
+$name_db = $router->ping($resource);
+// Подключаемся к базе
+$db = new Db($name_db, $config);
+// Передача дополнительных параметров в строке с разделителями
 $relations = "cart,user:phone:email:fname:iname,address";
 
 // Массив с данными запроса
