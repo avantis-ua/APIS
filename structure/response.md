@@ -16,7 +16,7 @@
 #### NoneAuth
 Без аутентификации
 ```json
-"auth": 0
+"auth": false
 ```
 #### LoginPasswordAuth
 ```json
