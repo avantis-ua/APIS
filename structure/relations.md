@@ -136,20 +136,17 @@ print_r($records);
 ```
 ```json
 array (
-  'headers' => 
-  array (
+  'headers' => array (
     'status' => '200 OK',
     'code' => '200',
     'message' => 'OK',
     'message_id' => 'https://github.com/pllano/APIS-2018/tree/master/http-codes/200.md',
   ),
-  'response' => 
-  array (
+  'response' => array (
     'auth' => 'QueryKeyAuth',
     'total' => '10',
   ),
-  'request' => 
-  array (
+  'request' => array (
     'query' => 'GET',
     'resource' => 'order',
     'limit' => '10',
@@ -157,11 +154,9 @@ array (
     'order' => 'DESC',
     'sort' => 'created',
     'state' => '1',
-    'relations' => 
-    array (
+    'relations' => array (
       'product' => 'all',
-      'user' => 
-      array (
+      'user' => array (
         0 => 'phone',
         1 => 'email',
         2 => 'fname',
@@ -171,14 +166,10 @@ array (
       'address' => 'all',
     ),
   ),
-  'body' => 
-  array (
-    'items' => 
-    array (
-      0 => 
-      array (
-        'item' => 
-        array (
+  'body' => array (
+    'items' => array (
+      0 => array (
+        'item' => array (
           'id' => '1234567890',
           'created' => '2017-12-11 10:30',
           'status' => 1,
@@ -187,10 +178,8 @@ array (
           'total_amount' => '10501.00',
           'currency_id' => 'UAH',
           'comment' => 'Могу принять после 17:00',
-          'user' => 
-          array (
-            0 => 
-            array (
+          'user' => array (
+            0 => array (
               'phone' => '380670000001',
               'email' => 'user@example.com',
               'fname' => 'Иванов',
@@ -198,10 +187,8 @@ array (
               'oname' => 'Петрович',
             ),
           ),
-          'cart' => 
-          array (
-            0 => 
-            array (
+          'cart' => array (
+            0 => array (
               'product_id' => '1000120',
               'name' => 'Ноутбук Asus X751NV (X751NV-TY001) Black',
               'type' => 'Ноутбук',
@@ -217,8 +204,7 @@ array (
               'guarantee' => 36,
               'pay_online' => 1,
             ),
-            1 => 
-            array (
+            1 => array (
               'product_id' => '1000120',
               'name' => 'Ноутбук Asus X751NV (X751NV-TY001) Black',
               'type' => 'Ноутбук',
@@ -235,10 +221,8 @@ array (
               'pay_online' => 1,
             ),
           ),
-          'address' => 
-          array (
-            0 => 
-            array (
+          'address' => array (
+            0 => array (
               'country' => 'Украина',
               'region' => 'Киевская область',
               'postal_code' => 0,
