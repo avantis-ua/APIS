@@ -53,7 +53,7 @@ $getArr = [
 ];
 
 $response = $db->get($resource, $getArr);
-
+ 
 // Обрабатываем ответ
 if (isset($records["headers"]["code"])) {
     if ($records["headers"]["code"] == 200) {
@@ -69,7 +69,6 @@ if (isset($records["headers"]["code"])) {
         }
     }
 }
- 
 ```
 ### Пример `GET` запроса к ресурсу `order` через HTTP клиент Guzzle
 Пример URL [`https://xti.com.ua/json-db/order?relation=address,cart,user:user_id:iname:oname:phone:email`](https://xti.com.ua/json-db/order?relation=address,cart,user:user_id:iname:oname:phone:email)
@@ -107,18 +106,18 @@ $uri = "https://example.com/api/v1/json/order?".$data_query;
 // Подключаем Guzzle
 $client = new Guzzle();
 // Отправляем запрос
-$response = $client->request("GET", $uri);
+$resp = $client->request("GET", $uri);
 // Получаем тело ответа
-$output = $response->getBody();
+$get_body = $resp->getBody();
 // json в массив
-$records = json_decode($output, true);
+$response = json_decode($get_body, true);
 
 // Обрабатываем ответ
-if (isset($records["headers"]["code"])) {
-    if ($records["headers"]["code"] == 200) {
-        $count = count($records["body"]["items"]);
+if (isset($response["headers"]["code"])) {
+    if ($response["headers"]["code"] == 200) {
+        $count = count($response["body"]["items"]);
         if ($count >= 1) {
-            foreach($records["body"]["items"] as $item)
+            foreach($response["body"]["items"] as $item)
             {
                 // Если $value object переводим в array
                 $item = is_array($value["item"]) ? $item["item"] : (array)$value["item"];
@@ -132,7 +131,7 @@ if (isset($records["headers"]["code"])) {
 ```
 ### Вывести результат
 ``` php
-print_r($records);
+print_r($response);
 ```
 ```php
 $records = array (
