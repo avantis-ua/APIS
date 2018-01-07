@@ -26,7 +26,7 @@
 - `user` - данные покупателя
 - `address` - адрес покупателя
 
-#### Получение данных `GET` через [`RouterDb`](https://github.com/pllano/router-db)
+#### `GET` - Получение данных через [`RouterDb`](https://github.com/pllano/router-db)
 ```php
 use RouterDb\Db;
  
@@ -63,7 +63,7 @@ if (isset($records["headers"]["code"])) {
     }
 }
 ```
-### Пример `GET` запроса к ресурсу `order` через HTTP клиент Guzzle
+### `GET` запрос к `API` ресурс `order` через HTTP клиент Guzzle
 Пример URL [`https://xti.com.ua/json-db/order?relation=address,cart,user:user_id:iname:oname:phone:email`](https://xti.com.ua/json-db/order?relation=address,cart,user:user_id:iname:oname:phone:email)
 ``` php
 use GuzzleHttp\Client as Guzzle;
