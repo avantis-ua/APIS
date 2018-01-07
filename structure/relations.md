@@ -26,33 +26,26 @@
 - `user` - данные покупателя
 - `address` - адрес покупателя
 
-#### Получение данных `GET`
+#### Получение данных `GET` через [`RouterDb`](https://github.com/pllano/router-db)
 ```php
 use RouterDb\Db;
-use RouterDb\Router;
-
-// Ресурс (таблица) к которому обращаемся
-$resource = "user";
-// Отдаем роутеру RouterDb конфигурацию.
-$router = new Router($config);
-// Получаем название базы для указанного ресурса
-$name_db = $router->ping($resource);
+ 
 // Подключаемся к базе
-$db = new Db($name_db, $config);
+$db = new Db("mysql", $config);
 // Передача дополнительных параметров в строке с разделителями
 $relations = "cart,user:phone:email:fname:iname,address";
-
+ 
 // Массив с данными запроса
 $getArr = [
-    "limit" => 5,
+    "limit" => 10,
     "offset" => 0,
     "order" => "DESC",
     "sort" => "created",
-    "state" => 1,
+    "state" => 1
     "relations" => $relations
 ];
-
-$response = $db->get($resource, $getArr);
+ 
+$response = $db->get("order", $getArr);
  
 // Обрабатываем ответ
 if (isset($records["headers"]["code"])) {
