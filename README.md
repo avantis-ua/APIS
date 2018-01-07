@@ -191,7 +191,7 @@ $message_id = "https://github.com/pllano/APIS-2018/tree/master/http-codes/".$cod
 - `user` - данные покупателя
 - `address` - адрес покупателя
 
-#### `GET` - Получение данных через [`RouterDb`](https://github.com/pllano/router-db)
+### `GET` - Получение данных через [`RouterDb`](https://github.com/pllano/router-db)
 ```php
 use RouterDb\Db;
  
