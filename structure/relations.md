@@ -47,21 +47,6 @@ $getArr = [
  
 $response = $db->get("order", $getArr);
  
-// Обрабатываем ответ
-if (isset($records["headers"]["code"])) {
-    if ($records["headers"]["code"] == 200) {
-        $count = count($records["body"]["items"]);
-        if ($count >= 1) {
-            foreach($records["body"]["items"] as $value)
-            {
-                // Если $value object переводим в array
-		$item = is_array($value["item"]) ? $item["item"] : (array)$value["item"];
-                // Получаем данные
-                print_r($item["name"]);
-            }
-        }
-    }
-}
 ```
 ### `GET` запрос к `API` ресурс `order` через HTTP клиент Guzzle
 Пример URL [`https://xti.com.ua/json-db/order?relation=address,cart,user:user_id:iname:oname:phone:email`](https://xti.com.ua/json-db/order?relation=address,cart,user:user_id:iname:oname:phone:email)
@@ -104,8 +89,10 @@ $resp = $client->request("GET", $uri);
 $get_body = $resp->getBody();
 // json в массив
 $response = json_decode($get_body, true);
-
-// Обрабатываем ответ
+ 
+```
+### Обрабатываем ответ
+``` php
 if (isset($response["headers"]["code"])) {
     if ($response["headers"]["code"] == 200) {
         $count = count($response["body"]["items"]);
@@ -120,7 +107,6 @@ if (isset($response["headers"]["code"])) {
         }
     }
 }
-
 ```
 ### Вывести результат
 ``` php
