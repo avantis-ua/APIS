@@ -48,7 +48,7 @@ if ($records['headers']['code'] == '201') {
 ```
 ``` php
 // Вывести на экран json
-print_r($records);
+print_r($output);
 ```
 ### Структура ответа торговой площадки на наш `POST` запрос в json формате
 ```json
