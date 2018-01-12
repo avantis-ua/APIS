@@ -1,39 +1,30 @@
 # Установка `install`
-Ресурс `install` отвечает за установку системы.
+Ресурс `install` отвечает за установку и активировацию магазина
  
-### Торговая площадка должна потдерживать запросы: `POST` `PUT` `PATCH`
-- `POST /install` - Добавить товар в корзину
-- `PUT /install` - Обновить данные товаров
-- `PUT /cart/{cart_id}` - Обновить данные конкретного товара по `cart_id`
-- `PATCH /cart/` Обновить данные товаров
-- `PATCH /cart/{cart_id}` Обновить данные конкретного товара по `cart_id`
+### Торговая площадка должна потдерживать запросы: `POST` `PUT`
+- `POST /install` - Создать и активировать магазин
+- `PUT /install` - Обновить данные магазина
  
 Какие поля должен поддерживать ресурс `install` вы можете посмотреть в структуре базы данных [db/install](https://github.com/pllano/db.json/blob/master/db/install.md)
  
 ### Пример `POST` запроса HTTP клиентом Guzzle
 ``` php
 use GuzzleHttp\Client as Guzzle;
-
-// Взять public_key из конфигурации
-$public_key = $config->get('public_key');
-
-// Если order_id = null товар в корзине
-// Если order_id >= 1 товар в заказе
+ 
 // Наш запрос
+// password - Пароль администратора магазина
 $data = [
-    'public_key' => $public_key,
-    'site_id' => 1,
-    'product_id' => 100,
-    'order_id' => null,
-    'status_id' => 1,
-    'num' => 2,
-    'price' => 1500.50,
-    'currency_id' => 1,
-    'state' => 1
+    'password' => password_hash($password, PASSWORD_DEFAULT),
+    'phone' => "Телефон администратора магазина",
+    'email' => "Email администратора магазина",
+    'language' => "язык системы",
+    'iname' => "Имя администратора магазина",
+    'fname' => "Фамилия администратора магазина",
+    'host' => "Адрес сайта"
 ];
 
 // Формируем URL запроса
-$uri = 'https://example.com/api/v1/json/cart';
+$uri = 'https://example.com/api/v1/json/install';
 // Подключаем Guzzle
 $client = new Guzzle();
 // Отправляем запрос
@@ -46,8 +37,10 @@ $records = json_decode($output, true);
 // Работаем с массивом
 if (isset($records['headers']['code'])) {
 if ($records['headers']['code'] == '201') {
-    // Получаем id созданной записи
+    // Получаем site_id
     print_r($records['response']['id']);
+    // Получаем public_key
+    print_r($records['response']['public_key']);
 }
 }
 ```
@@ -65,12 +58,12 @@ print_r($records);
         "message_id": "https:\/\/github.com\/pllano\/APIS-2018\/tree\/master\/http-codes\/201.md"
     },
     "response": {
-        "auth": "QueryKeyAuth",
-        "id": "10002"
+        "id": 10,
+        "public_key": ""
     },
     "request": {
         "query": "POST",
-        "resource": "cart"
+        "resource": "install"
     },
     "body": {
         "items": []
