@@ -55,7 +55,7 @@ print_r($records);
 {
     "header": {
         "status": "201 Created",
-        "code": "201",
+        "code": 201,
         "message": "OK",
         "message_id": "https:\/\/github.com\/pllano\/APIS-2018\/tree\/master\/http-codes\/201.md"
     },
