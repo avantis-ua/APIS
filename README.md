@@ -95,10 +95,14 @@
 Использование всех ресурсов не является обязательным. Вы можете использовать только необходимые вам ресурсы.
 - `/test` - `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Для тестов подключения
 - [`/install`](https://github.com/pllano/APIS-2018/blob/master/resource/install.md) `POST`, `PUT` - Установка
+- `/language` - `GET` - Локализация (без public_key)
+- `/stores_list` - `GET` - Список магазинов (без public_key)
+- `/templates_list` - `GET` - Список шаблонов (без public_key)
+- [`/price`](https://github.com/pllano/APIS-2018/blob/master/resource/price.md) `GET` - Каталог товаров продавца
+- [`/site`](https://github.com/pllano/APIS-2018/blob/master/resource/site.md) `GET` - Конфигурация сайта
 - [`/cart`](https://github.com/pllano/APIS-2018/blob/master/resource/cart.md) `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Корзина (товары в корзине)
 - [`/order`](https://github.com/pllano/APIS-2018/blob/master/resource/order.md) `GET`, `POST`, `PUT`, `PATCH` - Заказы
 - [`/user`](https://github.com/pllano/APIS-2018/blob/master/resource/user.md) `GET`, `POST` - Пользователи
-- [`/price`](https://github.com/pllano/APIS-2018/blob/master/resource/price.md) `GET` - Каталог товаров продавца
 - [`/warehouse`](https://github.com/pllano/APIS-2018/blob/master/resource/warehouse.md) `GET`, `POST`, `PUT`, `PATCH` - Склады, точки отгрузки, магазины
 - [`/delivery`](https://github.com/pllano/APIS-2018/blob/master/resource/delivery.md) `POST` - Информация о статусе груза
 - [`/pay`](https://github.com/pllano/APIS-2018/blob/master/resource/pay.md) `GET` - Платежи
@@ -113,7 +117,6 @@
 - [`/review`](https://github.com/pllano/APIS-2018/blob/master/resource/review.md) `GET`, `POST` - Отзывы
 - [`/article`](https://github.com/pllano/APIS-2018/blob/master/resource/article.md) `GET` - Статьи
 - [`/article-category`](https://github.com/pllano/APIS-2018/blob/master/resource/article-category.md) `GET` - Категории статей
-- [`/site`](https://github.com/pllano/APIS-2018/blob/master/resource/site.md) `GET` - Конфигурация сайта
 - [`/seller`](https://github.com/pllano/APIS-2018/blob/master/resource/seller.md) `GET`, `POST`, `PUT`, `PATCH` - Продавцы
 - [`/feedback`](https://github.com/pllano/APIS-2018/blob/master/resource/feedback.md) `POST` - Сообщить об ошибке
 
