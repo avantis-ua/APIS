@@ -93,7 +93,8 @@
 Какие поля должны поддерживать ресурсы вы можете посмотреть в структуре базы данных [db.json](https://github.com/pllano/db.json)
 ### Список всех поддерживаемых ресурсов
 Использование всех ресурсов не является обязательным. Вы можете использовать только необходимые вам ресурсы.
-- [`/install`](https://github.com/pllano/APIS-2018/blob/master/resource/install.md) `POST` - Установка
+- `/test` - `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Для тестов подключения
+- [`/install`](https://github.com/pllano/APIS-2018/blob/master/resource/install.md) `POST`, `PUT` - Установка
 - [`/cart`](https://github.com/pllano/APIS-2018/blob/master/resource/cart.md) `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Корзина (товары в корзине)
 - [`/order`](https://github.com/pllano/APIS-2018/blob/master/resource/order.md) `GET`, `POST`, `PUT`, `PATCH` - Заказы
 - [`/user`](https://github.com/pllano/APIS-2018/blob/master/resource/user.md) `GET`, `POST` - Пользователи
