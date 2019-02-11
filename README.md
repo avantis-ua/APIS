@@ -8,9 +8,6 @@
 
 Этот стандарт используют: [«API Shop»](https://github.com/pllano/api-shop) и база данных [«jsonDB»](https://github.com/pllano/json-db)
 
-### Демо база данных [`https://xti.com.ua/json-db/`](https://xti.com.ua/json-db/) работает через RESTful API интерфейс
-Для удобства мы отключили авторизацию через `public_key`
-
 Примеры демо запросов: [demo](https://github.com/pllano/json-db/blob/master/demo.md)
 
 Демо сайт работающий через API - https://xti.com.ua/
