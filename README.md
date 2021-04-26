@@ -4,15 +4,13 @@
 ## Теперь вам не нужно изобретать велосипед !
 Мы предлагаем один понятный, хорошо документированный и очень удобный стандарт обмена информацией между базами данных, приложениями, платформами, интернет-магазинами, поставщиками товаров и услуг, через RESTful API интерфейс.
 
-Вы можете писать свою API зная что другим API использующим стандарт APIS-2018 не придется тратиться на дополнительную доработку и интеграцию с вашим API. Для подключения к вашему API будет необходимо только получить данные аутентификации для доступа к учетной записи. Пример использования: [pllano-api](https://github.com/pllano/pllano-api)
+Вы можете писать свою API зная что другим API использующим стандарт APIS не придется тратиться на дополнительную доработку и интеграцию с вашим API. Для подключения к вашему API будет необходимо только получить данные аутентификации для доступа к учетной записи. Пример использования: [pllano-api](https://github.com/ruslan-avantis/pllano-api)
 
-Этот стандарт используют: [«API Shop»](https://github.com/pllano/api-shop) и база данных [«jsonDB»](https://github.com/pllano/json-db)
+Этот стандарт используют: [«API Shop»](https://github.com/ruslan-avantis/api-shop) и база данных [«jsonDB»](https://github.com/ruslan-avantis/json-db)
 
-Примеры демо запросов: [demo](https://github.com/pllano/json-db/blob/master/demo.md)
+Примеры демо запросов: [demo](https://github.com/ruslan-avantis/json-db/blob/master/demo.md)
 
-Демо сайт работающий через API - https://xti.com.ua/
-
-## Стандарт APIS-2018 стоит на двух основных принципах: 
+## Стандарт APIS стоит на двух основных принципах: 
 - Адреса ресурсов и их назначение должны быть одинаковыми
 - Структура ответов и запросов должна быть одинаковая
 
@@ -82,12 +80,12 @@
 - `DELETE /{service_name}/{resource}` Удалить все записи
 - `DELETE /{service_name}/{resource}/{id}` Удалить конкретную запись
 
-Пример реализации: [api-shop/api](https://github.com/pllano/api-shop/tree/master/api)
+Пример реализации: [api-shop/api](https://github.com/ruslan-avantis/api-shop/tree/master/api)
 ##### Пример ответа от LiqPay в виде GET запроса к ресурсу `/liqpay/pay`
 `https://example.com/api/v1/json/liqpay/pay/1234?status=success`
 
 ## Ресурсы
-Какие поля должны поддерживать ресурсы вы можете посмотреть в структуре базы данных [db.json](https://github.com/pllano/db.json)
+Какие поля должны поддерживать ресурсы вы можете посмотреть в структуре базы данных [db.json](https://github.com/ruslan-avantis/db.json)
 ### Список всех поддерживаемых ресурсов
 Использование всех ресурсов не является обязательным. Вы можете использовать только необходимые вам ресурсы.
 - `/test` - `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Для тестов подключения
@@ -136,7 +134,7 @@
         "status": "401 Unauthorized",
         "code": 401,
         "message": "Access is denied. The authentication method does not match.",
-        "message_id": "https:\/\/github.com\/pllano\/APIS-2018\/tree\/master\/http-codes\/401.md"
+        "message_id": "https:\/\/github.com\/pllano\/APIS\/tree\/master\/http-codes\/401.md"
     },
     "request": {
         "Параметр запроса": "Значение параметра"
@@ -152,9 +150,9 @@
 ```
 ### [Коды состояния HTTP](https://github.com/ruslan-avantis/APIS/tree/master/http-codes)
 
-Вы можете использовать документацию кодов состояния HTTP APIS-2018, это удобно, так как вам не нужно писать и поддерживать свою документацию.
+Вы можете использовать документацию кодов состояния HTTP APIS, это удобно, так как вам не нужно писать и поддерживать свою документацию.
 
-#### Ипользование кодов состояния HTTP APIS-2018:
+#### Ипользование кодов состояния HTTP APIS:
 Достаточно подставлять код ошибки `$code` в URL
 ```php
 $code = 200;
@@ -168,7 +166,7 @@ $message_id = "https://github.com/ruslan-avantis/APIS/tree/master/http-codes/".$
         "status": "200 OK",
         "code": 200,
         "message": "RESTfull API json DB works!",
-        "message_id": "https:\/\/github.com\/pllano\/APIS-2018\/tree\/master\/http-codes\/200.md"
+        "message_id": "https:\/\/github.com\/pllano\/APIS\/tree\/master\/http-codes\/200.md"
     },
     "request": {
         "Параметр запроса": "Значение параметра"
@@ -195,7 +193,7 @@ $message_id = "https://github.com/ruslan-avantis/APIS/tree/master/http-codes/".$
 - `user` - данные покупателя
 - `address` - адрес покупателя
 
-### `GET` - Получение данных через [`RouterDb`](https://github.com/pllano/router-db)
+### `GET` - Получение данных через [`RouterDb`](https://github.com/ruslan-avantis/router-db)
 ```php
 use RouterDb\Db;
  
@@ -218,7 +216,7 @@ $response = $db->get("order", $getArr);
  
 ```
 ### `GET` запрос к `API` ресурс `order` через HTTP клиент Guzzle
-Пример URL [`https://xti.com.ua/json-db/order?relation=address,cart,user:user_id:iname:oname:phone:email`](https://xti.com.ua/json-db/order?relation=address,cart,user:user_id:iname:oname:phone:email)
+Пример URL https://example.com/json-db/order?relation=address,cart,user:user_id:iname:oname:phone:email
 ``` php
 use GuzzleHttp\Client as Guzzle;
 
@@ -412,7 +410,7 @@ $records = array (
 
 Общайтесь с нами через почту open.source@pllano.com
 
-Если вы нашли баг в APIS-2018 загляните в
+Если вы нашли баг в APIS загляните в
 [issues](https://github.com/ruslan-avantis/APIS/issues), возможно, про него мы уже знаем и
 чиним. Если нет, лучше всего сообщить о нём там. Там же вы можете оставлять свои
 пожелания и предложения.
@@ -421,7 +419,7 @@ $records = array (
 [коммитам](https://github.com/ruslan-avantis/APIS/commits/master) в этом репозитории.
 [RSS](https://github.com/ruslan-avantis/APIS/commits/master.atom).
 
-Лицензия APIS-2018
+Лицензия APIS
 -------
 
 The MIT License (MIT). Please see [LICENSE](LICENSE.md) for more information.
