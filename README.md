@@ -1,5 +1,5 @@
-# APIS-2018
-«APIS-2018» — Стандарт запросов и ответов для приложений и платформ использующих RESTful API интерфейс.
+# APIS
+«APIS» — Стандарт запросов и ответов для приложений и платформ использующих RESTful API интерфейс.
 
 ## Теперь вам не нужно изобретать велосипед !
 Мы предлагаем один понятный, хорошо документированный и очень удобный стандарт обмена информацией между базами данных, приложениями, платформами, интернет-магазинами, поставщиками товаров и услуг, через RESTful API интерфейс.
@@ -91,43 +91,43 @@
 ### Список всех поддерживаемых ресурсов
 Использование всех ресурсов не является обязательным. Вы можете использовать только необходимые вам ресурсы.
 - `/test` - `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Для тестов подключения
-- [`/install`](https://github.com/pllano/APIS-2018/blob/master/resource/install.md) `POST`, `PUT` - Установка
+- [`/install`](https://github.com/ruslan-avantis/APIS/blob/master/resource/install.md) `POST`, `PUT` - Установка
 - `/language` - `GET` - Локализация (без public_key)
 - `/stores_list` - `GET` - Список магазинов (без public_key)
 - `/templates_list` - `GET` - Список шаблонов (без public_key)
-- [`/price`](https://github.com/pllano/APIS-2018/blob/master/resource/price.md) `GET` - Каталог товаров продавца
-- [`/site`](https://github.com/pllano/APIS-2018/blob/master/resource/site.md) `GET` - Конфигурация сайта
-- [`/cart`](https://github.com/pllano/APIS-2018/blob/master/resource/cart.md) `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Корзина (товары в корзине)
-- [`/order`](https://github.com/pllano/APIS-2018/blob/master/resource/order.md) `GET`, `POST`, `PUT`, `PATCH` - Заказы
-- [`/user`](https://github.com/pllano/APIS-2018/blob/master/resource/user.md) `GET`, `POST` - Пользователи
-- [`/warehouse`](https://github.com/pllano/APIS-2018/blob/master/resource/warehouse.md) `GET`, `POST`, `PUT`, `PATCH` - Склады, точки отгрузки, магазины
-- [`/delivery`](https://github.com/pllano/APIS-2018/blob/master/resource/delivery.md) `POST` - Информация о статусе груза
-- [`/pay`](https://github.com/pllano/APIS-2018/blob/master/resource/pay.md) `GET` - Платежи
-- [`/checkout`](https://github.com/pllano/APIS-2018/blob/master/resource/checkout.md) `GET`, `POST` - Создание платежей
-- [`/payment`](https://github.com/pllano/APIS-2018/blob/master/resource/payment.md) `POST` - Информация о статусе платежа
-- [`/price-list`](https://github.com/pllano/APIS-2018/blob/master/resource/price-list.md) `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Каталог товаров от поставщиков
-- [`/discount`](https://github.com/pllano/APIS-2018/blob/master/resource/discount.md) `GET` - Акции
-- [`/category`](https://github.com/pllano/APIS-2018/blob/master/resource/category.md) `GET` - Категории товаров
-- [`/brand`](https://github.com/pllano/APIS-2018/blob/master/resource/brand.md) `GET` - Бренды
-- [`/sitemap`](https://github.com/pllano/APIS-2018/blob/master/resource/sitemap.md) `GET` - Карта сайта
-- [`/export`](https://github.com/pllano/APIS-2018/blob/master/resource/export.md) `GET` - Экспорт
-- [`/review`](https://github.com/pllano/APIS-2018/blob/master/resource/review.md) `GET`, `POST` - Отзывы
-- [`/article`](https://github.com/pllano/APIS-2018/blob/master/resource/article.md) `GET` - Статьи
-- [`/article-category`](https://github.com/pllano/APIS-2018/blob/master/resource/article-category.md) `GET` - Категории статей
-- [`/seller`](https://github.com/pllano/APIS-2018/blob/master/resource/seller.md) `GET`, `POST`, `PUT`, `PATCH` - Продавцы
-- [`/feedback`](https://github.com/pllano/APIS-2018/blob/master/resource/feedback.md) `POST` - Сообщить об ошибке
+- [`/price`](https://github.com/ruslan-avantis/APIS/blob/master/resource/price.md) `GET` - Каталог товаров продавца
+- [`/site`](https://github.com/ruslan-avantis/APIS/blob/master/resource/site.md) `GET` - Конфигурация сайта
+- [`/cart`](https://github.com/ruslan-avantis/APIS/blob/master/resource/cart.md) `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Корзина (товары в корзине)
+- [`/order`](https://github.com/ruslan-avantis/APIS/blob/master/resource/order.md) `GET`, `POST`, `PUT`, `PATCH` - Заказы
+- [`/user`](https://github.com/ruslan-avantis/APIS/blob/master/resource/user.md) `GET`, `POST` - Пользователи
+- [`/warehouse`](https://github.com/ruslan-avantis/APIS/blob/master/resource/warehouse.md) `GET`, `POST`, `PUT`, `PATCH` - Склады, точки отгрузки, магазины
+- [`/delivery`](https://github.com/ruslan-avantis/APIS/blob/master/resource/delivery.md) `POST` - Информация о статусе груза
+- [`/pay`](https://github.com/ruslan-avantis/APIS/blob/master/resource/pay.md) `GET` - Платежи
+- [`/checkout`](https://github.com/ruslan-avantis/APIS/blob/master/resource/checkout.md) `GET`, `POST` - Создание платежей
+- [`/payment`](https://github.com/ruslan-avantis/APIS/blob/master/resource/payment.md) `POST` - Информация о статусе платежа
+- [`/price-list`](https://github.com/ruslan-avantis/APIS/blob/master/resource/price-list.md) `GET`, `POST`, `PUT`, `PATCH`, `DELETE` - Каталог товаров от поставщиков
+- [`/discount`](https://github.com/ruslan-avantis/APIS/blob/master/resource/discount.md) `GET` - Акции
+- [`/category`](https://github.com/ruslan-avantis/APIS/blob/master/resource/category.md) `GET` - Категории товаров
+- [`/brand`](https://github.com/ruslan-avantis/APIS/blob/master/resource/brand.md) `GET` - Бренды
+- [`/sitemap`](https://github.com/ruslan-avantis/APIS/blob/master/resource/sitemap.md) `GET` - Карта сайта
+- [`/export`](https://github.com/ruslan-avantis/APIS/blob/master/resource/export.md) `GET` - Экспорт
+- [`/review`](https://github.com/ruslan-avantis/APIS/blob/master/resource/review.md) `GET`, `POST` - Отзывы
+- [`/article`](https://github.com/ruslan-avantis/APIS/blob/master/resource/article.md) `GET` - Статьи
+- [`/article-category`](https://github.com/ruslan-avantis/APIS/blob/master/resource/article-category.md) `GET` - Категории статей
+- [`/seller`](https://github.com/ruslan-avantis/APIS/blob/master/resource/seller.md) `GET`, `POST`, `PUT`, `PATCH` - Продавцы
+- [`/feedback`](https://github.com/ruslan-avantis/APIS/blob/master/resource/feedback.md) `POST` - Сообщить об ошибке
 
 Если вы не нашли необходимого ресурса, напишите нам и предложите структуру этого ресурса. Если ресурс ключевой мы его добавим в общий список.
 
 ### 2. Структура ответов и запросов должна быть одинаковая
 
 Глобальная структура ответа всех ресурсов должна иметь следующую форму:
-- [`headers`](https://github.com/pllano/APIS-2018/blob/master/structure/headers.md) - заголовки
-- [`request`](https://github.com/pllano/APIS-2018/blob/master/structure/request.md) - запрос
-- [`response`](https://github.com/pllano/APIS-2018/blob/master/structure/response.md) - ответ
-- [`head`](https://github.com/pllano/APIS-2018/blob/master/structure/head.md) - голова (не обязательно)
-- [`body`](https://github.com/pllano/APIS-2018/blob/master/structure/body.md) - тело
-- [`footer`](https://github.com/pllano/APIS-2018/blob/master/structure/footer.md) - подвал (не обязательно)
+- [`headers`](https://github.com/ruslan-avantis/APIS/blob/master/structure/headers.md) - заголовки
+- [`request`](https://github.com/ruslan-avantis/APIS/blob/master/structure/request.md) - запрос
+- [`response`](https://github.com/ruslan-avantis/APIS/blob/master/structure/response.md) - ответ
+- [`head`](https://github.com/ruslan-avantis/APIS/blob/master/structure/head.md) - голова (не обязательно)
+- [`body`](https://github.com/ruslan-avantis/APIS/blob/master/structure/body.md) - тело
+- [`footer`](https://github.com/ruslan-avantis/APIS/blob/master/structure/footer.md) - подвал (не обязательно)
 
 ### Структура ответа API при ошибке аутентификации
 ```json
@@ -150,7 +150,7 @@
     }
 }
 ```
-### [Коды состояния HTTP](https://github.com/pllano/APIS-2018/tree/master/http-codes)
+### [Коды состояния HTTP](https://github.com/ruslan-avantis/APIS/tree/master/http-codes)
 
 Вы можете использовать документацию кодов состояния HTTP APIS-2018, это удобно, так как вам не нужно писать и поддерживать свою документацию.
 
@@ -158,7 +158,7 @@
 Достаточно подставлять код ошибки `$code` в URL
 ```php
 $code = 200;
-$message_id = "https://github.com/pllano/APIS-2018/tree/master/http-codes/".$code.".md";
+$message_id = "https://github.com/ruslan-avantis/APIS/tree/master/http-codes/".$code.".md";
 ```
 
 ### Минимальная структура ответа API
@@ -183,8 +183,8 @@ $message_id = "https://github.com/pllano/APIS-2018/tree/master/http-codes/".$cod
 }
 ```
 
-### Параметр [`relations`](https://github.com/pllano/APIS-2018/blob/master/structure/relations.md)
-[`relations`](https://github.com/pllano/APIS-2018/blob/master/structure/relations.md) - Очень важный параметр запроса позволяющий получать в ответе необходимые данные из других связанных ресурсов.
+### Параметр [`relations`](https://github.com/ruslan-avantis/APIS/blob/master/structure/relations.md)
+[`relations`](https://github.com/ruslan-avantis/APIS/blob/master/structure/relations.md) - Очень важный параметр запроса позволяющий получать в ответе необходимые данные из других связанных ресурсов.
  
 Два формата передачи параметров `relations`
 - Передача дополнительных параметров в `json` формате с последующим кодированием данных в формат MIME base64 функцией base64_encode. Строка с параметрами или если необходимо получить все поля  `"all"`
@@ -287,7 +287,7 @@ $records = array (
     'status' => '200 OK',
     'code' => '200',
     'message' => 'OK',
-    'message_id' => 'https://github.com/pllano/APIS-2018/tree/master/http-codes/200.md',
+    'message_id' => 'https://github.com/ruslan-avantis/APIS/tree/master/http-codes/200.md',
   ),
   'response' => array (
     'auth' => 'QueryKeyAuth',
@@ -394,16 +394,16 @@ $records = array (
 
 ### LoginPasswordAuth
 
-[«LoginPasswordAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/LoginPasswordAuth.md) — реализация базовой Http аутентификации. Пара логин пароль передаются в виде строки `login:password` в `Authorization` заголовке. [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/LoginPasswordAuth.md)
+[«LoginPasswordAuth»](https://github.com/ruslan-avantis/APIS/blob/master/doc/LoginPasswordAuth.md) — реализация базовой Http аутентификации. Пара логин пароль передаются в виде строки `login:password` в `Authorization` заголовке. [подробнее ...](https://github.com/ruslan-avantis/APIS/blob/master/doc/LoginPasswordAuth.md)
 
 ### HttpTokenAuth
-[«HttpTokenAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/HttpTokenAuth.md) — реализация аутентификации по токену `HTTP Bearer token`. Для авторизации с помощью токена нужно передать его в `http` заголовке.  [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/HttpTokenAuth.md)
+[«HttpTokenAuth»](https://github.com/ruslan-avantis/APIS/blob/master/doc/HttpTokenAuth.md) — реализация аутентификации по токену `HTTP Bearer token`. Для авторизации с помощью токена нужно передать его в `http` заголовке.  [подробнее ...](https://github.com/ruslan-avantis/APIS/blob/master/doc/HttpTokenAuth.md)
 
 ### QueryKeyAuth
-[«QueryKeyAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md) — пожалуй самый простой из имеющихся способов авторизации. Работает по тому-же принципу, что и `HttpTokenAuth`, т.е. идентифицирует пользователя по токену, только в данном случае токен передается в строке запроса, как GET параметр. По умолчанию параметр называется `public_key`. [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md)
+[«QueryKeyAuth»](https://github.com/ruslan-avantis/APIS/blob/master/doc/QueryKeyAuth.md) — пожалуй самый простой из имеющихся способов авторизации. Работает по тому-же принципу, что и `HttpTokenAuth`, т.е. идентифицирует пользователя по токену, только в данном случае токен передается в строке запроса, как GET параметр. По умолчанию параметр называется `public_key`. [подробнее ...](https://github.com/ruslan-avantis/APIS/blob/master/doc/QueryKeyAuth.md)
 
 ### CryptoAuth
-[«CryptoAuth»](https://github.com/pllano/APIS-2018/blob/master/doc/CryptoAuth.md) работает по тому-же принципу, что и [`QueryKeyAuth`](https://github.com/pllano/APIS-2018/blob/master/doc/QueryKeyAuth.md), т.е. токен передается как `GET` или `POST` параметр, только в данном случае данные передаются в зашифрованном виде с помощью `private_key` библиотекой [defuse/php-encryption](https://github.com/defuse/php-encryption) или подобной. [подробнее ...](https://github.com/pllano/APIS-2018/blob/master/doc/CryptoAuth.md)
+[«CryptoAuth»](https://github.com/ruslan-avantis/APIS/blob/master/doc/CryptoAuth.md) работает по тому-же принципу, что и [`QueryKeyAuth`](https://github.com/ruslan-avantis/APIS/blob/master/doc/QueryKeyAuth.md), т.е. токен передается как `GET` или `POST` параметр, только в данном случае данные передаются в зашифрованном виде с помощью `private_key` библиотекой [defuse/php-encryption](https://github.com/defuse/php-encryption) или подобной. [подробнее ...](https://github.com/ruslan-avantis/APIS/blob/master/doc/CryptoAuth.md)
 
 ### Мы ищем единомышленников — Присоединяйтесь!
 
@@ -413,13 +413,13 @@ $records = array (
 Общайтесь с нами через почту open.source@pllano.com
 
 Если вы нашли баг в APIS-2018 загляните в
-[issues](https://github.com/pllano/APIS-2018/issues), возможно, про него мы уже знаем и
+[issues](https://github.com/ruslan-avantis/APIS/issues), возможно, про него мы уже знаем и
 чиним. Если нет, лучше всего сообщить о нём там. Там же вы можете оставлять свои
 пожелания и предложения.
 
 За новостями вы можете следить по
-[коммитам](https://github.com/pllano/APIS-2018/commits/master) в этом репозитории.
-[RSS](https://github.com/pllano/APIS-2018/commits/master.atom).
+[коммитам](https://github.com/ruslan-avantis/APIS/commits/master) в этом репозитории.
+[RSS](https://github.com/ruslan-avantis/APIS/commits/master.atom).
 
 Лицензия APIS-2018
 -------
